@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { shopifyFetch } from "../../api/shopify";
-import SearchModal from "./searchModal";
+import "./searchModal.css";
 
 export default function SearchModal({ show, onClose }) {
     const [keyword, setKeyword] = useState("");
@@ -15,31 +15,36 @@ export default function SearchModal({ show, onClose }) {
             return;
         }
 
-        const query = `
-        query SearchProducts($query: String!) {
-          products(first: 10, query: $query) {
-            nodes {
-              id
-              title
-              handle
-              featuredImage {
-                url
-              }
-              priceRange {
-                minVariantPrice {
-                  amount
+        try {
+            const query = `
+            query SearchProducts($query: String!) {
+                products(first: 10, query: $query) {
+                    nodes {
+                        id
+                        title
+                        handle
+                        featuredImage {
+                            url
+                        }
+                        priceRange {
+                            minVariantPrice {
+                                amount
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
+            `;
+
+            const data = await shopifyFetch(query, {
+                query: `title:*${value}*`,
+            });
+
+            setProducts(data?.data?.products?.nodes || []);
+        } catch (error) {
+            console.error("Search Error:", error);
+            setProducts([]);
         }
-        `;
-
-        const data = await shopifyFetch(query, {
-            query: `title:*${value}*`,
-        });
-
-        setProducts(data.data.products.nodes);
     }
 
     if (!show) return null;
@@ -47,7 +52,6 @@ export default function SearchModal({ show, onClose }) {
     return (
         <div className="search-overlay">
             <div className="search-box">
-
                 <div className="d-flex justify-content-between mb-4">
                     <h3>Search</h3>
 
@@ -58,6 +62,7 @@ export default function SearchModal({ show, onClose }) {
                 </div>
 
                 <input
+                    type="text"
                     className="form-control"
                     placeholder="Search products..."
                     value={keyword}
@@ -65,6 +70,9 @@ export default function SearchModal({ show, onClose }) {
                 />
 
                 <div className="mt-4">
+                    {products.length === 0 && keyword && (
+                        <p>No products found.</p>
+                    )}
 
                     {products.map((product) => (
                         <Link
@@ -74,19 +82,19 @@ export default function SearchModal({ show, onClose }) {
                             className="search-item"
                         >
                             <img
-                                src={product.featuredImage?.url}
+                                src={product.featuredImage?.url || ""}
                                 alt={product.title}
                             />
 
                             <div>
                                 <h6>{product.title}</h6>
-                                <p>₹{product.priceRange.minVariantPrice.amount}</p>
+                                <p>
+                                    ₹{product.priceRange?.minVariantPrice?.amount}
+                                </p>
                             </div>
                         </Link>
                     ))}
-
                 </div>
-
             </div>
         </div>
     );
