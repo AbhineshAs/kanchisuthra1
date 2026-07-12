@@ -1,0 +1,560 @@
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: url("/assets/images/home-banner.png") center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(60, 55, 50, 0.35);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.hero-subtitle {
+    display: block;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.hero-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 500;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+}
+
+.hero-btn {
+    background: #1d1712;
+    color: #fff;
+    border: none;
+    padding: 18px 42px;
+    letter-spacing: 2px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    background: #000;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 26px;
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* ===========================
+   Featured Section
+=========================== */
+
+.featured-section {
+    background: #f8f3eb;
+    padding: 100px 0;
+}
+
+.featured-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    color: #3d2f24;
+}
+
+.divider {
+    width: 70px;
+    height: 1px;
+    background: #c8b59d;
+    margin: 20px auto;
+}
+
+.featured-text {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    color: #7b6656;
+    font-size: 18px;
+}
+
+.product-card {
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.center-card {
+    margin-top: 80px;
+}
+
+.product-card span {
+    display: block;
+    margin-top: 25px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #c59b68;
+}
+
+.product-card h4 {
+    margin: 10px 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    color: #2e241d;
+}
+
+.product-card p {
+    color: #6e6257;
+}
+
+.product-card:hover img {
+    transform: scale(1.03);
+}
+
+/* ==========================
+   Instagram Section
+========================== */
+
+.instagram-section {
+    background: #f8f3eb;
+    padding: 110px 0;
+    border-top: 1px solid #ece2d5;
+}
+
+.instagram-image {
+    padding-right: 40px;
+}
+
+.instagram-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+
+.instagram-content {
+    max-width: 430px;
+    margin: auto;
+}
+
+.instagram-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    color: #2e241d;
+    margin-bottom: 25px;
+}
+
+.instagram-content h2 span {
+    font-style: italic;
+    color: #b68b5d;
+}
+
+.instagram-content p {
+    color: #6d6155;
+    line-height: 1.9;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.instagram-btn {
+    background: transparent;
+    border: 1px solid #6f6254;
+    padding: 14px 34px;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #2e241d;
+    transition: .3s;
+}
+
+.instagram-btn:hover {
+    background: #2e241d;
+    color: #fff;
+}
+
+@media (max-width:991px) {
+
+    .instagram-image {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .instagram-image img {
+        height: 400px;
+    }
+
+    .instagram-content {
+        text-align: center;
+    }
+}
+
+/* ===========================
+   Customer Love
+=========================== */
+
+.testimonial-section {
+    background: #f8f3eb;
+    padding: 110px 0;
+}
+
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    color: #2f241d;
+}
+
+.testimonial-card {
+    background: #fbf5ea;
+    padding: 70px;
+}
+
+.customer-img {
+    width: 280px;
+    height: 360px;
+    object-fit: cover;
+}
+
+.quote-icon {
+    font-size: 70px;
+    color: #eadcc7;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.testimonial-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #2d241d;
+    max-width: 650px;
+}
+
+.customer-name {
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #3f342b;
+}
+
+.customer-name span {
+    width: 45px;
+    height: 1px;
+    background: #c8ab7a;
+    display: block;
+}
+
+@media (max-width:991px) {
+
+    .testimonial-card {
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .customer-img {
+        margin-bottom: 40px;
+    }
+
+    .customer-name {
+        justify-content: center;
+    }
+
+    .testimonial-text {
+        font-size: 32px;
+    }
+}
+
+/* ==========================
+   Heritage Section
+========================== */
+
+.heritage-section {
+    background: #302c23;
+    padding: 120px 0;
+}
+
+.heritage-content {
+    color: #f5efe4;
+}
+
+.heritage-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+.heritage-content p {
+    color: #d6cdbd;
+    line-height: 2;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.heritage-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #d8b47d;
+    text-decoration: none;
+    border-bottom: 1px solid #d8b47d;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.heritage-btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.heritage-image {
+    width: 100%;
+    max-width: 600px;
+    object-fit: cover;
+}
+
+@media (max-width: 991px) {
+
+    .heritage-section {
+        padding: 80px 0;
+    }
+
+    .heritage-content {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .heritage-image {
+        max-width: 100%;
+    }
+}
+
+/* ==========================
+   Know Your Silkyway
+========================== */
+
+.knowledge-section {
+    background: #f8f3eb;
+    padding: 110px 0;
+}
+
+.knowledge-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    color: #2d241d;
+    margin-bottom: 60px;
+}
+
+.knowledge-card {
+    transition: .35s;
+}
+
+.knowledge-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.knowledge-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px;
+    margin-bottom: 18px;
+    color: #2d241d;
+}
+
+.knowledge-content p {
+    color: #6d6258;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.knowledge-content a {
+    text-decoration: none;
+    color: #c39a67;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.knowledge-content a:hover {
+    color: #2d241d;
+}
+
+.knowledge-card:hover {
+    transform: translateY(-8px);
+}
+
+.knowledge-card:hover img {
+    opacity: .9;
+}
+
+@media (max-width: 991px) {
+
+    .knowledge-section {
+        padding: 80px 0;
+    }
+
+    .knowledge-title {
+        margin-bottom: 40px;
+    }
+
+    .knowledge-card {
+        margin-bottom: 40px;
+    }
+}
+
+/* ===========================
+   Visit Us
+=========================== */
+
+.visit-section {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 80px 0;
+    background: rgba(248, 243, 235, .15);
+
+}
+
+.visit-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* background: rgba(248, 243, 235, .15); */
+}
+
+.visit-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.visit-card {
+    background: white;
+    padding: 45px;
+    max-width: 420px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+}
+
+.visit-card h5 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #2c241c;
+}
+
+.visit-card h3 {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    color: #6b635b;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.visit-card h4 {
+    margin-top: 28px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #6b635b;
+    font-weight: 600;
+}
+
+.visit-card p {
+    color: #67615c;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.visit-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn-direction {
+    background: #2f2923;
+    color: #fff;
+    padding: 12px 26px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.btn-direction:hover {
+    color: #fff;
+    background: #000;
+}
+
+.btn-store {
+    border: 1px solid #999;
+    color: #444;
+    padding: 12px 26px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: #fff;
+}
+
+.btn-store:hover {
+    background: #2f2923;
+    color: #fff;
+    border-color: #2f2923;
+}
+
+@media(max-width:991px) {
+
+    .visit-section {
+        height: auto;
+        padding: 80px 0;
+    }
+
+    .visit-card {
+        margin: auto;
+    }
+
+    .visit-buttons {
+        flex-direction: column;
+    }
+
+    .btn-direction,
+    .btn-store {
+        text-align: center;
+    }
+}

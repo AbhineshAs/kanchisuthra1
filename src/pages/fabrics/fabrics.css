@@ -1,0 +1,224 @@
+.fabric-hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.fabric-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(35, 30, 24, .35);
+}
+
+.fabric-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.fabric-content h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 76px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.fabric-content span {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+@media(max-width:992px) {
+
+    .fabric-content h1 {
+        font-size: 48px;
+    }
+
+    .fabric-content span {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+}
+
+/* =============================
+   Heritage Textiles
+============================= */
+
+.heritage-textiles {
+    background: #f8f3eb;
+    padding: 120px 0;
+}
+
+.section-header {
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.section-header span {
+    color: #c79b67;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.section-header h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    margin: 18px 0;
+    color: #2b241d;
+}
+
+.section-header p {
+    color: #666;
+    line-height: 1.9;
+}
+
+.fabric-item {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.right-layout {
+    flex-direction: row-reverse;
+}
+
+.fabric-item img {
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+}
+
+.fabric-content {
+    flex: 1;
+}
+
+.fabric-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #2b241d;
+}
+
+.fabric-content p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.fabric-content a {
+    text-decoration: none;
+    color: #c79b67;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.fabric-content a:hover {
+    color: #2b241d;
+}
+
+@media(max-width:992px) {
+
+    .fabric-item,
+    .right-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .fabric-item img {
+        width: 100%;
+        height: 420px;
+    }
+
+    .section-header h2 {
+        font-size: 40px;
+    }
+}
+
+/* ==========================
+   Weaver Banner
+========================== */
+
+.weaver-banner {
+    position: relative;
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.weaver-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(25, 22, 18, .45);
+}
+
+.weaver-banner .container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.weaver-content {
+    color: #fff;
+    max-width: 500px;
+}
+
+.weaver-content span {
+    display: block;
+    color: #d3a86d;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.weaver-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 58px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.weaver-content p {
+    color: #ece6dc;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+.weaver-btn {
+    background: #d8b47a;
+    color: #2c241d;
+    border: none;
+    padding: 14px 34px;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.weaver-btn:hover {
+    background: #c69b68;
+}
+
+@media(max-width:992px) {
+
+    .weaver-banner {
+        height: 500px;
+    }
+
+    .weaver-content {
+        text-align: center;
+        margin: auto;
+    }
+
+    .weaver-content h2 {
+        font-size: 42px;
+    }
+}

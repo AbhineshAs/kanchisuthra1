@@ -1,0 +1,416 @@
+.heritage-page {
+    background: #f8f3eb;
+    padding: 120px 0 80px;
+}
+
+.heritage-heading {
+    max-width: 900px;
+    margin: auto;
+}
+
+.heritage-heading span {
+    display: block;
+    color: #b88732;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.heritage-heading h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    color: #2b241d;
+}
+
+.heritage-heading em {
+    font-style: italic;
+}
+
+.heritage-heading p {
+    max-width: 700px;
+    margin: 30px auto 60px;
+    line-height: 1.9;
+    color: #666;
+}
+
+.heritage-banner img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+}
+
+/* ==================== */
+
+.origin-section {
+    background: #f8f3eb;
+    padding: 120px 0;
+}
+
+.origin-image {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+
+.origin-content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.origin-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    color: #2b241d;
+}
+
+.title-line {
+    width: 60px;
+    height: 1px;
+    background: #d8b47a;
+    margin: 20px 0 35px;
+}
+
+.origin-content p {
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.origin-content a {
+    color: #b88732;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.origin-content a:hover {
+    color: #2b241d;
+}
+
+@media(max-width:992px) {
+
+    .heritage-heading h1 {
+        font-size: 48px;
+    }
+
+    .origin-content {
+        text-align: center;
+    }
+
+    .title-line {
+        margin: 20px auto 35px;
+    }
+
+    .origin-image {
+        height: 420px;
+    }
+
+}
+
+/* ==========================
+   Kanchipuram Story
+========================== */
+
+.kanchi-story {
+    background: #f8f3eb;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.kanchi-story h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 54px;
+    color: #2b241d;
+    margin-bottom: 70px;
+}
+
+.story-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-label {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    letter-spacing: 6px;
+    font-size: 12px;
+    color: #c79b67;
+}
+
+.story-circle {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+    border: 10px solid rgba(255, 255, 255, .7);
+}
+
+.story-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-caption {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #2b241d;
+}
+
+.story-content {
+    max-width: 760px;
+    margin: 60px auto 0;
+}
+
+.story-content p {
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.story-quote {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #2b241d;
+}
+
+@media(max-width:992px) {
+
+    .story-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .story-label {
+        display: none;
+    }
+
+    .kanchi-story h2 {
+        font-size: 40px;
+    }
+
+}
+
+/* ==========================
+   Preserving Art
+========================== */
+
+.preserving-art {
+    background: #f8f3eb;
+    padding: 120px 0;
+}
+
+.preserving-art h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 54px;
+    color: #2b241d;
+    margin-top: 12px;
+}
+
+.section-subtitle {
+    display: block;
+    color: #b88732;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.preserving-large {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+
+.right-block {
+    margin-top: 140px;
+}
+
+.preserving-small {
+    width: 100%;
+    max-width: 380px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.preserving-content {
+    max-width: 380px;
+}
+
+.preserving-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    color: #2b241d;
+    margin-bottom: 18px;
+}
+
+.preserving-content p {
+    color: #666;
+    line-height: 1.9;
+}
+
+@media(max-width:992px) {
+
+    .right-block {
+        margin-top: 60px;
+    }
+
+    .preserving-large {
+        height: 380px;
+    }
+
+    .preserving-small {
+        max-width: 100%;
+        height: 260px;
+    }
+
+    .preserving-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .preserving-art h2 {
+        font-size: 42px;
+    }
+}
+
+/* ===========================
+   Founder Quote
+=========================== */
+
+.heritage-quote {
+    background: #f8f3eb;
+    padding: 120px 0;
+    border-top: 1px solid #efe4d4;
+}
+
+.quote-wrapper {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.quote-icon {
+    font-size: 42px;
+    color: #d3b07b;
+}
+
+.quote-wrapper blockquote {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    line-height: 1.3;
+    font-style: italic;
+    color: #2b241d;
+    margin: 30px auto 60px;
+    max-width: 780px;
+}
+
+.founder-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #8a6b16;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.founder h6 {
+    margin-top: 18px;
+    letter-spacing: 3px;
+    font-size: 13px;
+    color: #8a6b16;
+}
+
+.founder span {
+    color: #777;
+    font-size: 14px;
+}
+
+/* ===========================
+   Newsletter
+=========================== */
+
+.heritage-newsletter {
+    background: #fcf8f2;
+    padding: 90px 0;
+    border-top: 1px solid #eee3d4;
+}
+
+.heritage-newsletter h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 46px;
+    margin-bottom: 45px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    margin: auto;
+    border-bottom: 1px solid #d8c9b4;
+}
+
+.newsletter-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 18px 10px;
+    outline: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.newsletter-form button {
+    border: none;
+    background: none;
+    color: #b88732;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.newsletter-form button:hover {
+    color: #2b241d;
+}
+
+@media(max-width:992px) {
+
+    .quote-wrapper blockquote {
+        font-size: 34px;
+    }
+
+    .heritage-newsletter h2 {
+        font-size: 36px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 20px;
+        border: none;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+}

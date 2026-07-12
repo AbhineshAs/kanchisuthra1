@@ -1,0 +1,102 @@
+.header {
+    background: #f5eee5;
+    border-bottom: 1px solid #ece5dc;
+}
+
+.header-wrapper {
+    position: relative;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left Menu */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex: 1;
+}
+
+.header-left a {
+    text-decoration: none;
+    color: #5f513d;
+    font-size: 15px;
+    font-weight: 400;
+    transition: .3s;
+}
+
+.header-left a:hover {
+    color: #c09b63;
+}
+
+/* Center Logo */
+.header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-logo img {
+    height: 70px;
+    object-fit: contain;
+}
+
+/* Right Side */
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 32px;
+    flex: 1;
+}
+
+.header-right a {
+    text-decoration: none;
+    color: #5f513d;
+    font-size: 15px;
+    font-weight: 400;
+    transition: .3s;
+}
+
+.header-right a:hover {
+    color: #c09b63;
+}
+
+/* Icons */
+.header-right i {
+    font-size: 18px;
+    color: #1d1d1d;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.header-right i:hover {
+    color: #c09b63;
+}
+
+.cart-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
