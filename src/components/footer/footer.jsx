@@ -30,25 +30,15 @@ const Footer = () => {
 
                     {/* Explore */}
                     <div className="footer-links">
-                        <h4>EXPLORE</h4>
+                        <h4><u>EXPLORE</u></h4>
 
                         <ul>
-                            <li><a href="#">Our Story</a></li>
-                            <li><a href="#">The Weaver's Art</a></li>
-                            <li><a href="#">Bespoke Services</a></li>
-                            <li><a href="collection">Collections</a></li>
-                        </ul>
-                    </div>
+                            <li><a href="/occasion">Occasions</a></li>
+                            <li><a href="/fabrics">Fabrics</a></li>
+                            <li><a href="/collection">Collection</a></li>
+                            <li><a href="/heritage">Heritage</a></li>
+                            <li><a href="/craftsmanship">Craftmanship</a></li>
 
-                    {/* Assistance */}
-                    <div className="footer-links">
-                        <h4>ASSISTANCE</h4>
-
-                        <ul>
-                            <li><a href="#">Care & Longevity</a></li>
-                            <li><a href="#">Shipping & Returns</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact Us</a></li>
                         </ul>
                     </div>
 
@@ -63,7 +53,7 @@ const Footer = () => {
                                 type="email"
                                 placeholder="Your email address"
                             />
-                            <button>
+                            <button onClick={() => window.open("https://mail.google.com", "_blank")}>
                                 <i className="bi bi-arrow-right"></i>
                             </button>
                         </div>

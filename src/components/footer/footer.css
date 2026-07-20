@@ -1,5 +1,5 @@
 .footer {
-    background: #f8f2e8;
+    background: #f5eee5;
     color: #2f2f2f;
     padding: 70px 0 35px;
     font-family: "Poppins", sans-serif;
@@ -12,8 +12,8 @@
 }
 
 .footer-top {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    display: flex;
+    justify-content: space-between;
     gap: 60px;
     padding-bottom: 50px;
     border-bottom: 1px solid #e5d8c7;

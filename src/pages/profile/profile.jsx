@@ -114,11 +114,6 @@ export default function Profile() {
 
                     </div>
 
-                    <button className="view-information-btn">
-
-                        View Information
-
-                    </button>
 
                 </div>
 
@@ -157,12 +152,6 @@ export default function Profile() {
                                 Addresses & Payments
                             </button>
 
-                            <button
-                                className={activeMenu === "security" ? "active" : ""}
-                                onClick={() => setActiveMenu("security")}
-                            >
-                                Security
-                            </button>
 
                         </aside>
 
