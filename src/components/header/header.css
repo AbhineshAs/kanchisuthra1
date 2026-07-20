@@ -100,3 +100,137 @@
     justify-content: center;
     font-weight: 600;
 }
+
+/* Dropdown */
+.dropdown-menu-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    background: #fff;
+    border: 1px solid #ece5dc;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all .25s ease;
+    z-index: 999;
+    padding: 10px 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #5f513d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.dropdown-content a:hover {
+    background: #f8f3ed;
+    color: #c09b63;
+}
+
+.dropdown-menu-custom:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Main Dropdown */
+.dropdown-menu-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid #ece5dc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: .25s;
+    z-index: 999;
+}
+
+.dropdown-menu-custom:hover>.dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #5f513d;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background: #f8f3ed;
+    color: #c09b63;
+}
+
+/* Second Level */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-submenu>a::after {
+    content: "›";
+    font-size: 18px;
+}
+
+.submenu-content {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 230px;
+    background: #fff;
+    border: 1px solid #ece5dc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+}
+
+.dropdown-submenu:hover>.submenu-content {
+    opacity: 1;
+    visibility: visible;
+}

@@ -17,9 +17,67 @@ const Header = () => {
 
                         {/* Left Menu */}
                         <nav className="header-left">
-                            <Link to="/occasion">Occasions</Link>
-                            <Link to="/fabrics">Fabrics</Link>
-                            <Link to="/collection">Collections</Link>
+                            <div className="dropdown-menu-custom">
+                                <Link to="/occasion" className="dropdown-trigger">
+                                    Occasions
+                                </Link>
+
+                                <div className="dropdown-content">
+                                    <Link to="/occasion/paravesh">Paravesh</Link>
+                                    <Link to="/occasion/nithya">Nithya</Link>
+                                    <Link to="/occasion/saar">Saar</Link>
+                                    <Link to="/occasion/muhurta">Muhurta</Link>
+                                </div>
+                            </div>
+                            <div className="dropdown-menu-custom">
+                                <Link to="/fabrics" className="dropdown-trigger">
+                                    Fabrics
+                                </Link>
+
+                                <div className="dropdown-content">
+
+                                    {/* Silk */}
+                                    <div className="dropdown-submenu">
+                                        <Link to="/fabrics/silk">Silk</Link>
+
+                                        <div className="submenu-content">
+                                            <Link to="/fabrics/silk/kanchivaram-silk">
+                                                Kanchivaram Silk
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                    {/* Silk Cotton */}
+                                    <div className="dropdown-submenu">
+                                        <Link to="/fabrics/silk-cotton">Silk Cotton</Link>
+
+                                        <div className="submenu-content">
+                                            <Link to="/fabrics/silk-cotton/kanchi-silk-cotton">
+                                                Kanchi Silk Cotton
+                                            </Link>
+                                            <Link to="/fabrics/silk-cotton/kotta-silk-cotton">
+                                                Kotta Silk Cotton
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                    {/* Cotton */}
+                                    <div className="dropdown-submenu">
+                                        <Link to="/fabrics/cotton">Cotton</Link>
+
+                                        <div className="submenu-content">
+                                            <Link to="/fabrics/cotton/kanchi-cotton">
+                                                Kanchi Cotton
+                                            </Link>
+
+                                            <Link to="/fabrics/cotton/kotta-cotton">
+                                                Kotta Cotton
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>                            <Link to="/collection">Collections</Link>
                         </nav>
 
                         {/* Center Logo */}
