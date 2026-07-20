@@ -99,7 +99,8 @@ export default function Cart() {
                                             className="btn btn-danger btn-sm ms-4"
                                             onClick={() => removeProduct(item.id)}
                                         >
-                                            Remove
+                                            <i className="bi bi-trash"></i>
+
                                         </button>
 
                                     </div>

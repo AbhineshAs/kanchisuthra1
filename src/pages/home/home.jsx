@@ -9,7 +9,9 @@ const Home = () => {
         <>
 
             {/* Hero Section */}
-            < section className="hero-section" >
+            < section className="hero-section" style={{
+                backgroundImage: `url(${banner})`,
+            }} >
                 <div className="hero-overlay"></div>
 
                 <div className="container h-100">

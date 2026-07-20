@@ -100,3 +100,254 @@
     justify-content: center;
     font-weight: 600;
 }
+
+/* Dropdown */
+.dropdown-menu-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    background: #fff;
+    border: 1px solid #ece5dc;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all .25s ease;
+    z-index: 999;
+    padding: 10px 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #5f513d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.dropdown-content a:hover {
+    background: #f8f3ed;
+    color: #c09b63;
+}
+
+.dropdown-menu-custom:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Main Dropdown */
+.dropdown-menu-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid #ece5dc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: .25s;
+    z-index: 999;
+}
+
+.dropdown-menu-custom:hover>.dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #5f513d;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background: #f8f3ed;
+    color: #c09b63;
+}
+
+/* Second Level */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-submenu>a::after {
+    content: "›";
+    font-size: 18px;
+}
+
+.submenu-content {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 230px;
+    background: #fff;
+    border: 1px solid #ece5dc;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+}
+
+.dropdown-submenu:hover>.submenu-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 30px;
+    color: #2f2f2f;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    z-index: 2000;
+    transition: .35s;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
+.mobile-sidebar.show {
+    left: 0;
+}
+
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 1999;
+}
+
+.mobile-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-header img {
+    height: 60px;
+}
+
+.mobile-header button {
+    border: none;
+    background: none;
+    font-size: 24px;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-nav a,
+.mobile-dropdown-btn {
+    padding: 16px 22px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: none;
+    text-decoration: none;
+    color: #444;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-submenu {
+    background: #faf7f2;
+}
+
+.mobile-submenu a {
+    padding-left: 40px;
+}
+
+@media(max-width:991px) {
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .header-left,
+    .header-right a:not(.cart-icon),
+    .header-right .bi-person {
+        display: none;
+    }
+
+    .header-wrapper {
+        height: 80px;
+    }
+
+    .header-logo {
+        position: static;
+        transform: none;
+        margin: auto;
+    }
+
+    .header-logo img {
+        height: 60px;
+    }
+
+    .header-right {
+        flex: unset;
+        gap: 18px;
+    }
+}
