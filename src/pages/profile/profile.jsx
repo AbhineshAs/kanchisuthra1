@@ -1,88 +1,201 @@
 import "./profile.css";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
+
+    const [activeMenu, setActiveMenu] = useState("dashboard");
+    const [recommendedProducts, setRecommendedProducts] = useState([]);
+
+    const customer = {
+        firstName: "Anjali",
+        lastName: "Nair",
+        customerSince: "Customer since October 2022"
+    };
+
+    const orders = [
+        {
+            id: 1,
+            image: "https://picsum.photos/150/200?1",
+            title: "Reticuli Varani Jacquard Saree",
+            orderNo: "#KS-89243",
+            date: "12 Jul 2026",
+            quantity: 1,
+            status: "Fulfilled"
+        },
+        {
+            id: 2,
+            image: "https://picsum.photos/150/200?2",
+            title: "Sunset Gold Zari Border Saree",
+            orderNo: "#KS-89110",
+            date: "06 Jul 2026",
+            quantity: 2,
+            status: "Delivered"
+        }
+    ];
+    useEffect(() => {
+
+        async function loadRecommendedProducts() {
+
+            const query = `
+        {
+          products(first:4){
+
+            nodes{
+
+              id
+              title
+              handle
+
+              featuredImage{
+                url
+              }
+
+              priceRange{
+
+                minVariantPrice{
+                  amount
+                }
+
+              }
+
+            }
+
+          }
+
+        }`;
+
+            try {
+
+                const data = await shopifyFetch(query);
+
+                setRecommendedProducts(
+                    data.data.products.nodes
+                );
+
+            } catch (err) {
+
+                console.log(err);
+
+            }
+
+        }
+
+        loadRecommendedProducts();
+
+    }, []);
     return (
-        <div className="profile-page container py-5">
 
-            <h2 className="profile-title">
-                My Account
-            </h2>
+        <section className="profile-page">
 
-            <div className="row">
+            <div className="container">
 
-                {/* Left Menu */}
+                {/* Header */}
 
-                <div className="col-lg-3">
+                <div className="profile-header">
 
-                    <div className="profile-sidebar">
+                    <div>
 
-                        <button className="active">
-                            My Profile
-                        </button>
+                        <span className="profile-label">
+                            Namaste
+                        </span>
 
-                        <button>
-                            Orders
-                        </button>
+                        <h1>
 
-                        <button>
-                            Addresses
-                        </button>
+                            {customer.firstName} {customer.lastName}
 
-                        <button>
-                            Wishlist
-                        </button>
+                        </h1>
 
-                        <button >
-                            Logout
-                        </button>
+                        <p>
+
+                            {customer.customerSince}
+
+                        </p>
 
                     </div>
 
+                    <button className="view-information-btn">
+
+                        View Information
+
+                    </button>
+
                 </div>
 
-                {/* Right */}
+                {/* Content */}
 
-                <div className="col-lg-9">
+                <div className="row">
 
-                    <div className="profile-card">
+                    {/* Sidebar */}
 
-                        <h4>Profile Information</h4>
+                    <div className="col-lg-3">
 
-                        <div className="row">
+                        <aside className="profile-sidebar">
 
-                            <div className="col-md-6 mb-3">
+                            <h6>
+                                Your Account
+                            </h6>
 
-                                <label>Name</label>
+                            <button
+                                className={activeMenu === "dashboard" ? "active" : ""}
+                                onClick={() => setActiveMenu("dashboard")}
+                            >
+                                Account Dashboard
+                            </button>
 
-                                <input
-                                    className="form-control"
-                                    value="John Doe"
-                                    readOnly
-                                />
+                            <button
+                                className={activeMenu === "orders" ? "active" : ""}
+                                onClick={() => setActiveMenu("orders")}
+                            >
+                                Orders
+                            </button>
 
-                            </div>
+                            <button
+                                className={activeMenu === "address" ? "active" : ""}
+                                onClick={() => setActiveMenu("address")}
+                            >
+                                Addresses & Payments
+                            </button>
 
-                            <div className="col-md-6 mb-3">
+                            <button
+                                className={activeMenu === "security" ? "active" : ""}
+                                onClick={() => setActiveMenu("security")}
+                            >
+                                Security
+                            </button>
 
-                                <label>Email</label>
+                        </aside>
 
-                                <input
-                                    className="form-control"
-                                    value="john@gmail.com"
-                                    readOnly
-                                />
+                        {/* Support Card */}
 
-                            </div>
+                        <div className="support-card">
 
-                            <div className="col-md-6">
+                            <h4>
 
-                                <label>Phone</label>
+                                Wardrobe
+                                <br />
+                                Support
 
-                                <input
-                                    className="form-control"
-                                    value="+91 9876543210"
-                                    readOnly
-                                />
+                            </h4>
+
+                            <p>
+
+                                Need assistance with your
+                                wardrobe or order?
+
+                            </p>
+
+                            <button>
+
+                                Reach Out
+
+                            </button>
+
+                            <div className="support-phone">
+
+                                📞 Call us at
+                                <br />
+                                +91 9876543210
 
                             </div>
 
@@ -90,39 +203,200 @@ export default function Profile() {
 
                     </div>
 
-                    <div className="profile-card mt-4">
+                    {/* Right Side */}
 
-                        <h4>Recent Orders</h4>
+                    <div className="col-lg-9">
 
-                        <table className="table">
+                        <div className="orders-header">
 
-                            <thead>
+                            <h2>
 
-                                <tr>
-                                    <th>Order</th>
-                                    <th>Status</th>
-                                    <th>Total</th>
-                                </tr>
+                                Order History
 
-                            </thead>
+                            </h2>
 
-                            <tbody>
+                            <button>
 
-                                <tr>
-                                    <td>#1001</td>
-                                    <td>Delivered</td>
-                                    <td>₹12,000</td>
-                                </tr>
+                                View All Purchases
 
-                                <tr>
-                                    <td>#1002</td>
-                                    <td>Processing</td>
-                                    <td>₹18,000</td>
-                                </tr>
+                            </button>
 
-                            </tbody>
+                        </div>
 
-                        </table>
+                        {/* Order cards will come in Part 3 */}
+                        <div className="orders-list">
+
+                            {orders.map((order) => (
+
+                                <div
+                                    className="order-card"
+                                    key={order.id}
+                                >
+
+                                    {/* Image */}
+
+                                    <div className="order-image">
+
+                                        <img
+                                            src={order.image}
+                                            alt={order.title}
+                                        />
+
+                                    </div>
+
+                                    {/* Content */}
+
+                                    <div className="order-content">
+
+                                        <div className="order-top">
+
+                                            <div>
+
+                                                <h4>
+
+                                                    {order.title}
+
+                                                </h4>
+
+                                                <span>
+
+                                                    Order No. {order.orderNo}
+
+                                                </span>
+
+                                            </div>
+
+                                            <span className="order-status">
+
+                                                {order.status}
+
+                                            </span>
+
+                                        </div>
+
+                                        <div className="order-middle">
+
+                                            <p>
+
+                                                Ordered on <strong>{order.date}</strong>
+
+                                            </p>
+
+                                            <p>
+
+                                                {order.quantity} Item{order.quantity > 1 ? "s" : ""}
+
+                                            </p>
+
+                                        </div>
+
+                                        <div className="order-bottom">
+
+                                            <button>
+
+                                                Track Order
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            ))}
+
+                        </div>
+                        <section className="recommended-section">
+
+                            <div className="recommended-header">
+
+                                <div>
+
+                                    <span>
+                                        Curated For You
+                                    </span>
+
+                                    <h2>
+
+                                        Silk Heritage
+
+                                    </h2>
+
+                                </div>
+
+                                <Link to="/collection">
+
+                                    View Collection →
+
+                                </Link>
+
+                            </div>
+
+                            <div className="row">
+
+                                {recommendedProducts.map((product) => (
+
+                                    <div
+                                        className="col-lg-3 col-md-6 mb-4"
+                                        key={product.id}
+                                    >
+
+                                        <div className="recommended-card">
+
+                                            <Link
+                                                to={`/product/${product.handle}`}
+                                            >
+
+                                                <div className="recommended-image">
+
+                                                    <img
+                                                        src={product.featuredImage?.url}
+                                                        alt={product.title}
+                                                    />
+
+                                                </div>
+
+                                            </Link>
+
+                                            <div className="recommended-content">
+
+                                                <h5>
+
+                                                    {product.title}
+
+                                                </h5>
+
+                                                <p>
+
+                                                    ₹
+                                                    {Number(
+                                                        product.priceRange.minVariantPrice.amount
+                                                    ).toLocaleString()}
+
+                                                </p>
+
+                                                <Link
+                                                    className="shop-btn"
+                                                    to={`/product/${product.handle}`}
+                                                >
+
+                                                    View Details
+
+                                                </Link>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                ))}
+
+                            </div>
+
+                        </section>
+                        {/* Silk Heritage will come in Part 4 */}
 
                     </div>
 
@@ -130,6 +404,8 @@ export default function Profile() {
 
             </div>
 
-        </div>
+        </section>
+
     );
+
 }

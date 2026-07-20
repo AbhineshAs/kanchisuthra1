@@ -13,6 +13,7 @@ import Cart from "./pages/cart/cart";
 import CollectionProducts from "./pages/collectionProducts/collectionProducts";
 import Checkout from "./pages/checkout/checkout";
 import Profile from "./pages/profile/profile";
+import Product from "./pages/product/product";
 
 function App() {
 
@@ -32,9 +33,13 @@ function App() {
           element={<Checkout />}
         />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/collection/:handle" element={<CollectionProducts />}
-        />
+        {/* <Route path="/collection/:handle" element={<CollectionProducts />}
+        /> */}
+        <Route path="/collection/:handle" element={<CollectionProducts />} />
 
+        <Route path="/occasion/:handle" element={<CollectionProducts />} />
+        <Route path="/fabric/:handle" element={<CollectionProducts />} />
+        <Route path="/product/:handle" element={<Product />} />
       </Routes>
 
       <Footer />

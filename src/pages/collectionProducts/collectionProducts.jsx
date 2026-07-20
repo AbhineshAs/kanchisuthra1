@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { shopifyFetch } from "../../api/shopify";
+import { useCart } from "../../context/cartContext";
+import { Link, useParams } from "react-router-dom";
+import "./collectionProducts.css"
 
 export default function CollectionProducts() {
-
     const { handle } = useParams();
+    const { addProduct } = useCart();
     const [collection, setCollection] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         async function loadCollection() {
+            setLoading(true);
 
             const query = `
             query($handle: String!) {
               collection(handle: $handle) {
+                id
                 title
+                description
 
                 products(first: 20) {
                   nodes {
@@ -32,8 +37,8 @@ export default function CollectionProducts() {
                       }
                     }
 
-                    variants(first:1){
-                      nodes{
+                    variants(first: 1) {
+                      nodes {
                         id
                       }
                     }
@@ -42,20 +47,38 @@ export default function CollectionProducts() {
               }
             }`;
 
-            const data = await shopifyFetch(query, { handle });
+            try {
+                const data = await shopifyFetch(query, { handle });
 
-            setCollection(data.data.collection);
+                setCollection(data.data.collection);
+            } catch (error) {
+                console.error(error);
+                setCollection(null);
+            }
 
+            setLoading(false);
         }
 
         loadCollection();
-
     }, [handle]);
 
-    if (!collection) return <h2>Loading...</h2>;
+    if (loading) {
+        return (
+            <div className="container py-5 text-center">
+                <h3>Loading...</h3>
+            </div>
+        );
+    }
+
+    if (!collection) {
+        return (
+            <div className="container py-5 text-center">
+                <h3>Collection not found.</h3>
+            </div>
+        );
+    }
 
     return (
-
         <div className="container py-5">
 
             <h2 className="text-center mb-5">
@@ -64,33 +87,49 @@ export default function CollectionProducts() {
 
             <div className="row">
 
-                {collection.products.nodes.map(product => (
+                {collection.products.nodes.map((product) => (
 
                     <div
-                        className="col-md-3 mb-4"
+                        className="col-lg-3 col-md-4 col-sm-6 mb-4"
                         key={product.id}
                     >
+                        <div className="product-card">
 
-                        <div className="card h-100">
+                            <Link
+                                to={`/product/${product.handle}`}
+                                className="product-link"
+                            >
+                                <div className="product-image">
 
-                            <img
-                                src={product.featuredImage?.url}
-                                className="card-img-top"
-                                alt={product.title}
-                            />
+                                    <img
+                                        src={product.featuredImage?.url}
+                                        alt={product.title}
+                                    />
 
-                            <div className="card-body">
+                                </div>
 
-                                <h5>{product.title}</h5>
+                                <div className="product-info">
 
-                                <p>
-                                    ₹{product.priceRange.minVariantPrice.amount}
-                                </p>
+                                    <h5>{product.title}</h5>
 
-                            </div>
+                                    <p>
+                                        ₹{Number(product.priceRange.minVariantPrice.amount).toLocaleString()}
+                                    </p>
+
+                                </div>
+
+                            </Link>
+
+                            <button
+                                className="m-3 rounded-4"
+                                onClick={() =>
+                                    addProduct(product.variants.nodes[0].id)
+                                }
+                            >
+                                Add to Cart
+                            </button>
 
                         </div>
-
                     </div>
 
                 ))}
@@ -98,6 +137,5 @@ export default function CollectionProducts() {
             </div>
 
         </div>
-
     );
 }
