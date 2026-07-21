@@ -14,7 +14,9 @@ import CollectionProducts from "./pages/collectionProducts/collectionProducts";
 import Checkout from "./pages/checkout/checkout";
 import Profile from "./pages/profile/profile";
 import Product from "./pages/product/product";
-
+import Login from "./pages/login/login"
+import Signup from "./pages/signup/signup";
+import ForgotPassword from "./pages/forgotPassword/forgotPassword";
 function App() {
 
   return (
@@ -40,6 +42,11 @@ function App() {
         <Route path="/occasion/:handle" element={<CollectionProducts />} />
         <Route path="/fabric/:handle" element={<CollectionProducts />} />
         <Route path="/product/:handle" element={<Product />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+
+
       </Routes>
 
       <Footer />
