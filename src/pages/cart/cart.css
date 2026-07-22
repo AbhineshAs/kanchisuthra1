@@ -1,67 +1,136 @@
-.cart-title {
-    font-size: 38px;
+.cart-page {
+    background-color: #fcf9f5;
+    min-height: 80vh;
 }
 
-.cart-item {
+.cart-loading-container {
+    min-height: 60vh;
     display: flex;
-    gap: 30px;
-    border-bottom: 1px solid #ddd;
-    padding: 25px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.cart-item img {
-    width: 150px;
-    height: 180px;
-    object-fit: cover;
+.cart-subtitle {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #c79d67;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.cart-details {
-    flex: 1;
-}
-
-.cart-details h4 {
-    font-size: 24px;
-}
-
-.cart-details p {
-    color: #777;
-}
-
-.qty {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.qty button {
-    width: 35px;
-    height: 35px;
-    border: 1px solid #ccc;
-}
-
-.summary {
-    border: 1px solid #ddd;
-    padding: 30px;
-    position: sticky;
-    top: 120px;
-}
-
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.total {
-    font-size: 22px;
+.cart-main-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 42px;
+    color: #2b231d;
     font-weight: 600;
 }
 
-.checkout-btn {
+.gold-line {
+    width: 60px;
+    height: 2px;
+    background: #c79d67;
+}
+
+/* Empty Cart */
+.empty-cart-card {
+    background: #ffffff;
+    border: 1px solid #efe7dc;
+}
+
+.empty-icon-wrap {
+    width: 80px;
+    height: 80px;
+    background: #f8f3ed;
+}
+
+/* Cart Item Card */
+.cart-item-card {
+    background: #ffffff;
+    border-color: #efe7dc !important;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cart-item-card:hover {
+    border-color: #dfceb8 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07) !important;
+}
+
+.cart-img-wrap {
+    width: 110px;
+    height: 130px;
+    overflow: hidden;
+    background: #f7f3ed;
+    border-radius: 10px;
+}
+
+.cart-product-img {
     width: 100%;
-    padding: 16px;
-    background: #1d140f;
-    color: white;
-    border: none;
-    margin-top: 25px;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cart-img-wrap:hover .cart-product-img {
+    transform: scale(1.05);
+}
+
+.cart-product-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2b231d;
+    transition: color 0.2s ease;
+}
+
+.cart-product-title:hover {
+    color: #c79d67;
+}
+
+.qty-picker {
+    border-color: #e2d7c7 !important;
+    background-color: #fbf9f6 !important;
+}
+
+.qty-picker button:hover {
+    color: #c79d67 !important;
+}
+
+/* Summary Card */
+.summary-card {
+    background: #ffffff;
+    border-color: #efe7dc !important;
+}
+
+.summary-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 26px;
+    color: #2b231d;
+    border-color: #efe7dc !important;
+}
+
+.checkout-btn {
+    background-color: #2b231d !important;
+    border-color: #2b231d !important;
+    color: #ffffff !important;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.25s ease, border-color 0.25s ease !important;
+}
+
+.checkout-btn:hover {
+    background-color: #c79d67 !important;
+    border-color: #c79d67 !important;
+}
+
+@media (max-width: 576px) {
+    .cart-img-wrap {
+        width: 80px;
+        height: 100px;
+    }
+    .cart-product-title {
+        font-size: 16px;
+    }
+    .cart-main-title {
+        font-size: 32px;
+    }
 }

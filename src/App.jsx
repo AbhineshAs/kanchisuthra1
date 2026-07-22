@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from 'react'
 import './App.css'
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
 import Header from "./components/header/header"
 import Footer from "./components/footer/footer"
 import Home from './pages/home/home'
@@ -17,10 +18,12 @@ import Product from "./pages/product/product";
 import Login from "./pages/login/login"
 import Signup from "./pages/signup/signup";
 import ForgotPassword from "./pages/forgotPassword/forgotPassword";
+
 function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

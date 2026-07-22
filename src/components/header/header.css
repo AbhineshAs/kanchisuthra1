@@ -21,14 +21,30 @@
 
 .header-left a {
     text-decoration: none;
-    color: #5f513d;
+    color: #333333;
     font-size: 15px;
-    font-weight: 400;
-    transition: .3s;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    position: relative;
 }
 
 .header-left a:hover {
-    color: #c09b63;
+    color: #1a1a1a;
+}
+
+.header-left a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1a1a1a;
+    transition: width 0.25s ease;
+}
+
+.header-left a:hover::after {
+    width: 100%;
 }
 
 /* Center Logo */
@@ -41,6 +57,13 @@
 .header-logo img {
     height: 70px;
     object-fit: contain;
+    filter: brightness(0.2) opacity(0.88);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header-logo img:hover {
+    transform: scale(1.04);
+    filter: brightness(0) opacity(1);
 }
 
 /* Right Side */
@@ -54,26 +77,43 @@
 
 .header-right a {
     text-decoration: none;
-    color: #5f513d;
+    color: #333333;
     font-size: 15px;
-    font-weight: 400;
-    transition: .3s;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    position: relative;
 }
 
 .header-right a:hover {
-    color: #c09b63;
+    color: #1a1a1a;
+}
+
+.header-right a:not(.cart-icon)::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1a1a1a;
+    transition: width 0.25s ease;
+}
+
+.header-right a:not(.cart-icon):hover::after {
+    width: 100%;
 }
 
 /* Icons */
 .header-right i {
     font-size: 18px;
-    color: #1d1d1d;
+    color: #333333;
     cursor: pointer;
-    transition: .3s;
+    transition: color 0.25s ease, transform 0.2s ease;
 }
 
 .header-right i:hover {
-    color: #c09b63;
+    color: #1a1a1a;
+    transform: translateY(-1px);
 }
 
 .cart-icon {
@@ -82,7 +122,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #000;
+    color: #1a1a1a;
 }
 
 .cart-count {
@@ -91,7 +131,7 @@
     right: -10px;
     width: 20px;
     height: 20px;
-    background: #000;
+    background: #1a1a1a;
     color: #fff;
     border-radius: 50%;
     font-size: 11px;
@@ -190,14 +230,16 @@
 .dropdown-content a {
     display: block;
     padding: 12px 20px;
-    color: #5f513d;
+    color: #2b231d;
     text-decoration: none;
-    white-space: nowrap;
+    font-size: 14px;
+    transition: all 0.2s ease;
 }
 
 .dropdown-content a:hover {
-    background: #f8f3ed;
-    color: #c09b63;
+    background: #fdfaf6;
+    color: #000000;
+    font-weight: 500;
 }
 
 /* Second Level */
@@ -285,6 +327,7 @@
 
 .mobile-header img {
     height: 60px;
+    filter: brightness(0);
 }
 
 .mobile-header button {

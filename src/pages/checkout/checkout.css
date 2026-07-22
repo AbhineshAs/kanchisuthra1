@@ -1,66 +1,135 @@
 .checkout-page {
-
-    background: #faf7f2;
-    min-height: 100vh;
-
+    background-color: #fcf9f5;
+    min-height: 80vh;
 }
 
-.checkout-box {
-
-    background: white;
-    padding: 35px;
-    border: 1px solid #eee;
-
-}
-
-.summary {
-
-    background: white;
-    padding: 30px;
-    border: 1px solid #ddd;
-    position: sticky;
-    top: 100px;
-
-}
-
-.summary-item {
-
+.checkout-loading-container {
+    min-height: 60vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-
+    justify-content: center;
 }
 
-.summary-item img {
+.checkout-subtitle-tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #c79d67;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 
-    width: 70px;
-    height: 90px;
+.checkout-main-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 42px;
+    color: #2b231d;
+    font-weight: 600;
+}
+
+.gold-divider {
+    width: 60px;
+    height: 2px;
+    background: #c79d67;
+}
+
+/* Left Form Box */
+.checkout-box {
+    background: #ffffff;
+    border-color: #efe7dc !important;
+}
+
+.checkout-section-header {
+    border-color: #efe7dc !important;
+}
+
+.step-number {
+    width: 24px;
+    height: 24px;
+    background-color: #c79d67;
+    color: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.custom-input {
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #e2d7c7;
+    background-color: #fdfbf8;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-input:focus {
+    background-color: #ffffff;
+    border-color: #c79d67;
+    box-shadow: 0 0 0 3px rgba(199, 157, 103, 0.15);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.saved-address-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.saved-address-card:hover {
+    border-color: #c79d67 !important;
+    box-shadow: 0 4px 12px rgba(199, 157, 103, 0.12);
+}
+
+.payment-box {
+    background-color: #fbf8f4;
+    border-color: #e2d7c7 !important;
+}
+
+/* Right Summary Card */
+.summary {
+    background: #ffffff;
+    border-color: #efe7dc !important;
+}
+
+.summary-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 26px;
+    color: #2b231d;
+    border-color: #efe7dc !important;
+}
+
+.summary-product-img {
+    width: 64px;
+    height: 74px;
     object-fit: cover;
-
+    background: #f7f3ed;
 }
 
-.summary-item h6 {
-
-    margin-bottom: 5px;
-
+.summary-item-title {
+    font-size: 15px;
+    line-height: 1.3;
 }
 
 .pay-btn {
-
-    width: 100%;
-    margin-top: 30px;
-    background: #24170f;
-    color: white;
-    border: none;
-    padding: 16px;
-    font-size: 18px;
-
+    background-color: #2b231d !important;
+    border-color: #2b231d !important;
+    color: #ffffff !important;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.25s ease, border-color 0.25s ease !important;
 }
 
-.form-control {
+.pay-btn:hover {
+    background-color: #c79d67 !important;
+    border-color: #c79d67 !important;
+}
 
-    height: 52px;
-    border-radius: 0;
-
+@media (max-width: 576px) {
+    .checkout-main-title {
+        font-size: 32px;
+    }
 }

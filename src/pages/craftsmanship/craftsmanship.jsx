@@ -1,4 +1,5 @@
 import "./craftsmanship.css";
+import { Link } from "react-router-dom";
 
 
 const Craftsmanship = () => {
@@ -7,7 +8,7 @@ const Craftsmanship = () => {
             {/* Hero */}
             <section
                 className="craft-hero"
-                style={{ backgroundImage: `url()` }}
+                style={{ backgroundImage: `url(https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1600&auto=format&fit=crop)` }}
             >
                 <div className="craft-overlay"></div>
 
@@ -68,7 +69,7 @@ const Craftsmanship = () => {
 
                         <div className="col-lg-6 text-center">
                             <img
-                                src=""
+                                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop"
                                 alt="Weaver"
                                 className="img-fluid"
                             />
@@ -85,7 +86,7 @@ const Craftsmanship = () => {
 
                         <div className="col-lg-6">
                             <img
-                                src=""
+                                src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop"
                                 alt="Petni Ritual"
                                 className="img-fluid"
                             />
@@ -101,10 +102,10 @@ const Craftsmanship = () => {
                                 weave.
                             </p>
 
-                            <a href="#">
+                            <Link to="/fabrics">
                                 Explore Technique
                                 <i className="bi bi-arrow-right ms-2"></i>
-                            </a>
+                            </Link>
 
                         </div>
 
@@ -202,7 +203,7 @@ const Craftsmanship = () => {
                         <div className="col-lg-6">
 
                             <img
-                                src=""
+                                src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop"
                                 alt="Saree Care"
                                 className="img-fluid care-image"
                             />

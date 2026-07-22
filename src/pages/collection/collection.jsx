@@ -9,33 +9,33 @@ const collections = [
         subtitle:
             "Celestial weaves for eternal unions, crafted with pure gold zari and the finest mulberry silk.",
         button: "Explore Collection",
-        image: "",
+        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop",
         className: "large",
     },
     {
         title: "Śobhā - Festive Collection",
         handle: "festive",
         button: "View More",
-        image: "",
+        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop",
         className: "tall",
     },
     {
         title: "Prātidina - Daily Wear",
         handle: "daily-wear",
         button: "Shop Now",
-        image: "",
+        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop",
     },
     {
         title: "Tussars & Organzas",
         handle: "tussars-organzas",
         button: "Explore",
-        image: "",
+        image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=1200&auto=format&fit=crop",
     },
     {
         title: "Fusion",
         handle: "fusion",
         button: "View Gallery",
-        image: "",
+        image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1200&auto=format&fit=crop",
     },
 ];
 
@@ -124,7 +124,7 @@ export default function Collection() {
                         <div className="col-lg-7 text-center">
                             <div className="promise-image">
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1200&auto=format&fit=crop"
                                     alt="Promise"
                                     className="img-fluid"
                                 />

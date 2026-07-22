@@ -1,7 +1,7 @@
 import "./product.css";
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { shopifyFetch } from "../../api/shopify";
 import { useCart } from "../../context/cartContext";
@@ -15,8 +15,9 @@ import "swiper/css/thumbs";
 
 export default function Product() {
     const { handle } = useParams();
+    const navigate = useNavigate();
 
-    const { addProduct, checkout } = useCart();
+    const { addProduct } = useCart();
 
     const [product, setProduct] = useState(null);
 
@@ -67,19 +68,22 @@ export default function Product() {
 
             }`;
 
-            const data = await shopifyFetch(query, { handle });
+            try {
+                const data = await shopifyFetch(query, { handle });
+                const productData = data?.data?.product || null;
 
-            const productData = data.data.product;
+                setProduct(productData);
 
-            setProduct(productData);
-
-            if (productData?.variants?.nodes?.length) {
-                setSelectedVariant(productData.variants.nodes[0]);
+                if (productData?.variants?.nodes?.length) {
+                    setSelectedVariant(productData.variants.nodes[0]);
+                }
+            } catch (err) {
+                console.error("Error loading product:", err);
+                setProduct(null);
             }
         }
 
         loadProduct();
-
     }, [handle]);
 
     if (!product) {
@@ -95,21 +99,16 @@ export default function Product() {
     }
 
     async function handleAddToCart() {
+        if (!selectedVariant) return;
 
         for (let i = 0; i < quantity; i++) {
-
-            await addProduct(selectedVariant.id);
-
+            await addProduct(selectedVariant.id, i === quantity - 1);
         }
-
     }
 
     async function handleBuyNow() {
-
         await handleAddToCart();
-
-        checkout();
-
+        navigate("/checkout");
     }
 
     return (

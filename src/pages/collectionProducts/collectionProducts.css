@@ -1,93 +1,151 @@
-.collection-title {
-    text-align: center;
-    margin-bottom: 50px;
+.collection-products-page {
+    background-color: #fcf9f5;
+    min-height: 80vh;
+}
+
+.collection-loading-container {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+.collection-tagline {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #c79d67;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.collection-heading-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 42px;
+    color: #2b231d;
+    font-weight: 600;
+}
+
+.gold-divider {
+    width: 60px;
+    height: 2px;
+    background: #c79d67;
+}
+
+.collection-description {
+    max-width: 600px;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 /* Card */
-
 .product-card {
-    background: #fff;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #efe7dc;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: .3s;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, .08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .15);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+    border-color: #dfceb8;
 }
 
 .product-link {
-    text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex-grow: 1;
 }
 
-/* Image */
-
-.product-image {
+/* Image Wrap */
+.product-image-wrap {
     width: 100%;
-    height: 360px;
+    height: 340px;
     overflow: hidden;
-    background: #f5f5f5;
+    background: #f7f3ed;
 }
 
-.product-image img {
+.product-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: .4s;
+    transition: transform 0.5s ease;
 }
 
-.product-card:hover img {
+.product-card:hover .product-img {
     transform: scale(1.06);
 }
 
-/* Content */
-
-.product-info {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.badge-exclusive {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(43, 35, 29, 0.85);
+    backdrop-filter: blur(4px);
+    color: #f8f3eb;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
 }
 
-.product-info h5 {
-    font-size: 18px;
+/* Info */
+.product-info-wrap {
+    background: #ffffff;
+}
+
+.product-item-title {
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1.5;
-    color: #222;
+    color: #2b231d;
+    line-height: 1.4;
+    text-transform: capitalize;
 }
 
-.product-info p {
-    font-size: 20px;
-    font-weight: 700;
-    color: #9c7a42;
-    margin: 0;
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #c79d67;
 }
 
 /* Button */
-
-
-.add-cart-btn:hover {
-    background: #9c7a42;
+.add-cart-btn {
+    background-color: #2b231d !important;
+    border: 1px solid #2b231d !important;
+    color: #ffffff !important;
+    font-size: 14px;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease !important;
 }
 
-@media(max-width:768px) {
+.add-cart-btn:hover {
+    background-color: #c79d67 !important;
+    border-color: #c79d67 !important;
+    color: #ffffff !important;
+}
 
-    .product-image {
+.add-cart-btn.btn-success {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+}
+
+@media (max-width: 768px) {
+    .product-image-wrap {
         height: 280px;
     }
-
-    .product-info h5 {
-        font-size: 16px;
+    .collection-heading-title {
+        font-size: 32px;
     }
-
 }

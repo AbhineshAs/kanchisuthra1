@@ -10,23 +10,21 @@ export default function Heritage() {
 
                     <div className="heritage-heading text-center">
 
-                        <span>EST. 1996</span>
+                        <span>THE THREAD OF KANCHI • THRISSUR, KERALA</span>
 
                         <h1>
-                            A Legacy in <em>Every Thread</em>
+                            A Celebration of Handloom, <em>Heritage & Quiet Confidence</em>
                         </h1>
 
                         <p>
-                            From the quiet chambers of a family home in Kerala to the grand
-                            looms of Kanchipuram, our journey is woven with devotion and a
-                            shared reverence for textile heritage.
+                            Founded by sisters Greeshma and Dr. Lakshmi from Thrissur, Kerala, Kanchisuthra was born from a shared belief — that a handloom saree is never just fabric. It carries the memory of the hands that wove it, the tradition of the region it came from, and the story of every woman who wears it.
                         </p>
 
                     </div>
 
                     <div className="heritage-banner">
                         <img
-                            src=""
+                            src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1600&auto=format&fit=crop"
                             alt="Heritage Moment"
                             className="img-fluid"
                         />
@@ -47,7 +45,7 @@ export default function Heritage() {
                         <div className="col-lg-6">
 
                             <img
-                                src=""
+                                src="https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1200&auto=format&fit=crop"
                                 alt="Loom and artisan"
                                 className="img-fluid origin-image"
                             />
@@ -58,26 +56,20 @@ export default function Heritage() {
 
                             <div className="origin-content">
 
-                                <h2>Our Origins</h2>
+                                <h2>The Meaning of Kanchisuthra</h2>
 
                                 <div className="title-line"></div>
 
                                 <p>
-                                    Silkyway's origin cannot be traced back to a design studio but
-                                    to the quiet chambers of a family home in Kerala. Started in
-                                    1996 to dress herself and close family, Smitha's passion
-                                    project soon garnered word of mouth.
+                                    The name <strong>Kanchisuthra</strong> means the thread of Kanchi — but for us, it means something wider. It is the unbroken thread that connects a master weaver's loom directly to your hands. We believe that thread should never be broken by shortcuts.
                                 </p>
 
                                 <p>
-                                    What began in quiet devotion soon found a voice, carried
-                                    softly from one heart to another, growing with every thread,
-                                    every whispered praise. It was a heartfelt pursuit, wrapped in
-                                    silk and soul.
+                                    Our collections are rooted in the craft of India's great weaving communities — but chosen thoughtfully for the modern Kerala woman. Timeless, considered, and quietly beautiful.
                                 </p>
 
-                                <a href="#">
-                                    EXPLORE THE STORY
+                                <a href="/collection">
+                                    EXPLORE THE COLLECTIONS
                                     <i className="bi bi-arrow-right ms-2"></i>
                                 </a>
 
@@ -96,23 +88,23 @@ export default function Heritage() {
 
                 <div className="container">
 
-                    <h2>The Kanchipuram Story</h2>
+                    <h2>Depth Over Volume</h2>
 
                     <div className="story-wrapper">
 
                         <div className="story-label">
-                            REFLECTION
+                            SLOW CRAFT
                         </div>
 
                         <div className="story-circle">
 
                             <img
-                                src=""
+                                src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop"
                                 alt="Reflection"
                             />
 
                             <span className="story-caption">
-                                Reflection
+                                Slow Craft
                             </span>
 
                         </div>
@@ -122,15 +114,11 @@ export default function Heritage() {
                     <div className="story-content">
 
                         <p>
-                            The King of Silks is more than a fabric; it is a mirror
-                            reflecting centuries of craftsmanship. In Kanchipuram, the
-                            weave is a sacred ritual, where pure mulberry silk meets real
-                            gold and silver zari.
+                            We work in small, considered quantities, choosing depth over volume and preserving the integrity of slow craft. From everyday cottons to heirloom silks, each piece is selected for its character, its weave, and the quiet story it carries within it.
                         </p>
 
                         <p className="story-quote">
-                            "A Kanchipuram saree is a memory passed on, a legacy
-                            continuing through the rustle of its heavy drapes."
+                            "A handloom saree carries history, the memory of a tradition, and the touch of the hands that wove it."
                         </p>
 
                     </div>
@@ -161,7 +149,7 @@ export default function Heritage() {
                         <div className="col-lg-6">
 
                             <img
-                                src=""
+                                src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=1200&auto=format&fit=crop"
                                 alt="Zari Weave"
                                 className="img-fluid preserving-large"
                             />
@@ -186,7 +174,7 @@ export default function Heritage() {
                             <div className="right-block">
 
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1200&auto=format&fit=crop"
                                     alt="Thread Dye"
                                     className="img-fluid preserving-small"
                                 />
@@ -223,20 +211,18 @@ export default function Heritage() {
                         <i className="bi bi-quote quote-icon"></i>
 
                         <blockquote>
-                            "We want to create sarees for the modern world with an air of
-                            old world charm to them. Inspired from the past, for the
-                            evolving present, and passed onto the future."
+                            "Kanchisuthra is a celebration of handloom, heritage, and the quiet confidence of a woman who knows what she is wearing."
                         </blockquote>
 
                         <div className="founder">
 
                             <div className="founder-avatar">
-                                S
+                                G & L
                             </div>
 
-                            <h6>SHANTHI</h6>
+                            <h6>GREESMA & DR. LAKSHMI</h6>
 
-                            <span>Founder, Kanchisuthra</span>
+                            <span>Sisters & Co-Founders, Kanchisuthra (Thrissur, Kerala)</span>
 
                         </div>
 

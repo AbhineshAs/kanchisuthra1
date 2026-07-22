@@ -1,11 +1,12 @@
 import "./fabrics.css";
+import { Link } from "react-router-dom";
 
 const Fabrics = () => {
     return (
         <>
             <section
                 className="fabric-hero"
-                style={{ backgroundImage: `url()` }}
+                style={{ backgroundImage: `url(https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1600&auto=format&fit=crop)` }}
             >
                 <div className="fabric-overlay"></div>
 
@@ -47,7 +48,7 @@ const Fabrics = () => {
                             <div className="fabric-item left-layout">
 
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop"
                                     alt="Kanjivaram"
                                 />
 
@@ -60,10 +61,10 @@ const Fabrics = () => {
                                         South Indian weaving.
                                     </p>
 
-                                    <a href="#">
+                                    <Link to="/collection">
                                         Explore Collection
                                         <i className="bi bi-arrow-right ms-2"></i>
-                                    </a>
+                                    </Link>
                                 </div>
 
                             </div>
@@ -83,7 +84,7 @@ const Fabrics = () => {
                                 </div>
 
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=1200&auto=format&fit=crop"
                                     alt="Organza"
                                 />
 
@@ -95,7 +96,7 @@ const Fabrics = () => {
                             <div className="fabric-item">
 
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop"
                                     alt="Tussar"
                                 />
 
@@ -123,14 +124,14 @@ const Fabrics = () => {
                                         techniques and contemporary silhouettes.
                                     </p>
 
-                                    <a href="#">
+                                    <Link to="/collection">
                                         View Edit
                                         <i className="bi bi-arrow-right ms-2"></i>
-                                    </a>
+                                    </Link>
                                 </div>
 
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1200&auto=format&fit=crop"
                                     alt="Fusion"
                                 />
 
@@ -144,7 +145,7 @@ const Fabrics = () => {
             {/* Weavers Banner */}
             <section
                 className="weaver-banner"
-                style={{ backgroundImage: `url()` }}
+                style={{ backgroundImage: `url(https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1600&auto=format&fit=crop)` }}
             >
                 <div className="weaver-overlay"></div>
 
