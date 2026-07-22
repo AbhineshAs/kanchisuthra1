@@ -53,7 +53,13 @@ export default function Signup() {
         setSubmitting(false);
 
         if (res.success) {
-            navigate("/profile");
+            alert("Account Created Successfully! Please sign in with your email and password.");
+            navigate("/login", {
+                state: {
+                    registeredSuccess: true,
+                    registeredEmail: email,
+                },
+            });
         } else {
             setErrorMsg(
                 res.errors && res.errors.length > 0

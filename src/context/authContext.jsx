@@ -80,14 +80,6 @@ export function AuthProvider({ children }) {
                 };
             }
 
-            // Auto login after successful signup
-            const loginRes = await createCustomerAccessToken({ email, password });
-            if (loginRes?.customerAccessToken?.accessToken) {
-                const newToken = loginRes.customerAccessToken.accessToken;
-                localStorage.setItem(TOKEN_KEY, newToken);
-                setToken(newToken);
-            }
-
             return { success: true, customer: createRes.customer };
         } catch (err) {
             console.error("Signup error:", err);

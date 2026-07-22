@@ -1,13 +1,19 @@
 import "./login.css";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 
 export default function Login() {
-    const [email, setEmail] = useState("");
+    const location = useLocation();
+    const [email, setEmail] = useState(location.state?.registeredEmail || "");
     const [password, setPassword] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg] = useState(
+        location.state?.registeredSuccess
+            ? "Account Created Successfully! Please enter your password to sign in."
+            : ""
+    );
 
     const { login } = useAuth();
     const navigate = useNavigate();
@@ -45,6 +51,13 @@ export default function Login() {
                             <span className="login-subtitle">Welcome Back</span>
 
                             <h1>Sign In</h1>
+
+                            {successMsg && (
+                                <div className="alert alert-success py-2 mb-3 d-flex align-items-center" style={{ fontSize: "14px" }}>
+                                    <i className="bi bi-check-circle-fill me-2 fs-5 text-success"></i>
+                                    {successMsg}
+                                </div>
+                            )}
 
                             {errorMsg && (
                                 <div className="alert alert-danger py-2 mb-3" style={{ fontSize: "14px" }}>
