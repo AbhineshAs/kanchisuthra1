@@ -2,11 +2,13 @@ import "./header.css";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
+import { useAuth } from "../../context/authContext";
 import SearchModal from "../searchModal/searchModal";
 import { useState } from "react";
 
 const Header = () => {
     const { cart } = useCart();
+    const { isAuthenticated, customer } = useAuth();
 
     const [showSearch, setShowSearch] = useState(false);
 
@@ -144,8 +146,8 @@ const Header = () => {
 
                             </Link>
 
-                            <Link to="/profile">
-                                <i className="bi bi-person"></i>
+                            <Link to={isAuthenticated ? "/profile" : "/login"} title={isAuthenticated ? `Profile (${customer?.firstName || 'Account'})` : "Login"}>
+                                <i className={`bi ${isAuthenticated ? "bi-person-check-fill" : "bi-person"}`}></i>
                             </Link>
 
                         </div>
@@ -390,8 +392,8 @@ const Header = () => {
                         Craftsmanship
                     </Link>
 
-                    <Link to="/profile" onClick={closeMenu}>
-                        Profile
+                    <Link to={isAuthenticated ? "/profile" : "/login"} onClick={closeMenu}>
+                        {isAuthenticated ? `My Account (${customer?.firstName || 'Profile'})` : "Login / Register"}
                     </Link>
 
                 </nav>
