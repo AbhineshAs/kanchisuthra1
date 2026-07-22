@@ -172,3 +172,42 @@ export async function deleteCustomerAccessToken(accessToken) {
     const response = await shopifyFetch(query, { customerAccessToken: accessToken });
     return response?.data?.customerAccessTokenDelete;
 }
+// 6. Update Customer Password
+export async function updateCustomerPassword({
+    accessToken,
+    password,
+}) {
+    const query = `
+        mutation customerUpdate(
+            $customerAccessToken: String!,
+            $customer: CustomerUpdateInput!
+        ) {
+            customerUpdate(
+                customerAccessToken: $customerAccessToken,
+                customer: $customer
+            ) {
+                customer {
+                    id
+                    email
+                }
+                customerAccessToken {
+                    accessToken
+                    expiresAt
+                }
+                customerUserErrors {
+                    field
+                    message
+                }
+            }
+        }
+    `;
+
+    const response = await shopifyFetch(query, {
+        customerAccessToken: accessToken,
+        customer: {
+            password,
+        },
+    });
+
+    return response.data.customerUpdate;
+}

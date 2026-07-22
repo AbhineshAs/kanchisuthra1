@@ -2,11 +2,84 @@ import { Link } from "react-router-dom";
 import "./myProfile.css";
 import { useState } from "react";
 import AddressForm from "../addressForm/addressForm";
+import { updateCustomerPassword } from "../../api/auth";
+import CustomModal from "../customModal/customModal";
 
 export default function MyProfile({ customer }) {
     const [showPasswordModal, setShowPasswordModal] = useState(false);
     const [showAddressForm, setShowAddressForm] = useState(false);
+    const [passwordData, setPasswordData] = useState({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+    });
 
+    const [loading, setLoading] = useState(false);
+    const [modal, setModal] = useState({
+        show: false,
+        type: "success",
+        title: "",
+        message: "",
+    });
+    const handlePasswordChange = (e) => {
+        setPasswordData({
+            ...passwordData,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const handleUpdatePassword = async () => {
+        if (passwordData.newPassword !== passwordData.confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            const accessToken = localStorage.getItem("shopifyCustomerAccessToken");
+
+            const result = await updateCustomerPassword({
+                accessToken,
+                password: passwordData.newPassword,
+            });
+
+            if (result.customerUserErrors.length > 0) {
+                alert(result.customerUserErrors[0].message);
+                return;
+            }
+
+            // Save new access token
+            localStorage.setItem(
+                "customerAccessToken",
+                result.customerAccessToken.accessToken
+            );
+
+            setModal({
+                show: true,
+                type: "success",
+                title: "Success",
+                message: "Password updated successfully.",
+            });
+            setShowPasswordModal(false);
+
+            setPasswordData({
+                currentPassword: "",
+                newPassword: "",
+                confirmPassword: "",
+            });
+
+        } catch (err) {
+            console.error(err);
+            setModal({
+                show: true,
+                type: "error",
+                title: "Error",
+                message: "Failed to update password.",
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
     if (showAddressForm) {
         return (
             <AddressForm
@@ -150,20 +223,14 @@ export default function MyProfile({ customer }) {
 
                         <div className="modal-body-custom">
                             <div className="mb-3">
-                                <label>Current Password</label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    placeholder="Current password"
-                                />
-                            </div>
-
-                            <div className="mb-3">
                                 <label>New Password</label>
                                 <input
                                     type="password"
                                     className="form-control"
                                     placeholder="New password"
+                                    name="newPassword"
+                                    value={passwordData.newPassword}
+                                    onChange={handlePasswordChange}
                                 />
                             </div>
 
@@ -173,6 +240,9 @@ export default function MyProfile({ customer }) {
                                     type="password"
                                     className="form-control"
                                     placeholder="Confirm password"
+                                    name="confirmPassword"
+                                    value={passwordData.confirmPassword}
+                                    onChange={handlePasswordChange}
                                 />
                             </div>
 
@@ -183,14 +253,34 @@ export default function MyProfile({ customer }) {
                                 >
                                     Cancel
                                 </button>
-                                <button className="save-btn">
-                                    Update Password
+                                <button
+                                    className="save-btn"
+                                    onClick={handleUpdatePassword}
+                                    disabled={loading}
+                                >
+                                    {loading ? "Updating..." : "Update Password"}
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             )}
+            <CustomModal
+                show={modal.show}
+                title={modal.title}
+                message={modal.message}
+                type={modal.type}
+                onConfirm={() => {
+                    setModal({
+                        ...modal,
+                        show: false,
+                    });
+
+                    if (modal.type === "success") {
+                        setShowPasswordModal(false);
+                    }
+                }}
+            />
         </div>
     );
 }

@@ -65,7 +65,7 @@ export function AuthProvider({ children }) {
     const signup = async ({ email, password, firstName, lastName, phone }) => {
         try {
             const createRes = await createCustomer({ email, password, firstName, lastName, phone });
-            
+
             if (createRes?.customerUserErrors && createRes.customerUserErrors.length > 0) {
                 return {
                     success: false,
