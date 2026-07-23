@@ -43,7 +43,7 @@ function App() {
         <Route path="/collection/:handle" element={<CollectionProducts />} />
 
         <Route path="/occasion/:handle" element={<CollectionProducts />} />
-        <Route path="/fabric/:handle" element={<CollectionProducts />} />
+        <Route path="/fabrics/:handle" element={<CollectionProducts />} />
         <Route path="/product/:handle" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
