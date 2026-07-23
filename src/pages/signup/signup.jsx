@@ -99,7 +99,7 @@ export default function Signup() {
                                             placeholder="First Name"
                                             value={firstName}
                                             onChange={(e) => setFirstName(e.target.value)}
-                                            required
+
                                         />
                                     </div>
 
@@ -111,7 +111,6 @@ export default function Signup() {
                                             placeholder="Last Name"
                                             value={lastName}
                                             onChange={(e) => setLastName(e.target.value)}
-                                            required
                                         />
                                     </div>
                                 </div>
@@ -124,7 +123,6 @@ export default function Signup() {
                                         placeholder="Enter your email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        required
                                     />
                                 </div>
 
@@ -147,7 +145,6 @@ export default function Signup() {
                                         placeholder="Create password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        required
                                     />
                                 </div>
 
@@ -159,7 +156,6 @@ export default function Signup() {
                                         placeholder="Confirm password"
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
-                                        required
                                     />
                                 </div>
 
