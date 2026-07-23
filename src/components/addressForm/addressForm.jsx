@@ -1,4 +1,5 @@
 import "../myProfile/myProfile.css";
+import "./addressForm.css"
 import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import CustomModal from "../customModal/customModal";
@@ -7,7 +8,7 @@ import { indianStates } from "../../constants/indianStates";
 export default function AddressForm({ onBack, address }) {
     const { addAddress, editAddress } = useAuth();
     const [loading, setLoading] = useState(false);
-
+    const [errors, setErrors] = useState({});
     const [modal, setModal] = useState({
         show: false,
         type: "success",
@@ -25,16 +26,67 @@ export default function AddressForm({ onBack, address }) {
         country: address?.country || "",
         phone: address?.phone || "",
     });
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!formData.firstName.trim()) {
+            newErrors.firstName = "First name is required.";
+        }
+
+        if (!formData.lastName.trim()) {
+            newErrors.lastName = "Last name is required.";
+        }
+
+        if (!formData.address1.trim()) {
+            newErrors.address1 = "Address Line 1 is required.";
+        }
+
+        if (!formData.country.trim()) {
+            newErrors.country = "Country is required.";
+        }
+
+        if (!formData.province.trim()) {
+            newErrors.province = "State is required.";
+        }
+
+        if (!formData.city.trim()) {
+            newErrors.city = "City is required.";
+        }
+
+        if (!formData.zip.trim()) {
+            newErrors.zip = "Zip Code is required.";
+        } else if (!/^\d{6}$/.test(formData.zip)) {
+            newErrors.zip = "Enter a valid 6-digit Zip Code.";
+        }
+
+        if (!formData.phone.trim()) {
+            newErrors.phone = "Phone number is required.";
+        } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+            newErrors.phone = "Enter a valid 10-digit mobile number.";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
+        setErrors(prev => ({
+            ...prev,
+            [e.target.name]: "",
+        }));
     };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            if (!validateForm()) {
+                return;
+            }
             setLoading(true);
 
             let res;
@@ -76,6 +128,7 @@ export default function AddressForm({ onBack, address }) {
             setLoading(false);
         }
     };
+
     return (
 
         <form className="profile-card-body" onSubmit={handleSubmit}>
@@ -109,7 +162,11 @@ export default function AddressForm({ onBack, address }) {
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleChange} />
-
+                        {errors.firstName && (
+                            <small className="form-error">
+                                {errors.firstName}
+                            </small>
+                        )}
                     </div>
 
                     <div className="col-md-6 mb-4">
@@ -122,6 +179,11 @@ export default function AddressForm({ onBack, address }) {
                             value={formData.lastName}
                             onChange={handleChange}
                         />
+                        {errors.lastName && (
+                            <small className="form-error">
+                                {errors.lastName}
+                            </small>
+                        )}
                     </div>
 
                     <div className="col-12 mb-4">
@@ -134,6 +196,11 @@ export default function AddressForm({ onBack, address }) {
                             value={formData.address1}
                             onChange={handleChange}
                         />
+                        {errors.address1 && (
+                            <small className="form-error">
+                                {errors.address1}
+                            </small>
+                        )}
                     </div>
 
                     <div className="col-12 mb-4">
@@ -161,6 +228,11 @@ export default function AddressForm({ onBack, address }) {
                             <option value="">Select Country</option>
                             <option value="India">India</option>
                         </select>
+                        {errors.country && (
+                            <small className="form-error">
+                                {errors.country}
+                            </small>
+                        )}
                     </div>
 
                     <div className="col-md-6 mb-4">
@@ -168,12 +240,11 @@ export default function AddressForm({ onBack, address }) {
                         <label>State</label>
 
                         <select
-                            className="form-select"
+                            className={`form-select ${errors.province ? "is-invalid" : ""}`}
                             name="province"
                             value={formData.province}
                             onChange={handleChange}
                         >
-                            <option value="">Select State</option>
                             <option value="">Select State</option>
 
                             {indianStates.map((state) => (
@@ -182,6 +253,13 @@ export default function AddressForm({ onBack, address }) {
                                 </option>
                             ))}
                         </select>
+
+                        {errors.province && (
+                            <small className="form-error">
+                                {errors.province}
+                            </small>
+                        )}
+
 
                     </div>
 
@@ -195,6 +273,11 @@ export default function AddressForm({ onBack, address }) {
                             value={formData.city}
                             onChange={handleChange}
                         />
+                        {errors.city && (
+                            <small className="form-error">
+                                {errors.city}
+                            </small>
+                        )}
                     </div>
 
                     <div className="col-md-6 mb-4">
@@ -207,6 +290,11 @@ export default function AddressForm({ onBack, address }) {
                             value={formData.zip}
                             onChange={handleChange}
                         />
+                        {errors.zip && (
+                            <small className="form-error">
+                                {errors.zip}
+                            </small>
+                        )}
                     </div>
 
                     <div className="col-12">
@@ -219,6 +307,11 @@ export default function AddressForm({ onBack, address }) {
                             value={formData.phone}
                             onChange={handleChange}
                         />
+                        {errors.phone && (
+                            <small className="form-error">
+                                {errors.phone}
+                            </small>
+                        )}
                     </div>
 
                 </div>
