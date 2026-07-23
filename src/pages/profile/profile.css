@@ -543,3 +543,42 @@
     color: #a68050;
     padding: 10px 22px;
 }
+
+.mobile-sidebar-toggle {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.mobile-sidebar-toggle button {
+    width: 100%;
+    border: none;
+    background: #2d241d;
+    color: #fff;
+    padding: 14px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.mobile-sidebar-toggle button:hover {
+    background: #a68050;
+}
+
+@media (max-width:738px) {
+
+    .mobile-sidebar-toggle {
+        display: block;
+    }
+
+    .profile-sidebar-wrapper {
+        display: none;
+        margin-bottom: 20px;
+    }
+
+    .profile-sidebar-wrapper.show {
+        display: block;
+    }
+
+    .profile-sidebar {
+        margin-bottom: 25px;
+    }
+}

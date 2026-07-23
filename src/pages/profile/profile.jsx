@@ -9,6 +9,7 @@ export default function Profile() {
     const [activeMenu, setActiveMenu] = useState("dashboard");
     const { customer, loading, isAuthenticated, logout } = useAuth();
     const navigate = useNavigate();
+    const [showSidebar, setShowSidebar] = useState(false);
 
     useEffect(() => {
         if (!loading && !isAuthenticated) {
@@ -71,13 +72,24 @@ export default function Profile() {
 
                 <div className="row">
                     {/* Sidebar */}
-                    <div className="col-lg-3">
-                        <aside className="profile-sidebar">
+                    <div className="mobile-sidebar-toggle d-lg-none">
+                        <button
+                            onClick={() => setShowSidebar(!showSidebar)}
+                        >
+                            {showSidebar ? "✕ Close Menu" : "☰ My Account"}
+                        </button>
+                    </div>
+                    <div
+                        className={`col-lg-3 profile-sidebar-wrapper ${showSidebar ? "show" : ""
+                            }`}
+                    >                        <aside className="profile-sidebar">
                             <h6>Your Account</h6>
-
                             <button
                                 className={activeMenu === "dashboard" ? "active" : ""}
-                                onClick={() => setActiveMenu("dashboard")}
+                                onClick={() => {
+                                    setActiveMenu("dashboard");
+                                    setShowSidebar(false);
+                                }}
                             >
                                 My Profile
                             </button>
@@ -121,6 +133,6 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
