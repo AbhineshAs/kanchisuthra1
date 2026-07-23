@@ -5,6 +5,10 @@ import {
     getCustomerDetails,
     recoverCustomerPassword,
     deleteCustomerAccessToken,
+    createCustomerAddress,
+    updateCustomerAddress,
+    deleteCustomerAddress,
+    setDefaultCustomerAddress,
 } from "../api/auth";
 
 const TOKEN_KEY = "shopifyCustomerAccessToken";
@@ -144,6 +148,110 @@ export function AuthProvider({ children }) {
         }
     };
 
+    const addAddress = async (address) => {
+        try {
+            const res = await createCustomerAddress({
+                accessToken: token,
+                address,
+            });
+
+            if (res?.customerUserErrors?.length > 0) {
+                return {
+                    success: false,
+                    errors: res.customerUserErrors.map((e) => e.message),
+                };
+            }
+
+            const customerData = await getCustomerDetails(token);
+            setCustomer(customerData);
+
+            return { success: true };
+        } catch (err) {
+            return {
+                success: false,
+                errors: [err.message],
+            };
+        }
+    };
+
+    const editAddress = async (addressId, address) => {
+        try {
+            const res = await updateCustomerAddress({
+                accessToken: token,
+                addressId,
+                address,
+            });
+
+            if (res?.customerUserErrors?.length > 0) {
+                return {
+                    success: false,
+                    errors: res.customerUserErrors.map((e) => e.message),
+                };
+            }
+
+            const customerData = await getCustomerDetails(token);
+            setCustomer(customerData);
+
+            return { success: true };
+        } catch (err) {
+            return {
+                success: false,
+                errors: [err.message],
+            };
+        }
+    };
+
+    const removeAddress = async (addressId) => {
+        try {
+            const res = await deleteCustomerAddress({
+                accessToken: token,
+                addressId,
+            });
+
+            if (res?.customerUserErrors?.length > 0) {
+                return {
+                    success: false,
+                    errors: res.customerUserErrors.map((e) => e.message),
+                };
+            }
+
+            const customerData = await getCustomerDetails(token);
+            setCustomer(customerData);
+
+            return { success: true };
+        } catch (err) {
+            return {
+                success: false,
+                errors: [err.message],
+            };
+        }
+    };
+
+    const makeDefaultAddress = async (addressId) => {
+        try {
+            const res = await setDefaultCustomerAddress({
+                accessToken: token,
+                addressId,
+            });
+
+            if (res?.customerUserErrors?.length > 0) {
+                return {
+                    success: false,
+                    errors: res.customerUserErrors.map((e) => e.message),
+                };
+            }
+
+            const customerData = await getCustomerDetails(token);
+            setCustomer(customerData);
+
+            return { success: true };
+        } catch (err) {
+            return {
+                success: false,
+                errors: [err.message],
+            };
+        }
+    };
     return (
         <AuthContext.Provider
             value={{
@@ -155,6 +263,10 @@ export function AuthProvider({ children }) {
                 login,
                 logout,
                 forgotPassword,
+                addAddress,
+                editAddress,
+                removeAddress,
+                makeDefaultAddress,
             }}
         >
             {children}

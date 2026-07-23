@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MyProfile from "../../components/myProfile/myProfile";
 import Orders from "../../components/orders/orders";
-import Addresses from "../../components/addresses/addresses";
 import { useAuth } from "../../context/authContext";
 
 export default function Profile() {
@@ -90,12 +89,6 @@ export default function Profile() {
                                 Orders ({customer.numberOfOrders || orders.length})
                             </button>
 
-                            <button
-                                className={activeMenu === "address" ? "active" : ""}
-                                onClick={() => setActiveMenu("address")}
-                            >
-                                Addresses
-                            </button>
 
                             <button className="logout-btn" onClick={handleLogout}>
                                 <i className="bi bi-box-arrow-right me-2"></i>

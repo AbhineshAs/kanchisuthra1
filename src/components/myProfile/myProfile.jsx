@@ -4,16 +4,19 @@ import { useState } from "react";
 import AddressForm from "../addressForm/addressForm";
 import { updateCustomerPassword } from "../../api/auth";
 import CustomModal from "../customModal/customModal";
+import { useAuth } from "../../context/authContext";
 
 export default function MyProfile({ customer }) {
     const [showPasswordModal, setShowPasswordModal] = useState(false);
     const [showAddressForm, setShowAddressForm] = useState(false);
+    const [addressToDelete, setAddressToDelete] = useState(null);
     const [passwordData, setPasswordData] = useState({
         currentPassword: "",
         newPassword: "",
         confirmPassword: "",
     });
-
+    const [selectedAddress, setSelectedAddress] = useState(null);
+    const { makeDefaultAddress, removeAddress } = useAuth();
     const [loading, setLoading] = useState(false);
     const [modal, setModal] = useState({
         show: false,
@@ -80,10 +83,84 @@ export default function MyProfile({ customer }) {
             setLoading(false);
         }
     };
+    const handleDeleteAddress = async (addressId) => {
+        try {
+            setLoading(true);
+
+            const res = await removeAddress(addressId);
+
+            if (res.success) {
+                setAddressToDelete(null);
+
+                setModal({
+                    show: true,
+                    type: "success",
+                    title: "Success",
+                    message: "Address deleted successfully.",
+                });
+            } else {
+                setModal({
+                    show: true,
+                    type: "error",
+                    title: "Error",
+                    message: res.errors.join(", "),
+                });
+            }
+        } catch (err) {
+            console.error(err);
+
+            setModal({
+                show: true,
+                type: "error",
+                title: "Error",
+                message: "Failed to delete address.",
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
+    const handleMakeDefaultAddress = async (addressId) => {
+        try {
+            setLoading(true);
+
+            const res = await makeDefaultAddress(addressId);
+
+            if (res.success) {
+                setModal({
+                    show: true,
+                    type: "success",
+                    title: "Success",
+                    message: "Default address updated successfully.",
+                });
+            } else {
+                setModal({
+                    show: true,
+                    type: "error",
+                    title: "Error",
+                    message: res.errors.join(", "),
+                });
+            }
+        } catch (err) {
+            console.error(err);
+
+            setModal({
+                show: true,
+                type: "error",
+                title: "Error",
+                message: "Failed to update default address.",
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
     if (showAddressForm) {
         return (
             <AddressForm
-                onBack={() => setShowAddressForm(false)}
+                onBack={() => {
+                    setShowAddressForm(false);
+                    setSelectedAddress(null);
+                }}
+                address={selectedAddress}
             />
         );
     }
@@ -169,35 +246,102 @@ export default function MyProfile({ customer }) {
                 </div>
 
                 <div className="profile-card-body">
-                    <button
-                        className="add-address-btn"
-                        onClick={() => setShowAddressForm(true)}
-                    >
-                        + Add New Address
-                    </button>
+                    <div className="profile-address-section">
+                        <button
+                            className="add-address-btn"
+                            onClick={() => setShowAddressForm(true)}
+                        >
+                            + Add New Address
+                        </button>
 
-                    {customer?.defaultAddress || customer?.addresses?.edges?.length > 0 ? (
-                        <div className="address-item">
-                            <h5>Default Address</h5>
-                            <p>
-                                {customer?.firstName} {customer?.lastName}
-                                <br />
-                                {customer?.defaultAddress?.address1 || customer?.addresses?.edges?.[0]?.node?.address1}
-                                {customer?.defaultAddress?.address2 ? <><br />{customer?.defaultAddress?.address2}</> : ""}
-                                <br />
-                                {customer?.defaultAddress?.city || customer?.addresses?.edges?.[0]?.node?.city}
-                                {customer?.defaultAddress?.province ? `, ${customer?.defaultAddress?.province}` : ""} - {customer?.defaultAddress?.zip || customer?.addresses?.edges?.[0]?.node?.zip}
-                                {customer?.defaultAddress?.phone ? <><br />{customer?.defaultAddress?.phone}</> : ""}
-                            </p>
+                        {customer?.addresses?.edges?.length > 0 ? (
+                            customer.addresses.edges.map(({ node }) => (
+                                <div className="address-item" key={node.id}>
+                                    <div className="address-top">
 
-                            <div className="address-actions">
-                                <button>Edit</button>
-                                <button>Delete</button>
-                            </div>
-                        </div>
-                    ) : (
-                        <p className="text-muted mt-3">No address added yet.</p>
-                    )}
+                                        <div>
+                                            <h5>{node.firstName} {node.lastName}</h5>
+
+                                            <span className="address-label">
+                                                {customer.defaultAddress?.id === node.id
+                                                    ? "Default Address"
+                                                    : "Saved Address"}
+                                            </span>
+                                        </div>
+
+                                        {customer.defaultAddress?.id === node.id && (
+                                            <span className="default-badge">
+                                                ★ Default
+                                            </span>
+                                        )}
+
+                                    </div>
+
+                                    <div className="address-content">
+
+                                        <p>
+                                            {node.address1}
+                                            {node.address2 && (
+                                                <>
+                                                    <br />
+                                                    {node.address2}
+                                                </>
+                                            )}
+
+                                            <br />
+
+                                            {node.city}
+                                            {node.province && `, ${node.province}`} - {node.zip}
+
+                                            <br />
+
+                                            {node.country}
+
+                                            {node.phone && (
+                                                <>
+                                                    <br />
+                                                    {node.phone}
+                                                </>
+                                            )}
+                                        </p>
+
+                                    </div>
+
+                                    <div className="address-actions">
+
+                                        <button
+                                            onClick={() => {
+                                                setSelectedAddress(node);
+                                                setShowAddressForm(true);
+                                            }}
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            onClick={() => setAddressToDelete(node.id)}
+                                        >
+                                            Delete
+                                        </button>
+
+                                        {customer.defaultAddress?.id !== node.id && (
+                                            <button
+                                                className="default-btn"
+                                                onClick={() => handleMakeDefaultAddress(node.id)}
+                                            >
+                                                Set as Default
+                                            </button>
+                                        )}
+
+                                    </div>
+
+                                </div>
+                            ))
+                        ) : (
+                            <p className="text-muted mt-3">No address added yet.</p>
+                        )}
+                    </div>
+
                 </div>
             </div>
 
@@ -259,6 +403,44 @@ export default function MyProfile({ customer }) {
                                     disabled={loading}
                                 >
                                     {loading ? "Updating..." : "Update Password"}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {addressToDelete && (
+                <div
+                    className="password-modal-overlay"
+                    onClick={() => setAddressToDelete(null)}
+                >
+                    <div
+                        className="password-modal"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="modal-header-custom">
+                            <h3>Delete Address</h3>
+                        </div>
+
+                        <div className="modal-body-custom">
+                            <p>
+                                Are you sure you want to delete this address?
+                            </p>
+
+                            <div className="modal-buttons">
+                                <button
+                                    className="cancel-btn"
+                                    onClick={() => setAddressToDelete(null)}
+                                >
+                                    Cancel
+                                </button>
+
+                                <button
+                                    className="save-btn"
+                                    onClick={() => handleDeleteAddress(addressToDelete)}
+                                    disabled={loading}
+                                >
+                                    {loading ? "Deleting..." : "Delete"}
                                 </button>
                             </div>
                         </div>

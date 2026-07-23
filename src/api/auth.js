@@ -106,6 +106,8 @@ export async function getCustomerDetails(accessToken) {
                 }
                 defaultAddress {
                     id
+                    firstName
+                    lastName
                     address1
                     address2
                     city
@@ -118,6 +120,8 @@ export async function getCustomerDetails(accessToken) {
                     edges {
                         node {
                             id
+                            firstName
+                            lastName
                             address1
                             address2
                             city
@@ -210,4 +214,138 @@ export async function updateCustomerPassword({
     });
 
     return response.data.customerUpdate;
+}
+
+// create address
+export async function createCustomerAddress({
+    accessToken,
+    address,
+}) {
+    const query = `
+    mutation customerAddressCreate(
+        $customerAccessToken: String!,
+        $address: MailingAddressInput!
+    ) {
+        customerAddressCreate(
+            customerAccessToken: $customerAccessToken,
+            address: $address
+        ) {
+            customerAddress {
+                id
+            }
+            customerUserErrors {
+                field
+                message
+            }
+        }
+    }
+    `;
+
+    const response = await shopifyFetch(query, {
+        customerAccessToken: accessToken,
+        address,
+    });
+
+    return response.data.customerAddressCreate;
+}
+
+// update address
+export async function updateCustomerAddress({
+    accessToken,
+    addressId,
+    address,
+}) {
+    const query = `
+    mutation customerAddressUpdate(
+        $customerAccessToken: String!,
+        $id: ID!,
+        $address: MailingAddressInput!
+    ) {
+        customerAddressUpdate(
+            customerAccessToken: $customerAccessToken,
+            id: $id,
+            address: $address
+        ) {
+            customerAddress {
+                id
+            }
+            customerUserErrors {
+                field
+                message
+            }
+        }
+    }
+    `;
+
+    const response = await shopifyFetch(query, {
+        customerAccessToken: accessToken,
+        id: addressId,
+        address,
+    });
+
+    return response.data.customerAddressUpdate;
+}
+
+// delete address
+export async function deleteCustomerAddress({
+    accessToken,
+    addressId,
+}) {
+    const query = `
+    mutation customerAddressDelete(
+        $customerAccessToken: String!,
+        $id: ID!
+    ) {
+        customerAddressDelete(
+            customerAccessToken: $customerAccessToken,
+            id: $id
+        ) {
+            deletedCustomerAddressId
+            customerUserErrors {
+                field
+                message
+            }
+        }
+    }
+    `;
+
+    const response = await shopifyFetch(query, {
+        customerAccessToken: accessToken,
+        id: addressId,
+    });
+
+    return response.data.customerAddressDelete;
+}
+
+// set default address
+export async function setDefaultCustomerAddress({
+    accessToken,
+    addressId,
+}) {
+    const query = `
+    mutation customerDefaultAddressUpdate(
+        $customerAccessToken: String!,
+        $addressId: ID!
+    ) {
+        customerDefaultAddressUpdate(
+            customerAccessToken: $customerAccessToken,
+            addressId: $addressId
+        ) {
+            customer {
+                id
+            }
+            customerUserErrors {
+                field
+                message
+            }
+        }
+    }
+    `;
+
+    const response = await shopifyFetch(query, {
+        customerAccessToken: accessToken,
+        addressId,
+    });
+
+    return response.data.customerDefaultAddressUpdate;
 }
