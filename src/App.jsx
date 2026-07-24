@@ -7,9 +7,9 @@ import Footer from "./components/footer/footer"
 import Home from './pages/home/home'
 import Collection from "./pages/collection/collection";
 import Fabrics from "./pages/fabrics/fabrics";
-import Craftsmanship from "./pages/craftsmanship/craftsmanship";
 import Occasion from "./pages/occasions/occasions";
 import Heritage from "./pages/heritage/heritage";
+import OurStory from "./pages/ourStory/ourStory";
 import Cart from "./pages/cart/cart";
 import CollectionProducts from "./pages/collectionProducts/collectionProducts";
 import Checkout from "./pages/checkout/checkout";
@@ -29,9 +29,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/fabrics" element={<Fabrics />} />
-        <Route path="/craftsmanship" element={<Craftsmanship />} />
+        <Route path="/craftsmanship" element={<Heritage />} />
         <Route path="/occasion" element={<Occasion />} />
         <Route path="/heritage" element={<Heritage />} />
+        <Route path="/our-story" element={<OurStory />} />
+        <Route path="/journal" element={<Heritage />} />
         <Route path="/cart" element={<Cart />} />
         <Route
           path="/checkout"
@@ -44,6 +46,7 @@ function App() {
 
         <Route path="/occasion/:handle" element={<CollectionProducts />} />
         <Route path="/fabrics/:handle" element={<CollectionProducts />} />
+        <Route path="/fabric/:handle" element={<CollectionProducts />} />
         <Route path="/product/:handle" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

@@ -34,10 +34,10 @@ const Footer = () => {
 
                         <ul>
                             <li><Link to="/occasion">Occasions</Link></li>
-                            <li><Link to="/fabrics">Fabrics</Link></li>
                             <li><Link to="/collection">Collection</Link></li>
-                            <li><Link to="/heritage">Heritage</Link></li>
-                            <li><Link to="/craftsmanship">Craftsmanship</Link></li>
+                            <li><Link to="/fabrics">Materials</Link></li>
+                            <li><Link to="/journal">Journal</Link></li>
+                            <li><Link to="/our-story">Our Story</Link></li>
                         </ul>
                     </div>
 

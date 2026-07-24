@@ -1,398 +1,381 @@
 import "./header.css";
 import logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import { useAuth } from "../../context/authContext";
 import SearchModal from "../searchModal/searchModal";
 import { useState } from "react";
 
+const shopCategories = [
+    {
+        id: "silk",
+        name: "SILK",
+        path: "/collection/kanchivaram-silk",
+        subcategories: [
+            { name: "Kanchivaram Silks", path: "/collection/kanchivaram-silk" }
+        ]
+    },
+    {
+        id: "silk-cotton",
+        name: "SILK COTTON",
+        path: "/collection/kanchi-silk-cotton",
+        subcategories: [
+            { name: "Kanchi Silk Cotton", path: "/collection/kanchi-silk-cotton" },
+            { name: "Kotta Silk Cotton", path: "/collection/kotta-silk-cotton" }
+        ]
+    },
+    {
+        id: "cotton",
+        name: "COTTON",
+        path: "/collection/kanchi-cotton",
+        subcategories: [
+            { name: "Kanchi Cotton", path: "/collection/kanchi-cotton" },
+            { name: "Kotta Cotton", path: "/collection/kotta-cotton" }
+        ]
+    }
+];
+
+const occasionCategories = [
+    { name: "Pravesh", path: "/occasion/pravesh" },
+    { name: "Nithya", path: "/occasion/nithya" },
+    { name: "Saar", path: "/occasion/saar" },
+    { name: "Muhurta", path: "/occasion/muhurta" }
+];
+
+const currencies = [
+    { label: "INR ₹ | India", code: "INR" },
+    { label: "USD $ | United States", code: "USD" },
+    { label: "EUR € | Europe", code: "EUR" },
+    { label: "GBP £ | United Kingdom", code: "GBP" }
+];
+
 const Header = () => {
     const { cart } = useCart();
     const { isAuthenticated, customer } = useAuth();
+    const location = useLocation();
 
     const [showSearch, setShowSearch] = useState(false);
-
     const [mobileMenu, setMobileMenu] = useState(false);
-    const [showOccasion, setShowOccasion] = useState(false);
-    const [showFabric, setShowFabric] = useState(false);
-    const [showSilk, setShowSilk] = useState(false);
-    const [showSilkCotton, setShowSilkCotton] = useState(false);
-    const [showCotton, setShowCotton] = useState(false);
+
+    // Dropdown states
+    const [expandedShopCat, setExpandedShopCat] = useState("silk");
+    const [showCurrency, setShowCurrency] = useState(false);
+    const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
+
+    // Mobile accordion states
+    const [mobileShopOpen, setMobileShopOpen] = useState(false);
+    const [mobileOccasionOpen, setMobileOccasionOpen] = useState(false);
+    const [mobileExpandedCat, setMobileExpandedCat] = useState("silk");
+
     const closeMenu = () => setMobileMenu(false);
+
+    const toggleShopCat = (catId, e) => {
+        e.stopPropagation();
+        setExpandedShopCat(prev => (prev === catId ? null : catId));
+    };
+
+    const toggleMobileShopCat = (catId, e) => {
+        e.stopPropagation();
+        setMobileExpandedCat(prev => (prev === catId ? null : catId));
+    };
+
+    const isPathActive = (path) => {
+        if (path === "/" && location.pathname === "/") return true;
+        if (path !== "/" && location.pathname.startsWith(path)) return true;
+        return false;
+    };
 
     return (
         <>
-            <header className="header">
-                <div className="container-fluid px-5">
+            <header className="site-header">
+                <div className="header-container">
 
-                    <div className="header-wrapper">
+                    {/* Mobile Hamburger Toggle */}
+                    <button
+                        className="mobile-toggle"
+                        onClick={() => setMobileMenu(true)}
+                        aria-label="Toggle navigation menu"
+                    >
+                        <i className="bi bi-list"></i>
+                    </button>
 
-                        {/* Mobile Hamburger */}
-                        <button
-                            className="mobile-toggle"
-                            onClick={() => setMobileMenu(true)}
+                    {/* Desktop Left Nav Links */}
+                    <nav className="header-nav-left">
+
+                        {/* 1. Occasions */}
+                        <div className="nav-dropdown-wrapper">
+                            <Link
+                                to="/occasion"
+                                className={`nav-item-link ${isPathActive("/occasion") ? "active" : ""}`}
+                            >
+                                Occasions
+                                <i className="bi bi-chevron-down nav-arrow"></i>
+                            </Link>
+
+                            <div className="dropdown-panel-menu simple-dropdown">
+                                {occasionCategories.map((item, idx) => (
+                                    <Link key={idx} to={item.path} className="simple-dropdown-link">
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* 2. Collection (With Accordion Dropdown matching Image 2) */}
+                        <div className="nav-dropdown-wrapper">
+                            <Link
+                                to="/collection"
+                                className={`nav-item-link ${isPathActive("/collection") ? "active" : ""}`}
+                            >
+                                Collection
+                                <i className="bi bi-chevron-down nav-arrow"></i>
+                            </Link>
+
+                            <div className="dropdown-panel-menu">
+                                {shopCategories.map((cat) => {
+                                    const isExpanded = expandedShopCat === cat.id;
+                                    return (
+                                        <div key={cat.id} className="dropdown-category-block">
+                                            <div
+                                                className={`dropdown-cat-header ${isExpanded ? "expanded" : ""}`}
+                                                onClick={(e) => toggleShopCat(cat.id, e)}
+                                            >
+                                                <span>{cat.name}</span>
+                                                <i className={`bi ${isExpanded ? "bi-chevron-up" : "bi-chevron-down"} cat-chevron`}></i>
+                                            </div>
+
+                                            {isExpanded && cat.subcategories && (
+                                                <div className="dropdown-subcategories-list">
+                                                    {cat.subcategories.map((sub, index) => (
+                                                        <Link
+                                                            key={index}
+                                                            to={sub.path}
+                                                            className="dropdown-sub-link"
+                                                        >
+                                                            {sub.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* 3. Materials */}
+                        <Link
+                            to="/fabrics"
+                            className={`nav-item-link ${isPathActive("/fabrics") ? "active" : ""}`}
                         >
-                            <i className="bi bi-list"></i>
+                            Materials
+                        </Link>
+
+                        {/* 4. Journal */}
+                        <Link
+                            to="/journal"
+                            className={`nav-item-link ${isPathActive("/journal") ? "active" : ""}`}
+                        >
+                            Journal
+                        </Link>
+
+                        {/* 5. Our Story */}
+                        <Link
+                            to="/our-story"
+                            className={`nav-item-link ${isPathActive("/our-story") || isPathActive("/heritage") ? "active" : ""}`}
+                        >
+                            Our Story
+                        </Link>
+
+                    </nav>
+
+                    {/* Center Brand Logo */}
+                    <div className="header-brand-logo">
+                        <Link to="/">
+                            <img src={logo} alt="Kanchisuthra" className="brand-logo-img" />
+                        </Link>
+                    </div>
+
+                    {/* Desktop Right Utilities */}
+                    <div className="header-nav-right">
+
+                        {/* Currency Selector */}
+                        <div className="currency-selector-wrapper">
+                            <button
+                                className="currency-btn"
+                                onClick={() => setShowCurrency(!showCurrency)}
+                            >
+                                {selectedCurrency.label}
+                                <i className="bi bi-chevron-down ms-1"></i>
+                            </button>
+
+                            {showCurrency && (
+                                <div className="currency-dropdown-menu">
+                                    {currencies.map((curr, idx) => (
+                                        <div
+                                            key={idx}
+                                            className={`currency-option ${selectedCurrency.code === curr.code ? "selected" : ""}`}
+                                            onClick={() => {
+                                                setSelectedCurrency(curr);
+                                                setShowCurrency(false);
+                                            }}
+                                        >
+                                            {curr.label}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Search Icon */}
+                        <button
+                            className="header-icon-btn"
+                            onClick={() => setShowSearch(true)}
+                            title="Search"
+                            aria-label="Search"
+                        >
+                            <i className="bi bi-search"></i>
                         </button>
 
-                        {/* Desktop Left */}
-                        <nav className="header-left">
+                        {/* User Account Icon */}
+                        <Link
+                            to={isAuthenticated ? "/profile" : "/login"}
+                            className="header-icon-btn"
+                            title={isAuthenticated ? `Profile (${customer?.firstName || 'Account'})` : "Login / Account"}
+                        >
+                            <i className={`bi ${isAuthenticated ? "bi-person-check-fill" : "bi-person"}`}></i>
+                        </Link>
 
-                            <div className="dropdown-menu-custom">
-                                <Link to="/occasion" className="dropdown-trigger">
-                                    Occasions
-                                </Link>
-
-                                <div className="dropdown-content">
-                                    <Link to="/occasion/pravesh">Pravesh</Link>
-                                    <Link to="/occasion/nithya">Nithya</Link>
-                                    <Link to="/occasion/saar">Saar</Link>
-                                    <Link to="/occasion/muhurta">Muhurta</Link>
-                                </div>
-                            </div>
-
-                            <div className="dropdown-menu-custom">
-
-                                <Link to="/fabrics" className="dropdown-trigger">
-                                    Fabrics
-                                </Link>
-
-                                <div className="dropdown-content">
-
-                                    <div className="dropdown-submenu">
-                                        <Link to="/fabric/silk">Silk</Link>
-
-                                        <div className="submenu-content">
-                                            <Link to="/fabric/kanchivaram-silk">
-                                                Kanchivaram Silk
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                    <div className="dropdown-submenu">
-                                        <Link to="/fabric/silk-cotton">
-                                            Silk Cotton
-                                        </Link>
-
-                                        <div className="submenu-content">
-                                            <Link to="/fabric/kanchi-silk-cotton">
-                                                Kanchi Silk Cotton
-                                            </Link>
-
-                                            <Link to="/fabric/kotta-silk-cotton">
-                                                Kotta Silk Cotton
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                    <div className="dropdown-submenu">
-                                        <Link to="/fabric/cotton">
-                                            Cotton
-                                        </Link>
-
-                                        <div className="submenu-content">
-                                            <Link to="/fabric/kanchi-cotton">
-                                                Kanchi Cotton
-                                            </Link>
-
-                                            <Link to="/fabric/kotta-cotton">
-                                                Kotta Cotton
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <Link to="/collection">
-                                Collections
-                            </Link>
-
-                        </nav>
-
-                        {/* Logo */}
-                        <div className="header-logo">
-                            <Link to="/">
-                                <img src={logo} alt="Kanchisuthra" />
-                            </Link>
-                        </div>
-
-                        {/* Desktop Right */}
-                        <div className="header-right">
-
-                            <Link to="/heritage">
-                                Heritage
-                            </Link>
-
-                            <Link to="/craftsmanship">
-                                Craftsmanship
-                            </Link>
-
-                            <i
-                                className="bi bi-search"
-                                onClick={() => setShowSearch(true)}
-                            ></i>
-
-                            <Link
-                                to="/cart"
-                                className="cart-icon position-relative"
-                            >
-                                <i className="bi bi-bag fs-5"></i>
-
-                                <span className="cart-count">
-                                    {cart?.totalQuantity || 0}
-                                </span>
-
-                            </Link>
-
-                            <Link to={isAuthenticated ? "/profile" : "/login"} title={isAuthenticated ? `Profile (${customer?.firstName || 'Account'})` : "Login"}>
-                                <i className={`bi ${isAuthenticated ? "bi-person-check-fill" : "bi-person"}`}></i>
-                            </Link>
-
-                        </div>
+                        {/* Cart Icon */}
+                        <Link
+                            to="/cart"
+                            className="header-icon-btn cart-icon-wrapper"
+                            title="Shopping Bag"
+                        >
+                            <i className="bi bi-bag"></i>
+                            <span className="cart-badge-count">
+                                {cart?.totalQuantity || 0}
+                            </span>
+                        </Link>
 
                     </div>
 
                 </div>
             </header>
 
-            {/* Overlay */}
+            {/* Mobile Navigation Drawer Overlay */}
             <div
-                className={`mobile-overlay ${mobileMenu ? "show" : ""}`}
+                className={`mobile-backdrop ${mobileMenu ? "active" : ""}`}
                 onClick={closeMenu}
             />
 
-            {/* Mobile Sidebar */}
+            {/* Mobile Drawer Navigation Sidebar */}
+            <aside className={`mobile-drawer-sidebar ${mobileMenu ? "active" : ""}`}>
 
-            <aside className={`mobile-sidebar ${mobileMenu ? "show" : ""}`}>
-
-                <div className="mobile-header">
-
-                    <img src={logo} alt="" />
-
-                    <button onClick={closeMenu}>
+                <div className="mobile-drawer-header">
+                    <img src={logo} alt="Kanchisuthra" className="mobile-logo-img brand-logo-img" />
+                    <button className="mobile-close-btn" onClick={closeMenu} aria-label="Close menu">
                         <i className="bi bi-x-lg"></i>
                     </button>
-
                 </div>
 
-                <nav className="mobile-nav">
+                <nav className="mobile-drawer-nav">
 
-                    <div className="mobile-dropdown-btn">
-
-                        <Link
-                            to="/occasion"
-                            onClick={closeMenu}
-                            className="mobile-parent-link"
-                        >
-                            Occasions
-                        </Link>
-
-                        <button
-                            className="mobile-dropdown-btn"
-                            onClick={() => setShowOccasion(!showOccasion)}
-                        >
-                            <i
-                                className={`bi ${showOccasion ? "bi-chevron-up" : "bi-chevron-down"
-                                    }`}
-                            ></i>
-                        </button>
-
-                    </div>
-
-                    {showOccasion && (
-
-                        <div className="mobile-submenu">
-
-                            <Link to="/occasion/pravesh" onClick={closeMenu}>Pravesh</Link>
-
-                            <Link to="/occasion/nithya" onClick={closeMenu}>Nithya</Link>
-
-                            <Link to="/occasion/saar" onClick={closeMenu}>Saar</Link>
-
-                            <Link to="/occasion/muhurta" onClick={closeMenu}>Muhurta</Link>
-
+                    {/* 1. Occasions Accordion */}
+                    <div className="mobile-accordion-section">
+                        <div className="mobile-accordion-header">
+                            <Link to="/occasion" onClick={closeMenu} className="mobile-parent-link">
+                                Occasions
+                            </Link>
+                            <button
+                                className="mobile-chevron-btn"
+                                onClick={() => setMobileOccasionOpen(!mobileOccasionOpen)}
+                            >
+                                <i className={`bi ${mobileOccasionOpen ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
+                            </button>
                         </div>
 
-                    )}
-
-                    <div className="mobile-dropdown-btn">
-
-                        <Link
-                            to="/fabrics"
-                            onClick={closeMenu}
-                            className="mobile-parent-link"
-                        >
-                            Fabrics
-                        </Link>
-
-                        <button
-                            className="mobile-dropdown-btn"
-                            onClick={() => setShowFabric(!showFabric)}
-                        >
-                            <i
-                                className={`bi ${showFabric ? "bi-chevron-up" : "bi-chevron-down"
-                                    }`}
-                            ></i>
-                        </button>
-
+                        {mobileOccasionOpen && (
+                            <div className="mobile-sub-accordion-container">
+                                {occasionCategories.map((item, idx) => (
+                                    <Link
+                                        key={idx}
+                                        to={item.path}
+                                        onClick={closeMenu}
+                                        className="mobile-sublink"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
-                    {showFabric && (
-
-                        <div className="mobile-submenu">
-
-                            {/* Silk */}
-
-                            <div className="mobile-sub-dropdown">
-
-                                <div className="mobile-sub-header">
-
-                                    <Link
-                                        to="/fabric/silk"
-                                        onClick={closeMenu}
-                                        className="mobile-parent-link"
-                                    >
-                                        Silk
-                                    </Link>
-
-                                    <button
-                                        className="mobile-arrow-btn"
-                                        onClick={() => setShowSilk(!showSilk)}
-                                    >
-                                        <i className={`bi ${showSilk ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
-                                    </button>
-
-                                </div>
-
-                                {showSilk && (
-
-                                    <div className="mobile-inner-submenu">
-
-                                        <Link
-                                            to="/fabric/kanchivaram-silk"
-                                            onClick={closeMenu}
-                                        >
-                                            Kanchivaram Silk
-                                        </Link>
-
-                                    </div>
-
-                                )}
-
-                            </div>
-
-                            {/* Silk Cotton */}
-
-                            <div className="mobile-sub-dropdown">
-
-                                <div className="mobile-sub-header">
-
-                                    <Link
-                                        to="/fabric/silk-cotton"
-                                        onClick={closeMenu}
-                                        className="mobile-parent-link"
-                                    >
-                                        Silk Cotton
-                                    </Link>
-
-                                    <button
-                                        className="mobile-arrow-btn"
-                                        onClick={() => setShowSilkCotton(!showSilkCotton)}
-                                    >
-                                        <i className={`bi ${showSilkCotton ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
-                                    </button>
-
-                                </div>
-
-                                {showSilkCotton && (
-
-                                    <div className="mobile-inner-submenu">
-
-                                        <Link
-                                            to="/fabric/kanchi-silk-cotton"
-                                            onClick={closeMenu}
-                                        >
-                                            Kanchi Silk Cotton
-                                        </Link>
-
-                                        <Link
-                                            to="/fabric/kotta-silk-cotton"
-                                            onClick={closeMenu}
-                                        >
-                                            Kotta Silk Cotton
-                                        </Link>
-
-                                    </div>
-
-                                )}
-
-                            </div>
-
-                            {/* Cotton */}
-
-                            <div className="mobile-sub-dropdown">
-
-                                <div className="mobile-sub-header">
-
-                                    <Link
-                                        to="/fabric/cotton"
-                                        onClick={closeMenu}
-                                        className="mobile-parent-link"
-                                    >
-                                        Cotton
-                                    </Link>
-
-                                    <button
-                                        className="mobile-arrow-btn"
-                                        onClick={() => setShowCotton(!showCotton)}
-                                    >
-                                        <i className={`bi ${showCotton ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
-                                    </button>
-
-                                </div>
-
-                                {showCotton && (
-
-                                    <div className="mobile-inner-submenu">
-
-                                        <Link
-                                            to="/fabric/kanchi-cotton"
-                                            onClick={closeMenu}
-                                        >
-                                            Kanchi Cotton
-                                        </Link>
-
-                                        <Link
-                                            to="/fabric/kotta-cotton"
-                                            onClick={closeMenu}
-                                        >
-                                            Kotta Cotton
-                                        </Link>
-
-                                    </div>
-
-                                )}
-
-                            </div>
-
+                    {/* 2. Collection Accordion */}
+                    <div className="mobile-accordion-section">
+                        <div className="mobile-accordion-header">
+                            <Link to="/collection" onClick={closeMenu} className="mobile-parent-link">
+                                Collection
+                            </Link>
+                            <button
+                                className="mobile-chevron-btn"
+                                onClick={() => setMobileShopOpen(!mobileShopOpen)}
+                            >
+                                <i className={`bi ${mobileShopOpen ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
+                            </button>
                         </div>
 
-                    )}
-                    <Link to="/collection" onClick={closeMenu}>
-                        Collections
+                        {mobileShopOpen && (
+                            <div className="mobile-sub-accordion-container">
+                                {shopCategories.map((cat) => {
+                                    const isExpanded = mobileExpandedCat === cat.id;
+                                    return (
+                                        <div key={cat.id} className="mobile-cat-group">
+                                            <div
+                                                className="mobile-cat-header"
+                                                onClick={(e) => toggleMobileShopCat(cat.id, e)}
+                                            >
+                                                <span>{cat.name}</span>
+                                                <i className={`bi ${isExpanded ? "bi-chevron-up" : "bi-chevron-down"}`}></i>
+                                            </div>
+
+                                            {isExpanded && cat.subcategories && (
+                                                <div className="mobile-cat-sublinks">
+                                                    {cat.subcategories.map((sub, idx) => (
+                                                        <Link
+                                                            key={idx}
+                                                            to={sub.path}
+                                                            onClick={closeMenu}
+                                                            className="mobile-sublink"
+                                                        >
+                                                            {sub.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* 3. Materials */}
+                    <Link to="/fabrics" onClick={closeMenu} className="mobile-nav-link">
+                        Materials
                     </Link>
 
-                    <Link to="/heritage" onClick={closeMenu}>
-                        Heritage
+                    {/* 4. Journal */}
+                    <Link to="/journal" onClick={closeMenu} className="mobile-nav-link">
+                        Journal
                     </Link>
 
-                    <Link to="/craftsmanship" onClick={closeMenu}>
-                        Craftsmanship
+                    {/* 5. Our Story */}
+                    <Link to="/our-story" onClick={closeMenu} className="mobile-nav-link">
+                        Our Story
                     </Link>
 
-                    <Link to={isAuthenticated ? "/profile" : "/login"} onClick={closeMenu}>
+                    <Link to={isAuthenticated ? "/profile" : "/login"} onClick={closeMenu} className="mobile-nav-link">
                         {isAuthenticated ? `My Account (${customer?.firstName || 'Profile'})` : "Login / Register"}
                     </Link>
 
@@ -400,6 +383,7 @@ const Header = () => {
 
             </aside>
 
+            {/* Search Modal */}
             <SearchModal
                 show={showSearch}
                 onClose={() => setShowSearch(false)}

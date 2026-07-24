@@ -1,224 +1,305 @@
-.fabric-hero {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
+/* ==========================================
+   UNIQUE MATERIALS & FABRIC INNOVATIONS STYLES
+   ========================================== */
+
+.materials-unique-page {
+    background-color: #f8f5ee;
+    color: #2b241d;
+    min-height: 85vh;
 }
 
-.fabric-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(35, 30, 24, .35);
+/* Hero Section */
+.materials-hero {
+    padding: 100px 0 70px;
+    background-color: #f8f5ee;
 }
 
-.fabric-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-}
-
-.fabric-content h1 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 76px;
-    font-weight: 500;
-    margin-bottom: 18px;
-}
-
-.fabric-content span {
+.hero-sub-label {
     display: block;
-    font-size: 13px;
-    letter-spacing: 5px;
-    font-weight: 600;
-}
-
-@media(max-width:992px) {
-
-    .fabric-content h1 {
-        font-size: 48px;
-    }
-
-    .fabric-content span {
-        font-size: 11px;
-        letter-spacing: 3px;
-    }
-
-}
-
-/* =============================
-   Heritage Textiles
-============================= */
-
-.heritage-textiles {
-    background: #f8f3eb;
-    padding: 120px 0;
-}
-
-.section-header {
-    max-width: 700px;
-    margin: 0 auto 80px;
-}
-
-.section-header span {
-    color: #c79b67;
+    color: #b88732;
+    font-size: 11.5px;
     letter-spacing: 3px;
-    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.materials-hero h1 {
+    font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 54px;
+    font-weight: 400;
+    color: #2b241d;
+    margin-bottom: 22px;
+    line-height: 1.15;
+}
+
+.hero-desc {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #555555;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+/* Material Filter Tabs */
+.material-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.material-tab-btn {
+    background: #ffffff;
+    border: 1px solid #e2d7c5;
+    color: #444444;
+    padding: 10px 22px;
+    font-size: 11.5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.material-tab-btn:hover,
+.material-tab-btn.active {
+    background: #2b241d;
+    color: #ffffff;
+    border-color: #2b241d;
+}
+
+/* Materials Grid & Cards */
+.materials-showcase-section {
+    padding: 20px 0 100px;
+}
+
+.unique-material-card {
+    background: #ffffff;
+    border: 1px solid #ece2d3;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.unique-material-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    border-color: #d8b47a;
+}
+
+.material-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    background-color: #f5f0e6;
+}
+
+.material-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.unique-material-card:hover .material-card-img {
+    transform: scale(1.05);
+}
+
+.material-badge-tag {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: rgba(43, 36, 29, 0.9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #f8f3eb;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 30px;
+}
+
+.material-card-content {
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.material-subtitle {
+    display: block;
+    color: #b88732;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.material-card-content h3 {
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    color: #2b241d;
+    margin-bottom: 14px;
+}
+
+.material-card-content p {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #666666;
+    margin-bottom: 24px;
+}
+
+/* Specs Grid inside Card */
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    background-color: #faf6f0;
+    padding: 18px 20px;
+    border-radius: 4px;
+    border: 1px solid #efe4d3;
+    margin-bottom: 24px;
+    margin-top: auto;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-label {
+    font-size: 11px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.spec-val {
+    font-size: 13px;
+    color: #2b241d;
     font-weight: 600;
 }
 
-.section-header h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 52px;
-    margin: 18px 0;
-    color: #2b241d;
-}
-
-.section-header p {
-    color: #666;
-    line-height: 1.9;
-}
-
-.fabric-item {
-    display: flex;
+.btn-explore-material {
+    display: inline-flex;
     align-items: center;
-    gap: 35px;
-}
-
-.right-layout {
-    flex-direction: row-reverse;
-}
-
-.fabric-item img {
-    width: 280px;
-    height: 380px;
-    object-fit: cover;
-}
-
-.fabric-content {
-    flex: 1;
-}
-
-.fabric-content h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 34px;
-    margin-bottom: 18px;
-    color: #2b241d;
-}
-
-.fabric-content p {
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.fabric-content a {
-    text-decoration: none;
-    color: #c79b67;
-    font-size: 13px;
+    color: #b88732;
+    font-size: 11.5px;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.fabric-content a:hover {
+.btn-explore-material:hover {
     color: #2b241d;
 }
 
-@media(max-width:992px) {
-
-    .fabric-item,
-    .right-layout {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .fabric-item img {
-        width: 100%;
-        height: 420px;
-    }
-
-    .section-header h2 {
-        font-size: 40px;
-    }
+/* Purity Standards Comparison Section */
+.purity-standards-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #eee4d5;
 }
 
-/* ==========================
-   Weaver Banner
-========================== */
-
-.weaver-banner {
-    position: relative;
-    height: 650px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.section-header-purity {
+    max-width: 650px;
+    margin: 0 auto 50px;
 }
 
-.weaver-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(25, 22, 18, .45);
+.section-header-purity h2 {
+    font-family: "Jost", sans-serif;
+    font-size: 44px;
+    color: #2b241d;
 }
 
-.weaver-banner .container {
-    position: relative;
-    z-index: 2;
+.section-header-purity p {
+    color: #666666;
+    font-size: 15px;
+}
+
+.purity-card {
+    padding: 42px 35px;
+    border-radius: 8px;
     height: 100%;
 }
 
-.weaver-content {
-    color: #fff;
-    max-width: 500px;
+.handloom-card {
+    background-color: #fcf9f3;
+    border: 1.5px solid #d8b47a;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
 }
 
-.weaver-content span {
-    display: block;
-    color: #d3a86d;
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 18px;
-    font-weight: 600;
+.powerloom-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
 }
 
-.weaver-content h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 58px;
-    line-height: 1.1;
-    margin-bottom: 25px;
-}
-
-.weaver-content p {
-    color: #ece6dc;
-    line-height: 1.9;
-    margin-bottom: 35px;
-}
-
-.weaver-btn {
-    background: #d8b47a;
-    color: #2c241d;
-    border: none;
-    padding: 14px 34px;
+.card-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    font-size: 10.5px;
     letter-spacing: 2px;
-    font-size: 13px;
     font-weight: 600;
-    transition: .3s;
+    border-radius: 30px;
+    margin-bottom: 18px;
 }
 
-.weaver-btn:hover {
-    background: #c69b68;
+.card-badge.gold {
+    background-color: #b88732;
+    color: #ffffff;
 }
 
-@media(max-width:992px) {
+.card-badge.gray {
+    background-color: #777777;
+    color: #ffffff;
+}
 
-    .weaver-banner {
-        height: 500px;
+.purity-card h3 {
+    font-family: "Jost", sans-serif;
+    font-size: 26px;
+    color: #2b241d;
+    margin-bottom: 22px;
+}
+
+.purity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.purity-list li {
+    font-size: 14.5px;
+    color: #444444;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.purity-list.muted li {
+    color: #777777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .materials-hero h1 {
+        font-size: 38px;
     }
 
-    .weaver-content {
-        text-align: center;
-        margin: auto;
+    .specs-grid {
+        grid-template-columns: 1fr;
     }
 
-    .weaver-content h2 {
-        font-size: 42px;
+    .material-img-wrapper {
+        height: 280px;
     }
 }

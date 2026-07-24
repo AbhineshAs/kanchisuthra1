@@ -13,6 +13,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
+import { getProductByHandle } from "../../data/productCatalog";
+
 export default function Product() {
     const { handle } = useParams();
     const navigate = useNavigate();
@@ -29,48 +31,56 @@ export default function Product() {
 
     useEffect(() => {
         async function loadProduct() {
-
             const query = `
             query($handle:String!){
-
                 product(handle:$handle){
-
                     id
                     title
                     descriptionHtml
-
                     images(first:20){
-
                         nodes{
                             id
                             url
                         }
-
                     }
-
                     variants(first:20){
-
                         nodes{
-
                             id
                             title
                             availableForSale
-
                             price{
                                 amount
                             }
-
                         }
-
                     }
-
                 }
-
             }`;
 
             try {
                 const data = await shopifyFetch(query, { handle });
-                const productData = data?.data?.product || null;
+                let productData = data?.data?.product || null;
+
+                if (!productData) {
+                    const catItem = getProductByHandle(handle);
+                    productData = {
+                        id: catItem.id,
+                        title: catItem.title,
+                        descriptionHtml: catItem.descriptionHtml,
+                        images: {
+                            nodes: catItem.images.map((url, idx) => ({ id: `img-${idx}`, url }))
+                        },
+                        variants: {
+                            nodes: [
+                                {
+                                    id: catItem.id,
+                                    title: "Default",
+                                    availableForSale: true,
+                                    price: { amount: catItem.price }
+                                }
+                            ]
+                        }
+                    };
+                }
 
                 setProduct(productData);
 
@@ -79,7 +89,27 @@ export default function Product() {
                 }
             } catch (err) {
                 console.error("Error loading product:", err);
-                setProduct(null);
+                const catItem = getProductByHandle(handle);
+                const fallbackData = {
+                    id: catItem.id,
+                    title: catItem.title,
+                    descriptionHtml: catItem.descriptionHtml,
+                    images: {
+                        nodes: catItem.images.map((url, idx) => ({ id: `img-${idx}`, url }))
+                    },
+                    variants: {
+                        nodes: [
+                            {
+                                id: catItem.id,
+                                title: "Default",
+                                availableForSale: true,
+                                price: { amount: catItem.price }
+                            }
+                        ]
+                    }
+                };
+                setProduct(fallbackData);
+                setSelectedVariant(fallbackData.variants.nodes[0]);
             }
         }
 

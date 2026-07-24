@@ -89,24 +89,92 @@
     color: #2b241d;
 }
 
-@media(max-width:992px) {
+/* ==========================
+   Master Craftsmanship & Weaver
+========================== */
 
-    .heritage-heading h1 {
-        font-size: 48px;
-    }
+.craft-section {
+    background: #ffffff;
+    padding: 110px 0;
+    border-top: 1px solid #f0e6d8;
+    border-bottom: 1px solid #f0e6d8;
+}
 
-    .origin-content {
-        text-align: center;
-    }
+.craft-section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    color: #2b241d;
+    margin: 15px 0 25px;
+}
 
-    .title-line {
-        margin: 20px auto 35px;
-    }
+.craft-section p {
+    color: #666666;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
 
-    .origin-image {
-        height: 420px;
-    }
+.craft-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 35px;
+}
 
+.craft-stats h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    color: #b88732;
+    margin-bottom: 4px;
+}
+
+.craft-stats span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #888888;
+    font-weight: 600;
+}
+
+.craft-image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Petni Section */
+.petni-section {
+    background: #fcf8f3;
+    padding: 100px 0;
+}
+
+.petni-image {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+}
+
+.petni-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 46px;
+    color: #2b241d;
+    margin: 15px 0 25px;
+}
+
+.petni-content p {
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.craft-link {
+    color: #b88732;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.craft-link:hover {
+    color: #2b241d;
 }
 
 /* ==========================
@@ -187,23 +255,6 @@
     color: #2b241d;
 }
 
-@media(max-width:992px) {
-
-    .story-circle {
-        width: 300px;
-        height: 300px;
-    }
-
-    .story-label {
-        display: none;
-    }
-
-    .kanchi-story h2 {
-        font-size: 40px;
-    }
-
-}
-
 /* ==========================
    Preserving Art
 ========================== */
@@ -261,29 +312,67 @@
     line-height: 1.9;
 }
 
-@media(max-width:992px) {
+/* ==========================
+   Ritual of Care Section
+========================== */
 
-    .right-block {
-        margin-top: 60px;
-    }
+.care-section {
+    background: #ffffff;
+    padding: 100px 0;
+    border-top: 1px solid #eee5d8;
+}
 
-    .preserving-large {
-        height: 380px;
-    }
+.care-section .section-header h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    color: #2b241d;
+}
 
-    .preserving-small {
-        max-width: 100%;
-        height: 260px;
-    }
+.care-subtitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    color: #b88732;
+    margin: 15px 0 20px;
+}
 
-    .preserving-content {
-        max-width: 100%;
-        text-align: center;
-    }
+.care-section .divider {
+    width: 60px;
+    height: 1px;
+    background: #d8b47a;
+    margin: 15px auto;
+}
 
-    .preserving-art h2 {
-        font-size: 42px;
-    }
+.care-card {
+    background: #fbf8f3;
+    padding: 35px 25px;
+    border: 1px solid #f0e6d8;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.care-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.care-card i {
+    font-size: 32px;
+    color: #b88732;
+    margin-bottom: 18px;
+    display: inline-block;
+}
+
+.care-card h4 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    color: #2b241d;
+    margin-bottom: 12px;
+}
+
+.care-card p {
+    font-size: 13.5px;
+    color: #666666;
+    line-height: 1.7;
 }
 
 /* ===========================
@@ -392,6 +481,56 @@
 }
 
 @media(max-width:992px) {
+    .heritage-heading h1 {
+        font-size: 48px;
+    }
+
+    .origin-content {
+        text-align: center;
+    }
+
+    .title-line {
+        margin: 20px auto 35px;
+    }
+
+    .origin-image {
+        height: 420px;
+    }
+
+    .right-block {
+        margin-top: 60px;
+    }
+
+    .preserving-large {
+        height: 380px;
+    }
+
+    .preserving-small {
+        max-width: 100%;
+        height: 260px;
+    }
+
+    .preserving-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .preserving-art h2 {
+        font-size: 42px;
+    }
+
+    .story-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .story-label {
+        display: none;
+    }
+
+    .kanchi-story h2 {
+        font-size: 40px;
+    }
 
     .quote-wrapper blockquote {
         font-size: 34px;
@@ -412,5 +551,4 @@
         border-bottom: 1px solid #ddd;
         text-align: center;
     }
-
 }

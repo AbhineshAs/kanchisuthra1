@@ -1,212 +1,422 @@
-.collection-page {
-    background: #f8f3eb;
-    padding: 100px 0;
+/* ==========================================
+   MAGAZINE EDITORIAL COLLECTION LAYOUT STYLES
+   ========================================== */
+
+.collection-magazine-page {
+    background-color: #f8f5ee;
+    color: #2b241d;
 }
 
-.collection-heading span {
-    color: #c79d67;
-    letter-spacing: 3px;
-    font-size: 13px;
+/* Hero Section */
+.magazine-hero-section {
+    padding: 90px 0 50px;
 }
 
-.collection-heading h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 56px;
-    margin: 10px 0;
-    color: #2b231d;
-}
-
-.heading-line {
-    width: 60px;
-    height: 1px;
-    background: #d7c8b6;
-    margin: 25px auto 70px;
-}
-
-.collection-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 22px;
-}
-
-.large {
-    height: 470px;
-}
-
-.tall {
-    height: 470px;
-}
-
-.large img,
-.tall img {
-    height: 100%;
-}
-
-.collection-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.collection-card img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    transition: .5s;
-}
-
-.collection-card:hover img {
-    transform: scale(1.05);
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, .55), transparent);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 28px;
-    color: #fff;
-}
-
-.overlay h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 38px;
+.magazine-sub-tag {
+    display: block;
+    color: #b88732;
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    font-weight: 600;
+    text-transform: uppercase;
     margin-bottom: 12px;
 }
 
-.overlay p {
-    max-width: 420px;
-    margin-bottom: 18px;
-    line-height: 1.7;
-}
-
-.overlay a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.collection-grid .collection-card:nth-child(n+3) {
-    height: 320px;
-}
-
-.collection-grid .collection-card:nth-child(n+3) img {
-    height: 100%;
-}
-
-.collection-grid .collection-card:nth-child(3) {
-    grid-column: 1;
-}
-
-.collection-grid .collection-card:nth-child(4) {
-    grid-column: 1;
-    margin-left: 50%;
-}
-
-.collection-grid .collection-card:nth-child(5) {
-    grid-column: 2;
-}
-
-@media(max-width:992px) {
-
-    .collection-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .collection-grid .collection-card {
-        grid-column: auto !important;
-        margin-left: 0 !important;
-        height: 350px !important;
-    }
-
-    .collection-card img {
-        height: 100% !important;
-    }
-
-    .collection-heading h2 {
-        font-size: 42px;
-    }
-
-}
-
-/* ===============================
-   Promise Section
-================================ */
-
-.promise-section {
-    background: #f8f3eb;
-    padding: 120px 0;
-}
-
-.promise-content {
-    max-width: 470px;
-}
-
-.promise-subtitle {
-    display: block;
-    color: #c69b68;
-    font-size: 13px;
-    letter-spacing: 3px;
-    margin-bottom: 18px;
-    font-weight: 600;
-}
-
-.promise-content h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 58px;
-    line-height: 1.1;
+.magazine-main-title {
+    font-family: "Jost", sans-serif;
+    font-size: 52px;
+    font-weight: 400;
     color: #2b241d;
-    margin-bottom: 30px;
 }
 
-.promise-content p {
-    color: #68615b;
-    line-height: 1.9;
-    margin-bottom: 40px;
+.magazine-hero-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666666;
+    max-width: 680px;
 }
 
-.promise-content h4 {
-    color: #c69b68;
-    font-size: 26px;
-    margin-bottom: 8px;
-    font-family: "Cormorant Garamond", serif;
+/* 1. Spotlight Hero Collection Card */
+.spotlight-card-wrapper {
+    background: #ffffff;
+    border: 1px solid #efe4d3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.05);
 }
 
-.promise-content span {
-    display: block;
-    color: #777;
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-.promise-image {
-    padding: 25px;
-}
-
-.promise-image img {
+.spotlight-img-frame {
+    position: relative;
     width: 100%;
-    max-width: 560px;
-    height: 650px;
-    object-fit: cover;
-    box-shadow:
-        -18px -18px 0 rgba(255, 255, 255, .35),
-        0 30px 40px rgba(0, 0, 0, .15);
+    height: 520px;
+    overflow: hidden;
+    background-color: #f5efe6;
 }
 
-@media(max-width:992px) {
+.spotlight-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
 
-    .promise-content {
-        max-width: 100%;
-        text-align: center;
-        margin-bottom: 40px;
+.spotlight-card-wrapper:hover .spotlight-img {
+    transform: scale(1.04);
+}
+
+.spotlight-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(43, 36, 29, 0.9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 30px;
+}
+
+.spotlight-content-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.weaver-origin-badge {
+    color: #b88732;
+    font-size: 11.5px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.spotlight-title {
+    font-family: "Jost", sans-serif;
+    font-size: 36px;
+    color: #2b241d;
+}
+
+.spotlight-quote {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #665a4c;
+    border-left: 2px solid #b88732;
+    padding-left: 14px;
+}
+
+.spotlight-desc {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #666666;
+    margin-bottom: 24px;
+}
+
+.btn-spotlight-cta {
+    display: inline-flex;
+    align-items: center;
+    background-color: #2b241d;
+    color: #ffffff;
+    padding: 14px 30px;
+    font-size: 11.5px;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-spotlight-cta:hover {
+    background-color: #b88732;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* 2. Asymmetric Pair Cards */
+.asymmetric-section {
+    padding: 40px 0;
+}
+
+.magazine-card {
+    background: #ffffff;
+    border: 1px solid #efe4d3;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.magazine-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.07);
+}
+
+.magazine-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background-color: #f7f3ed;
+}
+
+.magazine-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.magazine-card:hover .magazine-img {
+    transform: scale(1.05);
+}
+
+.magazine-card-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(43, 36, 29, 0.88);
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 30px;
+}
+
+.magazine-card-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.origin-label {
+    font-size: 11px;
+    color: #b88732;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.magazine-card-body h3 {
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    color: #2b241d;
+    margin-bottom: 10px;
+}
+
+.magazine-card-body p {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #666666;
+    margin-bottom: 22px;
+    flex-grow: 1;
+}
+
+.magazine-btn {
+    display: inline-flex;
+    align-items: center;
+    color: #b88732;
+    font-size: 11.5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.magazine-btn:hover {
+    color: #2b241d;
+}
+
+/* 3. Horizon Cards */
+.horizon-card {
+    background: #ffffff;
+    border: 1px solid #efe4d5;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.horizon-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.07);
+}
+
+.horizon-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+    background-color: #f7f3ed;
+}
+
+.horizon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.horizon-card:hover .horizon-img {
+    transform: scale(1.05);
+}
+
+.horizon-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(43, 36, 29, 0.88);
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.horizon-body {
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.horizon-body h4 {
+    font-family: "Jost", sans-serif;
+    font-size: 22px;
+    color: #2b241d;
+    margin-bottom: 8px;
+}
+
+.horizon-body p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #666666;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.horizon-btn {
+    display: inline-flex;
+    align-items: center;
+    color: #b88732;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.horizon-btn:hover {
+    color: #2b241d;
+}
+
+/* 4. Cotton Pair Section */
+.cotton-magazine-card {
+    background: #ffffff;
+    border: 1px solid #efe4d3;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+}
+
+.cotton-magazine-card:hover {
+    transform: translateY(-6px);
+}
+
+.cotton-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.cotton-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.cotton-magazine-card:hover .cotton-img {
+    transform: scale(1.05);
+}
+
+.cotton-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(43, 36, 29, 0.88);
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 30px;
+}
+
+.cotton-body {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cotton-body h3 {
+    font-family: "Jost", sans-serif;
+    font-size: 26px;
+    color: #2b241d;
+    margin-bottom: 8px;
+}
+
+.cotton-body p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.cotton-btn {
+    display: inline-flex;
+    align-items: center;
+    color: #b88732;
+    font-size: 11.5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cotton-btn:hover {
+    color: #2b241d;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    .magazine-main-title {
+        font-size: 38px;
     }
 
-    .promise-content h2 {
-        font-size: 42px;
+    .spotlight-img-frame {
+        height: 340px;
     }
 
-    .promise-image img {
-        height: auto;
+    .magazine-img-wrap {
+        height: 300px;
     }
 }
