@@ -200,12 +200,12 @@ export default function CollectionProducts() {
                     )}
                 </div>
 
-                {/* Filter and Sort Bar */}
-                <div className="collection-filter-bar mb-5">
-                    <div className="filter-left-group">
+                {/* Filter and Sort Bar Matching Screenshot */}
+                <div className="collection-filter-bar mb-4">
+                    {/* Desktop Filter Controls */}
+                    <div className="filter-left-group d-none d-md-flex">
                         <span className="filter-label">Filter:</span>
 
-                        {/* Availability Dropdown */}
                         <div className="filter-dropdown-wrapper">
                             <button
                                 className="filter-btn"
@@ -229,7 +229,6 @@ export default function CollectionProducts() {
                             )}
                         </div>
 
-                        {/* Price Dropdown */}
                         <div className="filter-dropdown-wrapper">
                             <button
                                 className="filter-btn"
@@ -260,8 +259,44 @@ export default function CollectionProducts() {
                         </div>
                     </div>
 
+                    {/* Mobile Filter & Sort Button Matching Screenshot 100% */}
+                    <div className="mobile-filter-group d-md-none">
+                        <button
+                            className="mobile-filter-btn"
+                            onClick={() => setShowPriceFilter(!showPriceFilter)}
+                        >
+                            <i className="bi bi-sliders me-2"></i>
+                            Filter and sort
+                        </button>
+
+                        {showPriceFilter && (
+                            <div className="mobile-filter-drawer-popover p-3">
+                                <span className="d-block small text-muted mb-2 fw-bold">Sort Products</span>
+                                <select
+                                    className="form-select form-select-sm mb-3"
+                                    value={sortBy}
+                                    onChange={(e) => setSortBy(e.target.value)}
+                                >
+                                    <option value="best-selling">Best selling</option>
+                                    <option value="price-low-high">Price, low to high</option>
+                                    <option value="price-high-low">Price, high to low</option>
+                                    <option value="title-a-z">Alphabetically, A-Z</option>
+                                </select>
+                                <label className="form-check-label d-flex align-items-center gap-2 cursor-pointer small">
+                                    <input
+                                        type="checkbox"
+                                        className="form-check-input"
+                                        checked={inStockOnly}
+                                        onChange={(e) => setInStockOnly(e.target.checked)}
+                                    />
+                                    <span>In Stock Only</span>
+                                </label>
+                            </div>
+                        )}
+                    </div>
+
                     <div className="filter-right-group">
-                        <div className="sort-by-wrapper">
+                        <div className="sort-by-wrapper d-none d-md-flex">
                             <span className="sort-label">Sort by:</span>
                             <select
                                 className="sort-select"
@@ -289,13 +324,13 @@ export default function CollectionProducts() {
                         </div>
                     </div>
                 ) : displayedProducts.length > 0 ? (
-                    <div className="row g-4">
+                    <div className="row g-3 g-md-4">
                         {displayedProducts.map((product) => {
                             const variantId = product.variants?.nodes?.[0]?.id || product.id;
                             const isAdded = addedId === product.id;
 
                             return (
-                                <div className="col-lg-4 col-md-6" key={product.id}>
+                                <div className="col-6 col-lg-4" key={product.id}>
                                     <div className="neela-product-card">
                                         <Link to={`/product/${product.handle}`} className="neela-product-link">
                                             <div className="neela-img-wrapper">

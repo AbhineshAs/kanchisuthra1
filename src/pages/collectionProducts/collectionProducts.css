@@ -121,6 +121,37 @@
     font-size: 14px;
 }
 
+/* Mobile Filter Button matching screenshot */
+.mobile-filter-group {
+    position: relative;
+}
+
+.mobile-filter-btn {
+    background: transparent;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    color: #2b241d;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+}
+
+.mobile-filter-drawer-popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    z-index: 100;
+    min-width: 240px;
+}
+
 /* Product Cards Layout */
 .neela-product-card {
     background: #ffffff;
@@ -201,10 +232,15 @@
     background-color: #198754;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for Mobile, Tablet, & Ultra-wide */
 @media (max-width: 991px) {
+    .collection-detail-page {
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+
     .collection-detail-title {
-        font-size: 38px;
+        font-size: 34px;
     }
 
     .neela-img-wrapper {
@@ -213,19 +249,91 @@
 }
 
 @media (max-width: 576px) {
+    .collection-detail-title {
+        font-size: 30px;
+        margin-bottom: 10px !important;
+    }
+
+    .collection-detail-desc {
+        font-size: 14.5px;
+        line-height: 1.65;
+    }
+
     .collection-filter-bar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 0;
+        margin-bottom: 22px !important;
+    }
+
+    .filter-left-group {
+        gap: 14px;
+        width: auto;
+    }
+
+    .filter-right-group {
+        gap: 14px;
+        width: auto;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .filter-label, .sort-label {
+        font-size: 13.5px;
+    }
+
+    .filter-btn, .sort-select, .product-count-label {
+        font-size: 13.5px;
     }
 
     .neela-img-wrapper {
-        height: 320px;
+        height: 290px;
+    }
+
+    .neela-product-info {
+        padding: 10px 4px 6px;
+    }
+
+    .neela-product-title {
+        font-size: 14px;
+        line-height: 1.35;
+        margin-bottom: 4px;
+    }
+
+    .neela-product-price {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .neela-add-btn {
+        font-size: 11px;
+        padding: 10px 6px;
+        letter-spacing: 1px;
+    }
+
+    .coming-soon-card {
+        padding: 35px 20px;
+    }
+
+    .coming-soon-heading {
+        font-size: 32px;
+    }
+
+    .coming-soon-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .coming-soon-submit-btn {
+        width: 100%;
     }
 }
 
 /* Coming Soon Block */
 .coming-soon-wrapper {
-    padding: 60px 20px;
+    padding: 40px 15px;
 }
 
 .coming-soon-card {

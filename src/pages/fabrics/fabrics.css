@@ -291,8 +291,12 @@
 
 /* Responsive adjustments */
 @media (max-width: 991px) {
+    .materials-hero {
+        padding: 60px 0 40px;
+    }
+
     .materials-hero h1 {
-        font-size: 38px;
+        font-size: 36px;
     }
 
     .specs-grid {
@@ -301,5 +305,45 @@
 
     .material-img-wrapper {
         height: 280px;
+    }
+}
+
+@media (max-width: 576px) {
+    .materials-hero h1 {
+        font-size: 28px;
+    }
+
+    .hero-desc {
+        font-size: 14.5px;
+    }
+
+    .material-tabs-wrapper {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+    }
+
+    .material-tab-btn {
+        white-space: nowrap;
+        font-size: 10.5px;
+        padding: 8px 16px;
+    }
+
+    .material-card-content {
+        padding: 22px 18px;
+    }
+
+    .material-card-content h3 {
+        font-size: 22px;
+    }
+
+    .purity-card {
+        padding: 28px 20px;
+    }
+
+    .section-header-purity h2 {
+        font-size: 30px;
     }
 }

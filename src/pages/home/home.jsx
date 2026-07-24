@@ -1,126 +1,34 @@
 import "./home.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { shopifyFetch } from "../../api/shopify";
 import banner from "../../assets/images/home-banner.png";
-import { useCart } from "../../context/cartContext";
-
-const bestSellers = [
-    {
-        id: "b1",
-        title: "Royal Golden Mustard Kanjivaram Silk Saree",
-        handle: "kanjivaram-golden-mustard",
-        price: 23000,
-        tag: "SILK MARK CERTIFIED",
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-        id: "b2",
-        title: "Vermilion Crimson Red Kanjivaram Zari Saree",
-        handle: "vermilion-red-kanjivaram",
-        price: 28500,
-        tag: "BRIDAL FAVORITE",
-        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-        id: "b3",
-        title: "Deep Emerald Green Korvai Silk Saree",
-        handle: "emerald-korvai-silk",
-        price: 25000,
-        tag: "KORVAI HANDLOOM",
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop"
-    }
-];
-
-const customerReviews = [
-    {
-        id: "r1",
-        name: "Dr. Ananya Nair",
-        location: "Kochi, Kerala",
-        rating: 5,
-        saree: "Royal Golden Mustard Kanjivaram",
-        review: "The silk quality is utterly divine. The gold zari has a soft, regal luster that looks even more breathtaking in person. Truly an heirloom piece!",
-        img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop"
-    },
-    {
-        id: "r2",
-        name: "Meera Ramakrishnan",
-        location: "Chennai, Tamil Nadu",
-        rating: 5,
-        saree: "Deep Emerald Korvai Silk",
-        review: "Ordered for my sister’s Muhurtham. The Korvai border interlocking is flawlessness personified. Arrived beautifully wrapped in breathable cotton packaging.",
-        img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop"
-    },
-    {
-        id: "r3",
-        name: "Pooja Menon",
-        location: "Dubai, UAE",
-        rating: 5,
-        saree: "Turquoise Kanchi Silk Cotton",
-        review: "Express international delivery to Dubai took just 3 days! Light, breathable, yet looks incredibly opulent. Kanchisuthra is my go-to for authentic weaves.",
-        img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&auto=format&fit=crop"
-    }
-];
-
 const Home = () => {
-    const { addProduct } = useCart();
-    const [addedId, setAddedId] = useState(null);
 
-    const handleQuickAdd = async (product) => {
-        setAddedId(product.id);
-        await addProduct(product.id);
-        setTimeout(() => setAddedId(null), 1500);
-    };
 
     return (
-        <div className="home-page-attractive">
-
-            {/* Announcement Ticker Bar */}
-            <div className="announcement-marquee-bar">
-                <div className="marquee-content">
-                    <span>✦ 100% PURE MULBERRY SILK (SILK MARK GUARANTEED)</span>
-                    <span>✦ FREE EXPRESS SHIPPING ACROSS INDIA & OVERSEAS</span>
-                    <span>✦ DIRECT FROM 360+ MASTER WEAVERS IN KANCHIPURAM</span>
-                    <span>✦ BESPOKE BRIDAL CONSULTATION & TAILORING AVAILABLE</span>
-                    <span>✦ 100% PURE MULBERRY SILK (SILK MARK GUARANTEED)</span>
-                </div>
-            </div>
+        <>
 
             {/* Hero Section */}
-            <section className="hero-section" style={{ backgroundImage: `url(${banner})` }}>
+            < section className="hero-section" style={{
+                backgroundImage: `url(${banner})`,
+            }} >
                 <div className="hero-overlay"></div>
 
                 <div className="container h-100">
                     <div className="row h-100 justify-content-center align-items-center text-center">
-                        <div className="col-lg-9">
-                            <div className="hero-glass-card">
-                                <div className="hero-rating-badge">
-                                    <span className="stars">★★★★★</span>
-                                    <span>4.9 / 5 (2,400+ Verified Connoisseurs)</span>
-                                </div>
+                        <div className="col-lg-8 hero-content">
+                            <span className="hero-subtitle">
+                                THE THREAD OF KANCHI • HANDLOOM HERITAGE
+                            </span>
 
-                                <span className="hero-subtitle">
-                                    THE THREAD OF KANCHI • HANDLOOM HERITAGE
-                                </span>
+                            <h4 className="hero-title">
+                                KANCHISUTHRA: WOVEN WITH MEMORY, WORN WITH QUIET CONFIDENCE
+                            </h4>
 
-                                <h1 className="hero-title">
-                                    Woven with Memory, <br />
-                                    Worn with <em>Quiet Confidence.</em>
-                                </h1>
-
-                                <p className="hero-desc-text">
-                                    Curated handwoven silk & cotton masterpieces directly from Kanchipuram loom masters.
-                                </p>
-
-                                <div className="hero-btn-group">
-                                    <Link to="/collection" className="btn-hero-primary">
-                                        EXPLORE COLLECTIONS
-                                        <i className="bi bi-arrow-right ms-2"></i>
-                                    </Link>
-                                    <Link to="/our-story" className="btn-hero-secondary">
-                                        OUR STORY
-                                    </Link>
-                                </div>
-                            </div>
+                            <button className="hero-btn" onClick={() => window.location.href = '/collection'}>
+                                EXPLORE HANDLOOM COLLECTIONS
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -128,144 +36,294 @@ const Home = () => {
                 <div className="scroll-down">
                     <i className="bi bi-chevron-down"></i>
                 </div>
-            </section>
-
-            {/* Customer Value Pillars Banner */}
-            <section className="value-pillars-strip">
+            </section >
+            <section className="featured-section">
                 <div className="container">
-                    <div className="row g-4">
-                        <div className="col-lg-3 col-6">
-                            <div className="pillar-item">
-                                <i className="bi bi-patch-check-fill pillar-icon"></i>
-                                <div>
-                                    <h5>Silk Mark Certified</h5>
-                                    <p>100% Pure Mulberry Silk Guaranteed</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="col-lg-3 col-6">
-                            <div className="pillar-item">
-                                <i className="bi bi-truck pillar-icon"></i>
-                                <div>
-                                    <h5>Express Delivery</h5>
-                                    <p>Safe Global & Domestic Shipping</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="text-center mb-5">
+                        <h5 className="featured-heading">
+                            A Celebration of Handloom & Heritage
+                        </h5>
 
-                        <div className="col-lg-3 col-6">
-                            <div className="pillar-item">
-                                <i className="bi bi-scissors pillar-icon"></i>
-                                <div>
-                                    <h5>Bespoke Stitching</h5>
-                                    <p>Custom Blouse Tailoring Service</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div className="divider"></div>
 
-                        <div className="col-lg-3 col-6">
-                            <div className="pillar-item">
-                                <i className="bi bi-whatsapp pillar-icon"></i>
-                                <div>
-                                    <h5>Concierge Support</h5>
-                                    <p>Direct Assistance via WhatsApp</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Customer Favorite Bestsellers */}
-            <section className="bestsellers-section">
-                <div className="container">
-                    <div className="text-center section-header-attractive mb-5">
-                        <span className="sub-tag">ICONIC HANDLOOM CURATION</span>
-                        <h2>Most Loved Heirlooms</h2>
-                        <div className="gold-accent-line mx-auto mt-2"></div>
+                        <p className="featured-text">
+                            "A handloom saree is never just fabric. It carries the memory of the hands that wove it, the tradition of its origin, and the story of every woman who wears it."
+                        </p>
                     </div>
 
                     <div className="row g-4">
-                        {bestSellers.map((item) => {
-                            const isAdded = addedId === item.id;
-                            return (
-                                <div className="col-lg-4 col-md-6" key={item.id}>
-                                    <div className="attractive-product-card">
-                                        <Link to={`/product/${item.handle}`} className="card-image-link">
-                                            <div className="product-img-holder">
-                                                <img src={item.image} alt={item.title} className="product-main-img" />
-                                                <span className="product-badge">{item.tag}</span>
-                                            </div>
 
-                                            <div className="product-details-box">
-                                                <h4>{item.title}</h4>
-                                                <div className="product-price">
-                                                    Rs. {item.price.toLocaleString('en-IN')}.00
-                                                </div>
-                                            </div>
-                                        </Link>
+                        <div className="col-md-4">
+                            <Link to="/collection" className="product-card d-block text-decoration-none">
+                                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" alt="Cream Kanjivaram" />
 
-                                        <div className="card-action-bar px-3 pb-3">
-                                            <button
-                                                className={`btn-add-bag-attractive ${isAdded ? "added" : ""}`}
-                                                onClick={() => handleQuickAdd(item)}
-                                            >
-                                                <i className={`bi ${isAdded ? "bi-check-lg" : "bi-bag-plus"} me-2`}></i>
-                                                {isAdded ? "ADDED TO BAG" : "ADD TO BAG"}
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
+                                <span>NEW ARRIVAL</span>
+
+                                <h4>Cream Kanjivaram</h4>
+
+                                <p>Rs. 23,000.00</p>
+                            </Link>
+                        </div>
+
+                        <div className="col-md-4">
+                            <Link to="/collection" className="product-card center-card d-block text-decoration-none">
+                                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" alt="Vermilion Red" />
+
+                                <span>ICONIC COLLECTION</span>
+
+                                <h4>Vermilion Red</h4>
+
+                                <p>Rs. 27,000.00</p>
+                            </Link>
+                        </div>
+
+                        <div className="col-md-4">
+                            <Link to="/collection" className="product-card d-block text-decoration-none">
+                                <img src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=800&auto=format&fit=crop" alt="Ivory Kanchi Organza" />
+
+                                <span>SIGNATURE SERIES</span>
+
+                                <h4>Ivory Kanchi Organza</h4>
+
+                                <p>Rs. 24,000.00</p>
+                            </Link>
+                        </div>
+
+                        <div className="text-center mt-4">
+                            <Link to="/collection" className="btn btn-outline-dark rounded-pill px-4 py-2 text-uppercase fw-semibold" style={{ fontSize: "13px", letterSpacing: "1px" }}>
+                                View All New Arrivals <i className="bi bi-arrow-right ms-1"></i>
+                            </Link>
+                        </div>
                     </div>
 
-                    <div className="text-center mt-5">
-                        <Link to="/collection" className="btn-view-all-collections">
-                            VIEW ALL HANDLOOM EDITS
-                            <i className="bi bi-arrow-right ms-2"></i>
-                        </Link>
-                    </div>
                 </div>
             </section>
-
-            {/* Verified Customer Love / Reviews */}
-            <section className="reviews-section py-5">
+            <section className="instagram-section">
                 <div className="container">
-                    <div className="text-center section-header-attractive mb-5">
-                        <span className="sub-tag">VERIFIED REVIEWS</span>
-                        <h2>Reflections of Sisterhood</h2>
-                        <p className="text-muted">Read stories from women who wear Kanchisuthra with pride.</p>
-                    </div>
+                    <div className="row align-items-center">
 
-                    <div className="row g-4">
-                        {customerReviews.map((rev) => (
-                            <div className="col-lg-4 col-md-6" key={rev.id}>
-                                <div className="review-card">
-                                    <div className="review-stars">★★★★★</div>
-                                    <p className="review-text">"{rev.review}"</p>
-                                    <div className="review-saree-tag">
-                                        <i className="bi bi-bag-check me-1"></i> {rev.saree}
-                                    </div>
-                                    <div className="review-author mt-3">
-                                        <img src={rev.img} alt={rev.name} className="author-avatar" />
-                                        <div>
-                                            <h5>{rev.name}</h5>
-                                            <small>{rev.location}</small>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div className="col-lg-6 mb-4 mb-lg-0">
+                            <div className="instagram-image">
+                                <img
+                                    src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop"
+                                    alt="Community Highlight"
+                                    className="img-fluid"
+                                />
                             </div>
-                        ))}
+                        </div>
+
+                        <div className="col-lg-6">
+                            <div className="instagram-content">
+
+                                <h2>
+                                    Where the <span>Story</span> Continues
+                                </h2>
+
+                                <p>
+                                    Join 100K+ saree lovers on Instagram for daily drops,
+                                    exclusive edits, artisan stories, or simply to chat
+                                    with us about all things silk. Every thread has a tale
+                                    to tell.
+                                </p>
+
+                                <button className="instagram-btn">
+                                    FOLLOW US ON INSTAGRAM
+                                </button>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
+            <section className="testimonial-section">
+                <div className="container">
 
-            {/* Visit Thrissur Studio */}
-            <section className="visit-section py-5">
+                    <div className="text-center mb-5">
+                        <h5 className="section-title">Customer Love & Reflections</h5>
+                        <div className="divider"></div>
+                    </div>
+
+                    <div className="testimonial-card">
+
+                        <div className="row align-items-center">
+
+                            <div className="col-lg-4 text-center">
+                                <img
+                                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop"
+                                    alt="Client Story"
+                                    className="customer-img"
+                                />
+                            </div>
+
+                            <div className="col-lg-8">
+
+                                <div className="quote-icon">
+                                    <i className="bi bi-quote"></i>
+                                </div>
+
+                                <h2 className="testimonial-text">
+                                    "A Kanchisuthra saree is never just fabric. Slipping into one carries the memory of master weaver hands and the quiet confidence of pure heritage."
+                                </h2>
+
+                                <div className="customer-name">
+                                    <span></span>
+                                    MODERN KERALA MUSE
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <section className="heritage-section">
+                <div className="container">
+                    <div className="row align-items-center">
+
+                        {/* Left Content */}
+                        <div className="col-lg-5">
+                            <div className="heritage-content">
+
+                                <h2>
+                                    The Unbroken Thread of Heritage & Sisterhood.
+                                </h2>
+
+                                <p>
+                                    Founded in Thrissur, Kerala, by sisters Greeshma and Dr. Lakshmi, Kanchisuthra was born from a shared belief: a handloom saree is a living archive. It carries the memory of the hands that wove it and the story of every woman who wears it.
+                                </p>
+
+                                <p>
+                                    The name <em>Kanchisuthra</em> means the sacred thread of Kanchi — an unbroken bond connecting the master weaver's wooden loom directly to your hands. We choose small, considered quantities and slow craft over volume.
+                                </p>
+
+                                <a href="/heritage" className="heritage-btn">
+                                    Read The Kanchisuthra Story
+                                </a>
+
+                            </div>
+                        </div>
+
+                        {/* Right Image */}
+                        <div className="col-lg-7 text-center">
+                            <img
+                                src="https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1200&auto=format&fit=crop"
+                                alt="Heritage"
+                                className="img-fluid heritage-image"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section className="knowledge-section">
+                <div className="container">
+
+                    <div className="text-center mb-5">
+                        <h2 className="knowledge-title">Know Your Kanchisuthra</h2>
+                    </div>
+
+                    <div className="row g-5">
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="knowledge-card">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop"
+                                    alt="The Silks We Weave"
+                                    className="img-fluid"
+                                />
+
+                                <div className="knowledge-content">
+                                    <h3>The Silks We Weave</h3>
+
+                                    <p>
+                                        A tribute to time, tradition, and touch. Discover the intricate
+                                        details of Kanjivaram and Banarasi weaving.
+                                    </p>
+
+                                    <Link to="/fabrics">
+                                        READ MORE
+                                        <i className="bi bi-arrow-right ms-2"></i>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="knowledge-card">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop"
+                                    alt="Silk Saree After Care"
+                                    className="img-fluid"
+                                />
+
+                                <div className="knowledge-content">
+                                    <h3>Silk Saree After Care</h3>
+
+                                    <p>
+                                        Elegance maintained. Learn the professional secrets to keeping
+                                        your heritage pieces pristine.
+                                    </p>
+
+                                    <Link to="/craftsmanship">
+                                        KNOW MORE
+                                        <i className="bi bi-arrow-right ms-2"></i>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6 mx-md-auto">
+                            <div className="knowledge-card">
+
+                                <img
+                                    src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=800&auto=format&fit=crop"
+                                    alt="Understanding Silk"
+                                    className="img-fluid"
+                                />
+
+                                <div className="knowledge-content">
+                                    <h3>Understanding Silk</h3>
+
+                                    <p>
+                                        A connoisseur's guide to India's finest weaves. From thread counts
+                                        to zari purity, learn it all.
+                                    </p>
+
+                                    <Link to="/heritage">
+                                        READ MORE
+                                        <i className="bi bi-arrow-right ms-2"></i>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <section
+                className="visit-section py-5"
+                style={{
+                    backgroundImage: `linear-gradient(to right, rgba(26, 22, 18, 0.88), rgba(26, 22, 18, 0.45)), url(https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1600&auto=format&fit=crop)`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    minHeight: "550px",
+                    display: "flex",
+                    alignItems: "center"
+                }}
+            >
                 <div className="container py-4">
                     <div className="row align-items-center gy-4">
+
                         <div className="col-lg-5 col-md-8">
                             <div className="visit-card card border-0 rounded-4 p-4 p-md-5 shadow-lg" style={{ borderTop: "4px solid #c79d67", background: "rgba(255, 255, 255, 0.96)" }}>
                                 <span className="text-uppercase small fw-semibold mb-2" style={{ color: "#c79d67", letterSpacing: "2px" }}>
@@ -300,7 +358,7 @@ const Home = () => {
                                     </a>
 
                                     <Link
-                                        to="/our-story"
+                                        to="/heritage"
                                         className="btn-store btn btn-outline-dark px-4 py-2 rounded-3 text-uppercase fw-semibold"
                                         style={{ fontSize: "13px" }}
                                     >
@@ -335,10 +393,11 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     );
 };
 
