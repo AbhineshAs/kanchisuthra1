@@ -210,17 +210,30 @@ body {
     justify-content: center;
 }
 
+.header-brand-logo a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    outline: none;
+}
+
 .brand-logo-img {
     height: 65px;
     object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(8%) sepia(85%) saturate(5500%) hue-rotate(330deg) brightness(50%) contrast(125%);
+    filter: invert(10%) sepia(60%) saturate(3500%) hue-rotate(330deg) brightness(30%) contrast(150%);
     transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
 }
 
 .brand-logo-img:hover,
-.header-brand-logo:hover .brand-logo-img {
-    transform: scale(1.05);
-    filter: brightness(0) saturate(100%) invert(12%) sepia(90%) saturate(6000%) hue-rotate(335deg) brightness(75%) contrast(125%);
+.brand-logo-img:active,
+.brand-logo-img:focus,
+.header-brand-logo a:hover .brand-logo-img,
+.header-brand-logo a:active .brand-logo-img,
+.header-brand-logo a:focus .brand-logo-img {
+    transform: scale(1.04);
+    opacity: 0.95;
+    filter: invert(12%) sepia(70%) saturate(4000%) hue-rotate(335deg) brightness(40%) contrast(150%) !important;
 }
 
 /* ------------------------------------------
