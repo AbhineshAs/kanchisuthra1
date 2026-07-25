@@ -12,7 +12,7 @@ const shopCategories = [
         name: "SILK",
         path: "/collection/kanchivaram-silk",
         subcategories: [
-            { name: "Kanchivaram Silks", path: "/collection/kanchivaram-silk" }
+            { name: "Kanchivaram Silk", path: "/collection/kanchivaram-silk" }
         ]
     },
     {
