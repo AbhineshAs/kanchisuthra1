@@ -42,12 +42,6 @@ const occasionCategories = [
     { name: "Muhurta", path: "/occasion/muhurta" }
 ];
 
-const currencies = [
-    { label: "INR ₹ | India", code: "INR" },
-    { label: "USD $ | United States", code: "USD" },
-    { label: "EUR € | Europe", code: "EUR" },
-    { label: "GBP £ | United Kingdom", code: "GBP" }
-];
 
 const Header = () => {
     const { cart } = useCart();
@@ -59,8 +53,6 @@ const Header = () => {
 
     // Dropdown states
     const [expandedShopCat, setExpandedShopCat] = useState("silk");
-    const [showCurrency, setShowCurrency] = useState(false);
-    const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
 
     // Mobile accordion states
     const [mobileShopOpen, setMobileShopOpen] = useState(false);
@@ -199,33 +191,7 @@ const Header = () => {
                     {/* Desktop Right Utilities */}
                     <div className="header-nav-right">
 
-                        {/* Currency Selector */}
-                        <div className="currency-selector-wrapper">
-                            <button
-                                className="currency-btn"
-                                onClick={() => setShowCurrency(!showCurrency)}
-                            >
-                                {selectedCurrency.label}
-                                <i className="bi bi-chevron-down ms-1"></i>
-                            </button>
 
-                            {showCurrency && (
-                                <div className="currency-dropdown-menu">
-                                    {currencies.map((curr, idx) => (
-                                        <div
-                                            key={idx}
-                                            className={`currency-option ${selectedCurrency.code === curr.code ? "selected" : ""}`}
-                                            onClick={() => {
-                                                setSelectedCurrency(curr);
-                                                setShowCurrency(false);
-                                            }}
-                                        >
-                                            {curr.label}
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
 
                         {/* Search Icon */}
                         <button
