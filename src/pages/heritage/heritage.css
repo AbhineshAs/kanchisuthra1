@@ -17,7 +17,6 @@
 }
 
 .heritage-heading h1 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 72px;
     color: #2b241d;
 }
@@ -59,7 +58,6 @@
 }
 
 .origin-content h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 52px;
     color: #2b241d;
 }
@@ -101,7 +99,6 @@
 }
 
 .craft-section h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 48px;
     color: #2b241d;
     margin: 15px 0 25px;
@@ -120,7 +117,6 @@
 }
 
 .craft-stats h3 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 42px;
     color: #b88732;
     margin-bottom: 4px;
@@ -153,7 +149,6 @@
 }
 
 .petni-content h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 46px;
     color: #2b241d;
     margin: 15px 0 25px;
@@ -188,7 +183,6 @@
 }
 
 .kanchi-story h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 54px;
     color: #2b241d;
     margin-bottom: 70px;
@@ -249,7 +243,6 @@
 }
 
 .story-quote {
-    font-family: "Cormorant Garamond", serif;
     font-size: 24px;
     font-style: italic;
     color: #2b241d;
@@ -265,7 +258,6 @@
 }
 
 .preserving-art h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 54px;
     color: #2b241d;
     margin-top: 12px;
@@ -301,7 +293,6 @@
 }
 
 .preserving-content h3 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 38px;
     color: #2b241d;
     margin-bottom: 18px;
@@ -323,13 +314,11 @@
 }
 
 .care-section .section-header h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 48px;
     color: #2b241d;
 }
 
 .care-subtitle {
-    font-family: "Cormorant Garamond", serif;
     font-size: 28px;
     color: #b88732;
     margin: 15px 0 20px;
@@ -363,7 +352,6 @@
 }
 
 .care-card h4 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 22px;
     color: #2b241d;
     margin-bottom: 12px;
@@ -397,7 +385,6 @@
 }
 
 .quote-wrapper blockquote {
-    font-family: "Cormorant Garamond", serif;
     font-size: 48px;
     line-height: 1.3;
     font-style: italic;
@@ -443,7 +430,6 @@
 }
 
 .heritage-newsletter h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 46px;
     margin-bottom: 45px;
 }

@@ -25,7 +25,6 @@
 }
 
 .materials-hero h1 {
-    font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 54px;
     font-weight: 400;
     color: #2b241d;
@@ -144,7 +143,6 @@
 }
 
 .material-card-content h3 {
-    font-family: "Jost", sans-serif;
     font-size: 28px;
     color: #2b241d;
     margin-bottom: 14px;
@@ -217,7 +215,6 @@
 }
 
 .section-header-purity h2 {
-    font-family: "Jost", sans-serif;
     font-size: 44px;
     color: #2b241d;
 }
@@ -265,7 +262,6 @@
 }
 
 .purity-card h3 {
-    font-family: "Jost", sans-serif;
     font-size: 26px;
     color: #2b241d;
     margin-bottom: 22px;

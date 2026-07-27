@@ -20,7 +20,6 @@
 }
 
 .checkout-main-title {
-    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 42px;
     color: #2b231d;
     font-weight: 600;
@@ -96,7 +95,6 @@
 }
 
 .summary-title {
-    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 26px;
     color: #2b231d;
     border-color: #efe7dc !important;

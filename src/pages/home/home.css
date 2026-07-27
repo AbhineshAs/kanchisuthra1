@@ -30,7 +30,6 @@
 }
 
 .hero-title {
-    font-family: "Cormorant Garamond", serif;
     font-size: 34px;
     font-weight: 500;
     margin-bottom: 35px;
@@ -91,7 +90,6 @@
 }
 
 .featured-heading {
-    font-family: "Cormorant Garamond", serif;
     font-size: 30px;
     color: #3d2f24;
 }
@@ -104,7 +102,6 @@
 }
 
 .featured-text {
-    font-family: "Cormorant Garamond", serif;
     font-style: italic;
     color: #7b6656;
     font-size: 18px;
@@ -135,7 +132,6 @@
 
 .product-card h4 {
     margin: 10px 0;
-    font-family: "Cormorant Garamond", serif;
     font-size: 30px;
     color: #2e241d;
 }
@@ -174,7 +170,6 @@
 }
 
 .instagram-content h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 34px;
     color: #2e241d;
     margin-bottom: 25px;
@@ -233,7 +228,6 @@
 }
 
 .section-title {
-    font-family: "Cormorant Garamond", serif;
     font-size: 26px;
     color: #2f241d;
 }
@@ -257,7 +251,6 @@
 }
 
 .testimonial-text {
-    font-family: "Cormorant Garamond", serif;
     font-size: 42px;
     font-style: italic;
     font-weight: 400;
@@ -316,7 +309,6 @@
 }
 
 .heritage-content h2 {
-    /* font-family: "Cormorant Garamond", serif; */
     font-size: 34px;
     margin-bottom: 30px;
 }
@@ -376,7 +368,6 @@
 }
 
 .knowledge-title {
-    font-family: "Cormorant Garamond", serif;
     font-size: 34px;
     color: #2d241d;
     margin-bottom: 60px;
@@ -394,7 +385,6 @@
 }
 
 .knowledge-content h3 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 30px;
     margin-bottom: 18px;
     color: #2d241d;
@@ -474,7 +464,6 @@
 }
 
 .visit-card h5 {
-    /* font-family: "Cormorant Garamond", serif; */
     font-size: 26px;
     margin-bottom: 30px;
     color: #2c241c;

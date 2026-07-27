@@ -35,7 +35,6 @@
 }
 
 .hero-content h1 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 72px;
     margin-bottom: 25px;
     font-weight: 500;
@@ -132,14 +131,12 @@
 }
 
 .collection-content h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 48px;
     color: #7c5a13;
     margin-bottom: 20px;
 }
 
 .collection-content blockquote {
-    font-family: "Cormorant Garamond", serif;
     font-style: italic;
     color: #5d4d3d;
     margin-bottom: 25px;
@@ -203,7 +200,6 @@
 }
 
 .wardrobe-support h2 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 54px;
     color: #7b5c18;
     margin-bottom: 20px;
@@ -237,7 +233,6 @@
 }
 
 .support-card h5 {
-    font-family: "Cormorant Garamond", serif;
     font-size: 24px;
     margin-bottom: 12px;
     color: #2c241d;
