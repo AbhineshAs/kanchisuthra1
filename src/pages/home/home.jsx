@@ -313,7 +313,6 @@ const Home = () => {
             <section
                 className="visit-section py-5"
                 style={{
-                    backgroundImage: `linear-gradient(to right, rgba(26, 22, 18, 0.88), rgba(26, 22, 18, 0.45)), url(https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1600&auto=format&fit=crop)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     minHeight: "550px",
@@ -368,14 +367,14 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="col-lg-7 text-white ps-lg-5 d-none d-lg-block">
-                            <span className="badge border text-light px-3 py-2 rounded-pill mb-3" style={{ letterSpacing: "2px", backgroundColor: "rgba(199, 157, 103, 0.3)" }}>
+                        <div className="col-lg-7  ps-lg-5 d-none d-lg-block">
+                            <span className=" border  px-3 py-2 rounded-pill mb-3" style={{ letterSpacing: "2px" }}>
                                 SLOW CRAFT BOUTIQUE
                             </span>
-                            <h2 className="display-5 font-serif fw-bold text-white mb-3" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                            <h2 className="display-5  fw-bold  mb-3">
                                 Experience Handloom Up Close
                             </h2>
-                            <p className="lead text-light opacity-75 mb-4" style={{ fontSize: "17px", lineHeight: "1.8" }}>
+                            <p className="lead  opacity-75 mb-4" style={{ fontSize: "17px", lineHeight: "1.8" }}>
                                 Step into our Thrissur sanctuary. Touch pure mulberry silk, view raw gold zari threads, and experience the quiet elegance of Kerala's finest curated handlooms.
                             </p>
                             <div className="d-flex gap-4 pt-2">

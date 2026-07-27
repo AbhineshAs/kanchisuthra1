@@ -308,22 +308,21 @@
 ========================== */
 
 .heritage-section {
-    background: #302c23;
     padding: 120px 0;
 }
 
 .heritage-content {
-    color: #f5efe4;
+    /* color: #f5efe4; */
 }
 
 .heritage-content h2 {
-    font-family: "Cormorant Garamond", serif;
+    /* font-family: "Cormorant Garamond", serif; */
     font-size: 34px;
     margin-bottom: 30px;
 }
 
 .heritage-content p {
-    color: #d6cdbd;
+    /* color: #d6cdbd; */
     line-height: 2;
     margin-bottom: 25px;
     font-size: 15px;
@@ -452,7 +451,6 @@
     background-position: center;
     position: relative;
     padding: 80px 0;
-    background: rgba(248, 243, 235, .15);
 
 }
 
@@ -476,7 +474,7 @@
 }
 
 .visit-card h5 {
-    font-family: "Cormorant Garamond", serif;
+    /* font-family: "Cormorant Garamond", serif; */
     font-size: 26px;
     margin-bottom: 30px;
     color: #2c241c;
