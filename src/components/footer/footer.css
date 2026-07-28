@@ -1,5 +1,5 @@
 .footer {
-    background: #f5eee5;
+    background: #eae2d9;
     color: #2f2f2f;
     padding: 70px 0 35px;
 }
@@ -23,6 +23,7 @@
     letter-spacing: 4px;
     margin-bottom: 18px;
     font-weight: 500;
+    text-align: left;
 }
 
 .footer-brand p {
@@ -30,6 +31,7 @@
     line-height: 1.8;
     color: #555;
     max-width: 330px;
+    text-align: left;
 }
 
 .social-icons {

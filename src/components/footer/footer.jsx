@@ -10,11 +10,10 @@ const Footer = () => {
 
                     {/* Brand */}
                     <div className="footer-brand">
-                        <h2>KANCHISUTHRA</h2>
+                        <h2>OurStory</h2>
 
                         <p>
-                            Curating a pristine taste profile that embodies everything good
-                            about the past, for the evolving present and the future heritage.
+                            Kanchisutra is a celebration of handloom, heritage, and the quiet confidence of a woman who knows what she is wearing. Founded by sisters Greeshma and Dr. Lakshmi from Thrissur, Kerala, the brand was born from a shared belief — that a handloom saree is never just fabric. It carries the memory of the hands that wove it, the tradition of the region it came from, and the story of every woman who has worn it before you.
                         </p>
 
                         <div className="social-icons">
