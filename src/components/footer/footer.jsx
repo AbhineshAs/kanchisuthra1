@@ -17,7 +17,7 @@ const Footer = () => {
                         </p>
 
                         <div className="social-icons">
-                            <a href="#">
+                            <a href="https://www.instagram.com/kanchisutra/?utm_source=ig_web_button_share_sheet">
                                 <i className="bi bi-instagram"></i>
                             </a>
 
