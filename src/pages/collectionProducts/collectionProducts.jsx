@@ -3,6 +3,10 @@ import { shopifyFetch } from "../../api/shopify";
 import { useCart } from "../../context/cartContext";
 import { Link, useParams } from "react-router-dom";
 import "./collectionProducts.css";
+import praveshBanner from "../../assets/images/pravesh.png";
+import nithyaBanner from "../../assets/images/nithya.png";
+import saarBanner from "../../assets/images/saar.png";
+import muhurtaBanner from "../../assets/images/muhurta.png";
 
 const categoryDetailsMap = {
     "kanchivaram-silk": {
@@ -51,6 +55,8 @@ const categoryDetailsMap = {
     },
     "pravesh": {
         title: "Pravesh",
+        banner: praveshBanner,
+        subtitle: "Celebrate new beginnings with timeless weaves.",
         descriptionHtml: "Our <strong>Pravesh Festive Edit</strong> brings together <strong>vibrant ceremonial hues, rich contrast borders, and radiant zari accents</strong>, created to grace housewarmings, family gatherings, and joyful celebrations.",
         fallbackProducts: [
             { id: "pr1", title: "Festive Emerald & Ruby Silk Saree", handle: "festive-emerald-ruby-silk", price: 22000, image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop" },
@@ -59,6 +65,8 @@ const categoryDetailsMap = {
     },
     "nithya": {
         title: "Nithya",
+        banner: nithyaBanner,
+        subtitle: "Everyday elegance woven for modern living.",
         descriptionHtml: "Designed for effortless everyday wear, the <strong>Nithya Edit</strong> features <strong>breathable handloom textures, lightweight silk-cotton weaves, and subtle borders</strong> for quiet daily confidence.",
         fallbackProducts: [
             { id: "n1", title: "Nithya Everyday Soft Silk Cotton Saree", handle: "pratidina-daily-silk-cotton", price: 7800, image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=800&auto=format&fit=crop" },
@@ -67,6 +75,8 @@ const categoryDetailsMap = {
     },
     "saar": {
         title: "Saar",
+        banner: saarBanner,
+        subtitle: "Handcrafted masterpieces inspired by tradition.",
         descriptionHtml: "The <strong>Saar Special Edit</strong> highlights <strong>rare archival motifs, experimental color pairings, and limited-edition weaves</strong> crafted by master loom artists for true textile connoisseurs.",
         fallbackProducts: [
             { id: "sr1", title: "Saar Limited Masterpiece Kanjivaram", handle: "saar-limited-masterpiece-kanjivaram", price: 42000, image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=800&auto=format&fit=crop" }
@@ -74,6 +84,8 @@ const categoryDetailsMap = {
     },
     "muhurta": {
         title: "Muhurta",
+        banner: muhurtaBanner,
+        subtitle: "A masterpiece of heritage, made for the bride who carries tradition forward.",
         descriptionHtml: "Our <strong>Muhurta Bridal Edit</strong> features <strong>sacred gold zari work, traditional Korvai interlocking, and regal ceremonial silk</strong>, curated to illuminate your most sacred wedding milestones.",
         fallbackProducts: [
             { id: "m1", title: "Regal Gold Zari Muhurta Bridal Kanjivaram", handle: "regal-gold-muhurta-kanjivaram", price: 34000, image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" },
@@ -104,7 +116,7 @@ export default function CollectionProducts() {
             { id: "f3", title: "Tissue Silk Saree", handle: "tissue-silk-saree", price: 26000, image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" }
         ]
     };
-
+    const isOccasion = ["pravesh", "nithya", "saar", "muhurta"].includes(handle);
     useEffect(() => {
         async function loadCollection() {
             setLoading(true);
@@ -187,7 +199,7 @@ export default function CollectionProducts() {
             <div className="container">
 
                 {/* Left-Aligned Header Matching Screenshot */}
-                <div className="collection-detail-header mb-4">
+                {/* <div className="collection-detail-header mb-4">
                     <h1 className="collection-detail-title mb-3">
                         {titleText}
                     </h1>
@@ -198,8 +210,49 @@ export default function CollectionProducts() {
                             dangerouslySetInnerHTML={{ __html: descriptionContent }}
                         />
                     )}
-                </div>
+                </div> */}
+                {isOccasion ? (
 
+                    <section className="occasion-banner">
+
+                        <img
+                            src={activeMeta.banner}
+                            alt={titleText}
+                            className="occasion-banner-image"
+                        />
+
+                        <div className="occasion-banner-overlay">
+
+                            <div className="occasion-banner-content">
+
+                                <h1>{titleText}</h1>
+
+                                <p>{activeMeta.subtitle}</p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                ) : (
+
+                    <div className="collection-detail-header mb-4">
+
+                        <h1 className="collection-detail-title">
+                            {titleText}
+                        </h1>
+
+                        <p
+                            className="collection-detail-desc"
+                            dangerouslySetInnerHTML={{
+                                __html: descriptionContent
+                            }}
+                        />
+
+                    </div>
+
+                )}
                 {/* Filter and Sort Bar Matching Screenshot */}
                 <div className="collection-filter-bar mb-4">
                     {/* Desktop Filter Controls */}
