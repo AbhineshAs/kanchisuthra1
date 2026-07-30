@@ -18,7 +18,7 @@ import Product from "./pages/product/product";
 import Login from "./pages/login/login"
 import Signup from "./pages/signup/signup";
 import ForgotPassword from "./pages/forgotPassword/forgotPassword";
-
+import HeritageDetail from "./pages/heritage/heritageDetail"
 function App() {
 
   return (
@@ -51,6 +51,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/journal/:slug" element={<HeritageDetail />} />
 
 
       </Routes>

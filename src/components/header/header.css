@@ -232,8 +232,7 @@ body {
 .header-brand-logo a:active .brand-logo-img,
 .header-brand-logo a:focus .brand-logo-img {
     transform: scale(1.04);
-    opacity: 0.95;
-    filter: invert(12%) sepia(70%) saturate(4000%) hue-rotate(335deg) brightness(40%) contrast(150%) !important;
+    opacity: 1;
 }
 
 /* ------------------------------------------

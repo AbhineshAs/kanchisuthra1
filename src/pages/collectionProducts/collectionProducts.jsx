@@ -11,7 +11,7 @@ import muhurtaBanner from "../../assets/images/muhurta.png";
 const categoryDetailsMap = {
     "kanchivaram-silk": {
         title: "Kanchivaram Silks",
-        descriptionHtml: "Our <strong>Kanchivaram sarees</strong> are celebrated for their <strong>lustrous texture, intricate motifs, and contrasting borders</strong>, inspired by temple architecture, nature, and traditional artistry. Crafted using the <strong>Korvai weaving technique</strong>, the body and border are woven separately and interlocked with precision, ensuring a <strong>strong structure, graceful drape, and long-lasting durability</strong>.",
+        descriptionHtml: "",
         fallbackProducts: [
             { id: "k1", title: "Royal Golden Mustard Kanjivaram Silk Saree", handle: "kanjivaram-golden-mustard", price: 23000, image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" },
             { id: "k2", title: "Vermilion Crimson Red Kanjivaram Zari Saree", handle: "vermilion-red-kanjivaram", price: 28500, image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" },
@@ -23,7 +23,7 @@ const categoryDetailsMap = {
     },
     "kanchi-silk-cotton": {
         title: "Kanchi Silk Cotton",
-        descriptionHtml: "Handwoven in Kanchipuram, our <strong>Kanchi Silk Cotton sarees</strong> feature <strong>traditional temple zari borders on a soft, breathable silk-cotton blend body</strong>, combining the subtle luster of mulberry silk with all-day wearing comfort.",
+        descriptionHtml: "",
         fallbackProducts: [
             { id: "ksc1", title: "Turquoise Temple Border Kanchi Silk Cotton", handle: "turquoise-kanchi-silk-cotton", price: 9800, image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=800&auto=format&fit=crop" },
             { id: "ksc2", title: "Mustard Gold Traditional Kanchi Silk Cotton", handle: "kanchi-silk-cotton-mustard", price: 8500, image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop" }
@@ -31,7 +31,7 @@ const categoryDetailsMap = {
     },
     "kotta-silk-cotton": {
         title: "Kotta Silk Cotton",
-        descriptionHtml: "Characterized by <strong>translucent square check weaves and airy lightness</strong>, our <strong>Kotta Silk Cotton collection</strong> pairs delicate silk shimmer with cooling cotton yarn for effortless summer celebrations.",
+        descriptionHtml: "",
         fallbackProducts: [
             { id: "kt1", title: "Coral Pink Kotta Silk Cotton Checkered Saree", handle: "coral-kotta-silk-cotton", price: 8900, image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" },
             { id: "kt2", title: "Pastel Mint Kotta Silk Cotton Saree", handle: "kotta-silk-cotton-pink", price: 9200, image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=800&auto=format&fit=crop" }
@@ -39,7 +39,7 @@ const categoryDetailsMap = {
     },
     "kanchi-cotton": {
         title: "Kanchi Cotton",
-        descriptionHtml: "Woven on traditional handlooms in Kanchipuram, <strong>Kanchi Cotton sarees</strong> showcase <strong>heavy contrast zari borders and sacred temple motifs</strong>, delivering regal Kanjivaram dignity in lightweight, crisp cotton.",
+        descriptionHtml: "",
         fallbackProducts: [
             { id: "kc1", title: "Crimson Red Kanchi Cotton Temple Saree", handle: "crimson-kanchi-cotton", price: 5800, image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop" },
             { id: "kc2", title: "Crisp Emerald Green Kanchi Cotton Border Saree", handle: "crisp-kanchi-cotton", price: 5400, image: "https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=800&auto=format&fit=crop" }
@@ -47,7 +47,7 @@ const categoryDetailsMap = {
     },
     "kotta-cotton": {
         title: "Kotta Cotton",
-        descriptionHtml: "Crafted with <strong>delicate lattice checks and soothing natural yarn</strong>, our <strong>Kotta Cotton sarees</strong> offer supreme breathability, soft drape, and quiet elegance for daily rituals.",
+        descriptionHtml: "",
         fallbackProducts: [
             { id: "ktc1", title: "Soft Lavender Kotta Cotton Handloom Saree", handle: "lavender-kotta-cotton", price: 4600, image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=800&auto=format&fit=crop" },
             { id: "ktc2", title: "Fine Summer Check Kotta Cotton Saree", handle: "kotta-cotton-summer-saree", price: 4800, image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" }
@@ -196,10 +196,9 @@ export default function CollectionProducts() {
 
     return (
         <div className="collection-detail-page py-5">
-            <div className="container">
 
-                {/* Left-Aligned Header Matching Screenshot */}
-                {/* <div className="collection-detail-header mb-4">
+            {/* Left-Aligned Header Matching Screenshot */}
+            {/* <div className="collection-detail-header mb-4">
                     <h1 className="collection-detail-title mb-3">
                         {titleText}
                     </h1>
@@ -211,48 +210,51 @@ export default function CollectionProducts() {
                         />
                     )}
                 </div> */}
-                {isOccasion ? (
+            {isOccasion ? (
 
-                    <section className="occasion-banner">
+                <section className="occasion-banner">
 
-                        <img
-                            src={activeMeta.banner}
-                            alt={titleText}
-                            className="occasion-banner-image"
-                        />
+                    <img
+                        src={activeMeta.banner}
+                        alt={titleText}
+                        className="occasion-banner-image"
+                    />
 
-                        <div className="occasion-banner-overlay">
+                    <div className="occasion-banner-overlay">
 
-                            <div className="occasion-banner-content">
+                        <div className="occasion-banner-content">
 
-                                <h1>{titleText}</h1>
+                            <h1>{titleText}</h1>
 
-                                <p>{activeMeta.subtitle}</p>
-
-                            </div>
+                            <p>{activeMeta.subtitle}</p>
 
                         </div>
 
-                    </section>
-
-                ) : (
-
-                    <div className="collection-detail-header mb-4">
-
-                        <h1 className="collection-detail-title">
-                            {titleText}
-                        </h1>
-
-                        <p
-                            className="collection-detail-desc"
-                            dangerouslySetInnerHTML={{
-                                __html: descriptionContent
-                            }}
-                        />
-
                     </div>
 
-                )}
+                </section>
+
+            ) : (
+
+                <div className="collection-detail-header mb-4">
+
+                    <h1 className="collection-detail-title">
+                        {titleText}
+                    </h1>
+
+                    <p
+                        className="collection-detail-desc"
+                        dangerouslySetInnerHTML={{
+                            __html: descriptionContent
+                        }}
+                    />
+
+                </div>
+
+            )}
+
+            <div className="container">
+
                 {/* Filter and Sort Bar Matching Screenshot */}
                 <div className="collection-filter-bar mb-4">
                     {/* Desktop Filter Controls */}

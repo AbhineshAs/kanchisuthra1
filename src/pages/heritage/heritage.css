@@ -466,6 +466,11 @@
     color: #2b241d;
 }
 
+.read-more {
+    text-decoration: none;
+    color: #000;
+}
+
 @media(max-width:992px) {
     .heritage-heading h1 {
         font-size: 48px;
