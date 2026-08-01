@@ -19,6 +19,8 @@ import Login from "./pages/login/login"
 import Signup from "./pages/signup/signup";
 import ForgotPassword from "./pages/forgotPassword/forgotPassword";
 import HeritageDetail from "./pages/heritage/heritageDetail"
+import OrderSuccess from "./pages/orderSuccess/orderSuccess";
+
 function App() {
 
   return (
@@ -39,6 +41,7 @@ function App() {
           path="/checkout"
           element={<Checkout />}
         />
+        <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/profile" element={<Profile />} />
         {/* <Route path="/collection/:handle" element={<CollectionProducts />}
         /> */}
