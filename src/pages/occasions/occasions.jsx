@@ -2,7 +2,7 @@ import "./occasions.css";
 
 const collections = [
     {
-        title: "Muhūrta - Wedding Collection",
+        title: "Muhurta - Wedding Collection",
         category: "THE BRIDAL EDIT",
         image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop",
         reverse: false,
@@ -13,7 +13,7 @@ const collections = [
             "Where gold threads meet the sacred flame, a tapestry of eternal union is born."
     },
     {
-        title: "Śobhā - Festive Collection",
+        title: "Sobha - Festive Collection",
         category: "THE FESTIVE EDIT",
         image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop",
         reverse: true,
@@ -24,7 +24,7 @@ const collections = [
             "A celebration deserves a weave that shines as brightly as the occasion."
     },
     {
-        title: "Prātidina - Everyday Wear",
+        title: "Pratidina - Everyday Wear",
         category: "THE DAILY EDIT",
         image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop",
         reverse: false,

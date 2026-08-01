@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const collections = [
     {
-        title: "Muhūrta - Wedding Collection",
+        title: "Muhurta - Wedding Collection",
         handle: "wedding-collection",
         subtitle:
             "Celestial weaves for eternal unions, crafted with pure gold zari and the finest mulberry silk.",
@@ -13,14 +13,14 @@ const collections = [
         className: "large",
     },
     {
-        title: "Śobhā - Festive Collection",
+        title: "Sobha - Festive Collection",
         handle: "festive",
         button: "View More",
         image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop",
         className: "tall",
     },
     {
-        title: "Prātidina - Daily Wear",
+        title: "Pratidina - Daily Wear",
         handle: "daily-wear",
         button: "Shop Now",
         image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop",
