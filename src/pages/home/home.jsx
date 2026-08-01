@@ -226,7 +226,7 @@ const Home = () => {
                         <h2 className="knowledge-title">Know Your Kanchisuthra</h2>
                     </div>
 
-                    <div className="row g-5">
+                    <div className="row">
 
                         <div className="col-lg-4 col-md-6">
                             <div className="knowledge-card">
