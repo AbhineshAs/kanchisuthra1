@@ -2,6 +2,11 @@ import "./fabrics.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+import mulberryImg from "../../assets/images/DSC07377.JPG";
+import silkCottonImg from "../../assets/images/DSC07939.JPG";
+import kottaImg from "../../assets/images/DSC07489.JPG";
+import zariImg from "../../assets/images/DSC07488.JPG";
+
 const materialsData = [
     {
         id: "mulberry-silk",
@@ -16,7 +21,7 @@ const materialsData = [
             { label: "Weaving Art", val: "Korvai Interlocking" },
             { label: "Certification", val: "Silk Mark Guaranteed" }
         ],
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop",
+        image: mulberryImg,
         link: "/collection/kanchivaram-silk"
     },
     {
@@ -32,7 +37,7 @@ const materialsData = [
             { label: "Weaving Art", val: "Temple Border Weave" },
             { label: "Care Level", val: "Easy Handloom Maintenance" }
         ],
-        image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1200&auto=format&fit=crop",
+        image: silkCottonImg,
         link: "/collection/kanchi-silk-cotton"
     },
     {
@@ -48,7 +53,7 @@ const materialsData = [
             { label: "Yarn Count", val: "100s Fine Cotton" },
             { label: "Best For", val: "Summer Rituals & Daily Wear" }
         ],
-        image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=1200&auto=format&fit=crop",
+        image: kottaImg,
         link: "/collection/kotta-cotton"
     },
     {
@@ -64,7 +69,7 @@ const materialsData = [
             { label: "Longevity", val: "Tarnish Resistant" },
             { label: "Motif Type", val: "Sacred Temple & Peacock" }
         ],
-        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop",
+        image: zariImg,
         link: "/collection/kanchivaram-silk"
     }
 ];

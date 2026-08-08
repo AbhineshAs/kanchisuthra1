@@ -1,10 +1,15 @@
 import "./occasions.css";
 
+import occasionHero from "../../assets/images/DSC07586.JPG";
+import weddingImg from "../../assets/images/DSC07488.JPG";
+import festiveImg from "../../assets/images/DSC07489.JPG";
+import dailyImg from "../../assets/images/DSC07457.JPG";
+
 const collections = [
     {
         title: "Muhurta - Wedding Collection",
         category: "THE BRIDAL EDIT",
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop",
+        image: weddingImg,
         reverse: false,
         button: "EXPLORE COLLECTION",
         description:
@@ -15,7 +20,7 @@ const collections = [
     {
         title: "Sobha - Festive Collection",
         category: "THE FESTIVE EDIT",
-        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop",
+        image: festiveImg,
         reverse: true,
         button: "VIEW COLLECTION",
         description:
@@ -26,7 +31,7 @@ const collections = [
     {
         title: "Pratidina - Everyday Wear",
         category: "THE DAILY EDIT",
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop",
+        image: dailyImg,
         reverse: false,
         button: "DISCOVER COLLECTION",
         description:
@@ -40,7 +45,7 @@ export default function Occasions() {
         <>
             <section
                 className="occasion-hero"
-                style={{ backgroundImage: `url(https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1600&auto=format&fit=crop)` }}
+                style={{ backgroundImage: `url(${occasionHero})` }}
             >
                 <div className="occasion-overlay"></div>
 

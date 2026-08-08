@@ -1,45 +1,130 @@
 import "./home.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { shopifyFetch } from "../../api/shopify";
-import banner from "../../assets/images/home-banner.png";
-const Home = () => {
 
+// Image Imports
+import hero1 from "../../assets/herosection/DSC07269.JPG";
+import hero2 from "../../assets/herosection/DSC07273.JPG";
+import hero3 from "../../assets/images/DSC07256.JPG";
+
+import newArrival1 from "../../assets/herosection/DSC07343.JPG";
+import newArrival2 from "../../assets/herosection/DSC07384.JPG";
+import newArrival3 from "../../assets/herosection/DSC07425.JPG";
+
+import instaImg from "../../assets/herosection/DSC07469.JPG";
+import museImg from "../../assets/herosection/DSC07570.JPG";
+import heritageImg from "../../assets/herosection/DSC07682.JPG";
+
+import know1 from "../../assets/herosection/DSC07814.JPG";
+import know2 from "../../assets/herosection/DSC07870.JPG";
+import know3 from "../../assets/herosection/DSC07938.JPG";
+
+import studioBg from "../../assets/herosection/DSC08078.JPG";
+
+const heroSlides = [
+    {
+        image: hero1,
+        subtitle: "THE THREAD OF KANCHI • HANDLOOM HERITAGE",
+        title: "KANCHISUTHRA: WOVEN WITH MEMORY, WORN WITH QUIET CONFIDENCE",
+        btnText: "EXPLORE HANDLOOM COLLECTIONS",
+        link: "/collection"
+    },
+    {
+        image: hero2,
+        subtitle: "SACRED KANJIVARAM SILKS • ARCHIVAL WEAVES",
+        title: "SACRED GOLD ZARI & TIMELESS KERALA ELEGANCE",
+        btnText: "DISCOVER THE SILK EDITS",
+        link: "/collection/kanchivaram-silk"
+    },
+    {
+        image: hero3,
+        subtitle: "THRISSUR, KERALA • SISTERHOOD & HERITAGE",
+        title: "AN UNBROKEN BOND FROM LOOM TO YOUR HANDS",
+        btnText: "READ OUR STORY",
+        link: "/our-story"
+    }
+];
+
+const Home = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    };
 
     return (
         <>
+            {/* Hero Section Slider */}
+            <section className="hero-section">
+                {heroSlides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`hero-slider-slide ${index === currentSlide ? "active" : ""}`}
+                        style={{ backgroundImage: `url(${slide.image})` }}
+                    />
+                ))}
 
-            {/* Hero Section */}
-            < section className="hero-section" style={{
-                backgroundImage: `url(${banner})`,
-            }} >
                 <div className="hero-overlay"></div>
 
                 <div className="container h-100">
                     <div className="row h-100 justify-content-center align-items-center text-center">
                         <div className="col-lg-8 hero-content">
                             <span className="hero-subtitle">
-                                THE THREAD OF KANCHI • HANDLOOM HERITAGE
+                                {heroSlides[currentSlide].subtitle}
                             </span>
 
                             <h4 className="hero-title">
-                                KANCHISUTHRA: WOVEN WITH MEMORY, WORN WITH QUIET CONFIDENCE
+                                {heroSlides[currentSlide].title}
                             </h4>
 
-                            <button className="hero-btn" onClick={() => window.location.href = '/collection'}>
-                                EXPLORE HANDLOOM COLLECTIONS
+                            <button
+                                className="hero-btn"
+                                onClick={() => window.location.href = heroSlides[currentSlide].link}
+                            >
+                                {heroSlides[currentSlide].btnText}
                             </button>
                         </div>
                     </div>
                 </div>
 
+                {/* Slider Nav Controls */}
+                <button className="hero-nav-arrow prev" onClick={prevSlide} aria-label="Previous Slide">
+                    <i className="bi bi-chevron-left"></i>
+                </button>
+
+                <button className="hero-nav-arrow next" onClick={nextSlide} aria-label="Next Slide">
+                    <i className="bi bi-chevron-right"></i>
+                </button>
+
+                <div className="hero-dots">
+                    {heroSlides.map((_, idx) => (
+                        <span
+                            key={idx}
+                            className={`hero-dot ${idx === currentSlide ? "active" : ""}`}
+                            onClick={() => setCurrentSlide(idx)}
+                        />
+                    ))}
+                </div>
+
                 <div className="scroll-down">
                     <i className="bi bi-chevron-down"></i>
                 </div>
-            </section >
+            </section>
+
+            {/* Featured Section */}
             <section className="featured-section">
                 <div className="container">
-
                     <div className="text-center mb-5">
                         <h5 className="featured-heading">
                             A Celebration of Handloom & Heritage
@@ -53,39 +138,29 @@ const Home = () => {
                     </div>
 
                     <div className="row g-4">
-
                         <div className="col-md-4">
                             <Link to="/collection" className="product-card d-block text-decoration-none">
-                                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" alt="Cream Kanjivaram" />
-
+                                <img src={newArrival1} alt="Cream Kanjivaram" />
                                 <span>NEW ARRIVAL</span>
-
                                 <h4>Cream Kanjivaram</h4>
-
                                 <p>Rs. 23,000.00</p>
                             </Link>
                         </div>
 
                         <div className="col-md-4">
                             <Link to="/collection" className="product-card center-card d-block text-decoration-none">
-                                <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" alt="Vermilion Red" />
-
+                                <img src={newArrival2} alt="Vermilion Red" />
                                 <span>ICONIC COLLECTION</span>
-
                                 <h4>Vermilion Red</h4>
-
                                 <p>Rs. 27,000.00</p>
                             </Link>
                         </div>
 
                         <div className="col-md-4">
                             <Link to="/collection" className="product-card d-block text-decoration-none">
-                                <img src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=800&auto=format&fit=crop" alt="Ivory Kanchi Organza" />
-
+                                <img src={newArrival3} alt="Ivory Kanchi Organza" />
                                 <span>SIGNATURE SERIES</span>
-
                                 <h4>Ivory Kanchi Organza</h4>
-
                                 <p>Rs. 24,000.00</p>
                             </Link>
                         </div>
@@ -96,17 +171,17 @@ const Home = () => {
                             </Link>
                         </div>
                     </div>
-
                 </div>
             </section>
+
+            {/* Instagram Section */}
             <section className="instagram-section">
                 <div className="container">
                     <div className="row align-items-center">
-
                         <div className="col-lg-6 mb-4 mb-lg-0">
                             <div className="instagram-image">
                                 <img
-                                    src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop"
+                                    src={instaImg}
                                     alt="Community Highlight"
                                     className="img-fluid"
                                 />
@@ -115,7 +190,6 @@ const Home = () => {
 
                         <div className="col-lg-6">
                             <div className="instagram-content">
-
                                 <h2>
                                     Where the <span>Story</span> Continues
                                 </h2>
@@ -130,35 +204,31 @@ const Home = () => {
                                 <button className="instagram-btn">
                                     FOLLOW US ON INSTAGRAM
                                 </button>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
+
+            {/* Testimonial Section */}
             <section className="testimonial-section">
                 <div className="container">
-
                     <div className="text-center mb-5">
                         <h5 className="section-title">Customer Love & Reflections</h5>
                         <div className="divider"></div>
                     </div>
 
                     <div className="testimonial-card">
-
                         <div className="row align-items-center">
-
                             <div className="col-lg-4 text-center">
                                 <img
-                                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop"
+                                    src={museImg}
                                     alt="Client Story"
                                     className="customer-img"
                                 />
                             </div>
 
                             <div className="col-lg-8">
-
                                 <div className="quote-icon">
                                     <i className="bi bi-quote"></i>
                                 </div>
@@ -171,23 +241,18 @@ const Home = () => {
                                     <span></span>
                                     MODERN KERALA MUSE
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </section>
+
+            {/* Heritage Section */}
             <section className="heritage-section">
                 <div className="container">
                     <div className="row align-items-center">
-
-                        {/* Left Content */}
                         <div className="col-lg-5">
                             <div className="heritage-content">
-
                                 <h2>
                                     The Unbroken Thread of Heritage & Sisterhood.
                                 </h2>
@@ -203,116 +268,102 @@ const Home = () => {
                                 <a href="/heritage" className="heritage-btn">
                                     Read The Kanchisuthra Story
                                 </a>
-
                             </div>
                         </div>
 
-                        {/* Right Image */}
                         <div className="col-lg-7 text-center">
                             <img
-                                src="https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1200&auto=format&fit=crop"
+                                src={heritageImg}
                                 alt="Heritage"
                                 className="img-fluid heritage-image"
                             />
                         </div>
-
                     </div>
                 </div>
             </section>
+
+            {/* Knowledge Section */}
             <section className="knowledge-section">
                 <div className="container">
-
                     <div className="text-center mb-5">
                         <h2 className="knowledge-title">Know Your Kanchisuthra</h2>
                     </div>
 
                     <div className="row">
-
                         <div className="col-lg-4 col-md-6">
                             <div className="knowledge-card">
-
                                 <img
-                                    src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop"
+                                    src={know1}
                                     alt="The Silks We Weave"
                                     className="img-fluid"
                                 />
 
                                 <div className="knowledge-content">
                                     <h3>The Silks We Weave</h3>
-
                                     <p>
                                         A tribute to time, tradition, and touch. Discover the intricate
                                         details of Kanjivaram and Banarasi weaving.
                                     </p>
-
                                     <Link to="/fabrics">
                                         READ MORE
                                         <i className="bi bi-arrow-right ms-2"></i>
                                     </Link>
                                 </div>
-
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-6">
                             <div className="knowledge-card">
-
                                 <img
-                                    src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=crop"
+                                    src={know2}
                                     alt="Silk Saree After Care"
                                     className="img-fluid"
                                 />
 
                                 <div className="knowledge-content">
                                     <h3>Silk Saree After Care</h3>
-
                                     <p>
                                         Elegance maintained. Learn the professional secrets to keeping
                                         your heritage pieces pristine.
                                     </p>
-
                                     <Link to="/craftsmanship">
                                         KNOW MORE
                                         <i className="bi bi-arrow-right ms-2"></i>
                                     </Link>
                                 </div>
-
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-6 mx-md-auto">
                             <div className="knowledge-card">
-
                                 <img
-                                    src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=800&auto=format&fit=crop"
+                                    src={know3}
                                     alt="Understanding Silk"
                                     className="img-fluid"
                                 />
 
                                 <div className="knowledge-content">
                                     <h3>Understanding Silk</h3>
-
                                     <p>
                                         A connoisseur's guide to India's finest weaves. From thread counts
                                         to zari purity, learn it all.
                                     </p>
-
                                     <Link to="/heritage">
                                         READ MORE
                                         <i className="bi bi-arrow-right ms-2"></i>
                                     </Link>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </section>
+
+            {/* Visit Section */}
             <section
                 className="visit-section py-5"
                 style={{
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${studioBg})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     minHeight: "550px",
@@ -322,7 +373,6 @@ const Home = () => {
             >
                 <div className="container py-4">
                     <div className="row align-items-center gy-4">
-
                         <div className="col-lg-5 col-md-8">
                             <div className="visit-card card border-0 rounded-4 p-4 p-md-5 shadow-lg" style={{ borderTop: "4px solid #c79d67", background: "rgba(255, 255, 255, 0.96)" }}>
                                 <span className="text-uppercase small fw-semibold mb-2" style={{ color: "#c79d67", letterSpacing: "2px" }}>
@@ -367,32 +417,31 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="col-lg-7  ps-lg-5 d-none d-lg-block">
-                            <span className=" border  px-3 py-2 rounded-pill mb-3" style={{ letterSpacing: "2px" }}>
+                        <div className="col-lg-7 ps-lg-5 d-none d-lg-block text-white">
+                            <span className="border border-white border-opacity-50 px-3 py-2 rounded-pill mb-3 d-inline-block" style={{ letterSpacing: "2px" }}>
                                 SLOW CRAFT BOUTIQUE
                             </span>
-                            <h2 className="display-5  fw-bold  mb-3">
+                            <h2 className="display-5 fw-bold mb-3 text-white">
                                 Experience Handloom Up Close
                             </h2>
-                            <p className="lead  opacity-75 mb-4" style={{ fontSize: "17px", lineHeight: "1.8" }}>
+                            <p className="lead opacity-90 mb-4 text-white" style={{ fontSize: "17px", lineHeight: "1.8" }}>
                                 Step into our Thrissur sanctuary. Touch pure mulberry silk, view raw gold zari threads, and experience the quiet elegance of Kerala's finest curated handlooms.
                             </p>
                             <div className="d-flex gap-4 pt-2">
                                 <div>
-                                    <h4 className="fw-bold mb-0" style={{ color: "#c79d67" }}>100%</h4>
-                                    <small className="opacity-75">Pure Handloom Silk</small>
+                                    <h4 className="fw-bold mb-0" style={{ color: "#e6c594" }}>100%</h4>
+                                    <small className="opacity-90 text-white">Pure Handloom Silk</small>
                                 </div>
-                                <div className="border-start border-secondary ps-4">
-                                    <h4 className="fw-bold mb-0" style={{ color: "#c79d67" }}>360+</h4>
-                                    <small className="opacity-75">Artisan Families</small>
+                                <div className="border-start border-light border-opacity-50 ps-4">
+                                    <h4 className="fw-bold mb-0" style={{ color: "#e6c594" }}>360+</h4>
+                                    <small className="opacity-90 text-white">Artisan Families</small>
                                 </div>
-                                <div className="border-start border-secondary ps-4">
-                                    <h4 className="fw-bold mb-0" style={{ color: "#c79d67" }}>Bespoke</h4>
-                                    <small className="opacity-75">Bridal Consultations</small>
+                                <div className="border-start border-light border-opacity-50 ps-4">
+                                    <h4 className="fw-bold mb-0" style={{ color: "#e6c594" }}>Bespoke</h4>
+                                    <small className="opacity-90 text-white">Bridal Consultations</small>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
