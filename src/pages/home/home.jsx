@@ -77,7 +77,7 @@ const Home = () => {
 
                 <div className="hero-overlay"></div>
 
-                <div className="container h-100">
+                <div className="container h-100 position-relative" style={{ zIndex: 5 }}>
                     <div className="row h-100 justify-content-center align-items-center text-center">
                         <div className="col-lg-8 hero-content">
                             <span className="hero-subtitle">
