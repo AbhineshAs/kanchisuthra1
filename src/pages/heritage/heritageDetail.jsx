@@ -2,6 +2,9 @@ import "./heritage.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { heritageStories } from "../../data/heritageStories";
+import heritageBannerImg from "../../assets/herosection/DSC07269.JPG";
+import loomArtisanImg from "../../assets/herosection/DSC07814.JPG";
+
 export default function Heritage() {
     const { slug } = useParams();
 
@@ -31,7 +34,7 @@ export default function Heritage() {
 
                     <div className="heritage-banner">
                         <img
-                            src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1600&auto=format&fit=crop"
+                            src={heritageBannerImg}
                             alt="Heritage Moment"
                             className="img-fluid"
                         />
@@ -45,7 +48,7 @@ export default function Heritage() {
                     <div className="row align-items-center gy-5">
                         <div className="col-lg-6">
                             <img
-                                src="https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1200&auto=format&fit=crop"
+                                src={loomArtisanImg}
                                 alt="Loom and artisan"
                                 className="img-fluid origin-image"
                             />

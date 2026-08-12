@@ -1,6 +1,12 @@
 import "./collection.css";
 import { Link } from "react-router-dom";
 
+import weddingImg from "../../assets/images/DSC07488.JPG";
+import festiveImg from "../../assets/images/DSC07489.JPG";
+import dailyImg from "../../assets/images/DSC07457.JPG";
+import tussarImg from "../../assets/images/DSC07377.JPG";
+import fusionImg from "../../assets/images/DSC07256.JPG";
+import promiseImg from "../../assets/herosection/DSC07682.JPG";
 
 const collections = [
     {
@@ -9,33 +15,33 @@ const collections = [
         subtitle:
             "Celestial weaves for eternal unions, crafted with pure gold zari and the finest mulberry silk.",
         button: "Explore Collection",
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop",
+        image: weddingImg,
         className: "large",
     },
     {
         title: "Sobha - Festive Collection",
         handle: "festive",
         button: "View More",
-        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop",
+        image: festiveImg,
         className: "tall",
     },
     {
         title: "Pratidina - Daily Wear",
         handle: "daily-wear",
         button: "Shop Now",
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1200&auto=format&fit=crop",
+        image: dailyImg,
     },
     {
         title: "Tussars & Organzas",
         handle: "tussars-organzas",
         button: "Explore",
-        image: "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=1200&auto=format&fit=crop",
+        image: tussarImg,
     },
     {
         title: "Fusion",
         handle: "fusion",
         button: "View Gallery",
-        image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1200&auto=format&fit=crop",
+        image: fusionImg,
     },
 ];
 
@@ -124,8 +130,8 @@ export default function Collection() {
                         <div className="col-lg-7 text-center">
                             <div className="promise-image">
                                 <img
-                                    src="https://images.unsplash.com/photo-1606760227091-3dd850d492a6?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Promise"
+                                    src={promiseImg}
+                                    alt="The Kanchisuthra Promise"
                                     className="img-fluid"
                                 />
                             </div>
