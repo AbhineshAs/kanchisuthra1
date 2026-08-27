@@ -143,7 +143,7 @@ const Home = () => {
                                 <img src={newArrival1} alt="Cream Kanjivaram" />
                                 <span>NEW ARRIVAL</span>
                                 <h4>Cream Kanjivaram</h4>
-                                <p>Rs. 23,000.00</p>
+                                <p>Rs. 27,000.00</p>
                             </Link>
                         </div>
 
