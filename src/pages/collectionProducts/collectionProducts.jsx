@@ -3,10 +3,10 @@ import { shopifyFetch } from "../../api/shopify";
 import { useCart } from "../../context/cartContext";
 import { Link, useParams } from "react-router-dom";
 import "./collectionProducts.css";
-import praveshBanner from "../../assets/images/DSC07586.JPG";
+import praveshBanner from "../../assets/images/DSC08069.JPG";
 import nithyaBanner from "../../assets/images/DSC07489.JPG";
 import saarBanner from "../../assets/images/DSC07377.JPG";
-import muhurtaBanner from "../../assets/images/DSC07488.JPG";
+import muhurtaBanner from "../../assets/images/DSC07586.JPG";
 
 const categoryDetailsMap = {
     "kanchivaram-silk": {
