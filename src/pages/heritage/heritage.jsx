@@ -50,7 +50,7 @@ export default function Heritage() {
                                 />
                             </Link>
 
-                            <div className="heritage-card-content">
+                            <div className="heritage-card-content mt-3">
                                 <span>{story.date}</span>
                                 <h2>{story.title}</h2>
                                 <p>{story.description}</p>
