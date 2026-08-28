@@ -1,9 +1,9 @@
 import "./occasions.css";
 
 import occasionHero from "../../assets/images/DSC07586.JPG";
-import weddingImg from "../../assets/images/DSC07488.JPG";
-import festiveImg from "../../assets/images/DSC07489.JPG";
-import dailyImg from "../../assets/images/DSC07457.JPG";
+import weddingImg from "../../assets/images/DSC00706.JPG";
+import festiveImg from "../../assets/images/DSC00716.JPG";
+import dailyImg from "../../assets/images/DSC00745.JPG";
 
 const collections = [
     {
