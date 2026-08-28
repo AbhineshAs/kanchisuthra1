@@ -16,7 +16,7 @@ import museImg from "../../assets/herosection/DSC07570.JPG";
 import heritageImg from "../../assets/herosection/DSC07682.JPG";
 
 import know1 from "../../assets/herosection/DSC07814.JPG";
-import know2 from "../../assets/herosection/DSC07870.JPG";
+import know2 from "../../assets/herosection/DSC08202.JPG";
 import know3 from "../../assets/herosection/DSC07938.JPG";
 
 import studioBg from "../../assets/herosection/DSC08078.JPG";
