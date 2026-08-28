@@ -27,14 +27,14 @@
     grid-template-columns: 2fr 1fr;
     gap: 22px;
 }
-
+/* 
 .large {
     height: 470px;
-}
+} */
 
-.tall {
+/* .tall {
     height: 470px;
-}
+} */
 
 .large img,
 .tall img {
