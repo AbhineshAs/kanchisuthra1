@@ -6,7 +6,7 @@ import festiveImg from "../../assets/images/DSC07870.JPG";
 import dailyImg from "../../assets/images/ELF6DSC01588.JPG";
 import tussarImg from "../../assets/images/brown.JPG";
 import fusionImg from "../../assets/images/red-green.JPG";
-import promiseImg from "../../assets/herosection/DSC07682.JPG";
+import promiseImg from "../../assets/herosection/DSC07960.JPG";
 
 const collections = [
     {

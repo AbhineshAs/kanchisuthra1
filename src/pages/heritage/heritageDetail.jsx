@@ -4,7 +4,11 @@ import { useParams } from "react-router-dom";
 import { heritageStories } from "../../data/heritageStories";
 import heritageBannerImg from "../../assets/herosection/DSC07269.JPG";
 import loomArtisanImg from "../../assets/herosection/DSC07814.JPG";
-
+import soulofweaver from "../../assets/images/ELF14DSC04394.JPG";
+import petniritual from "../../assets/images/orange.JPG";
+import preservingtheart from "../../assets/images/DSC07586.JPG";
+import depthovervolume from "../../assets/images/DSC07489.JPG";
+import zariweave from "../../assets/images/DSC07377.JPG";
 export default function Heritage() {
     const { slug } = useParams();
 
@@ -110,7 +114,7 @@ export default function Heritage() {
 
                         <div className="col-lg-6 text-center">
                             <img
-                                src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop"
+                                src={soulofweaver}
                                 alt="Master Weaver at Work"
                                 className="img-fluid craft-image"
                             />
@@ -125,7 +129,7 @@ export default function Heritage() {
                     <div className="row align-items-center gy-5">
                         <div className="col-lg-6">
                             <img
-                                src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=crop"
+                                src={petniritual}
                                 alt="Petni Weaving Technique"
                                 className="img-fluid petni-image"
                             />
@@ -160,7 +164,7 @@ export default function Heritage() {
 
                         <div className="story-circle">
                             <img
-                                src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop"
+                                src={depthovervolume}
                                 alt="Reflection"
                             />
 
@@ -191,7 +195,7 @@ export default function Heritage() {
                     <div className="row mt-5 align-items-start">
                         <div className="col-lg-6">
                             <img
-                                src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?q=80&w=1200&auto=format&fit=crop"
+                                src={preservingtheart}
                                 alt="Zari Weave"
                                 className="img-fluid preserving-large"
                             />
@@ -207,8 +211,7 @@ export default function Heritage() {
                         <div className="col-lg-6">
                             <div className="right-block">
                                 <img
-                                    src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Thread Dye"
+                                    src={zariweave}
                                     className="img-fluid preserving-small"
                                 />
 

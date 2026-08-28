@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./heritage.css";
 
-import imgDSC07256 from "../../assets/images/DSC07256.JPG";
+import imgDSC07256 from "../../assets/images/DSC07358.JPG";
 import imgDSC07377 from "../../assets/images/DSC07377.JPG";
 import imgDSC07457 from "../../assets/images/DSC07457.JPG";
 import imgDSC07488 from "../../assets/images/DSC07488.JPG";

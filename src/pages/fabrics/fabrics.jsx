@@ -2,10 +2,10 @@ import "./fabrics.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import mulberryImg from "../../assets/images/DSC07377.JPG";
-import silkCottonImg from "../../assets/images/DSC07939.JPG";
-import kottaImg from "../../assets/images/DSC07489.JPG";
-import zariImg from "../../assets/images/DSC07488.JPG";
+import mulberryImg from "../../assets/images/DSC00817.JPG";
+import silkCottonImg from "../../assets/images/DSC00899.JPG";
+import kottaImg from "../../assets/images/DSC00926.JPG";
+import zariImg from "../../assets/images/DSC08297.JPG";
 
 const materialsData = [
     {
