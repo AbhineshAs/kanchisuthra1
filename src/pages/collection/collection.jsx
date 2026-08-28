@@ -2,7 +2,7 @@ import "./collection.css";
 import { Link } from "react-router-dom";
 
 import weddingImg from "../../assets/images/DSC02752.JPG";
-import festiveImg from "../../assets/images/DSC07489.JPG";
+import festiveImg from "../../assets/images/DSC07870.JPG";
 import dailyImg from "../../assets/images/DSC07457.JPG";
 import tussarImg from "../../assets/images/DSC07377.JPG";
 import fusionImg from "../../assets/images/DSC07256.JPG";
