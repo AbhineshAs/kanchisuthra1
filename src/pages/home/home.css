@@ -673,3 +673,16 @@
         text-align: center;
     }
 }
+@media (max-width: 767px) {
+    .hero-slider-slide {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #28231e;
+    }
+
+    .hero-section {
+        height: 70vh;
+        min-height: 500px;
+    }
+}
