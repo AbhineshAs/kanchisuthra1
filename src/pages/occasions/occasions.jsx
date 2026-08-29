@@ -1,43 +1,54 @@
 import "./occasions.css";
 
 import occasionHero from "../../assets/images/DSC07586.JPG";
-import weddingImg from "../../assets/images/DSC00706.JPG";
-import festiveImg from "../../assets/images/DSC00716.JPG";
-import dailyImg from "../../assets/images/DSC00745.JPG";
-
+import muhurtaimg from "../../assets/images/DSC00706.JPG";
+import praveshimg from "../../assets/images/DSC00716.JPG";
+import nithyaimg from "../../assets/images/DSC00745.JPG";
+import saarimg from "../../assets/images/DSC00675.JPG";
 const collections = [
     {
         title: "Muhurta - Wedding Collection",
         category: "THE BRIDAL EDIT",
-        image: weddingImg,
+        image: muhurtaimg,
         reverse: false,
         button: "EXPLORE COLLECTION",
         description:
-            "Celebrate your most significant milestone with sarees defined by heavy gold zari work and regal motifs. Our bridal collection is curated to make every bride feel like a manifestation of heritage and grace.",
+            "Our Muhurta Bridal Edit features sacred gold zari work, traditional Korvai interlocking, and regal ceremonial silk, curated to illuminate your most sacred wedding milestones.",
         quote:
             "Where gold threads meet the sacred flame, a tapestry of eternal union is born."
     },
     {
-        title: "Sobha - Festive Collection",
+        title: "Pravesh",
         category: "THE FESTIVE EDIT",
-        image: festiveImg,
+        image: praveshimg,
         reverse: true,
         button: "VIEW COLLECTION",
         description:
-            "Celebrate every festival with handcrafted silk woven to illuminate life's grandest celebrations.",
+            "Our Pravesh Festive Edit brings together vibrant ceremonial hues, rich contrast borders, and radiant zari accents, created to grace housewarmings, family gatherings, and joyful celebrations.",
         quote:
             "A celebration deserves a weave that shines as brightly as the occasion."
     },
     {
-        title: "Pratidina - Everyday Wear",
+        title: "Nithya",
         category: "THE DAILY EDIT",
-        image: dailyImg,
+        image: nithyaimg,
         reverse: false,
         button: "DISCOVER COLLECTION",
         description:
-            "Elegant everyday sarees designed to accompany your quiet moments with effortless grace.",
+            "Designed for effortless everyday wear, the Nithya Edit features breathable handloom textures, lightweight silk-cotton weaves, and subtle borders for quiet daily confidence.",
         quote:
             "Luxury isn't reserved for special occasions. It belongs in everyday life."
+    },
+     {
+        title: "Saar",
+        category: "THE DAILY EDIT",
+        image: saarimg,
+        reverse: true,
+        button: "DISCOVER COLLECTION",
+        description:
+            "The Saar Special Edit highlights rare archival motifs, experimental color pairings, and limited-edition weaves crafted by master loom artists for true textile connoisseurs.",
+        quote:
+            "For those who seek beyond the ordinary, every weave becomes a piece of heritage."
     }
 ];
 export default function Occasions() {
@@ -100,7 +111,7 @@ export default function Occasions() {
 
                                 <div className="collection-content">
 
-                                    <span>{item.category}</span>
+                                    {/* <span>{item.category}</span> */}
 
                                     <h2>{item.title}</h2>
 
