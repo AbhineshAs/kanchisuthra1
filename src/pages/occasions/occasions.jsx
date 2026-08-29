@@ -4,7 +4,7 @@ import occasionHero from "../../assets/images/DSC07413.JPG";
 import muhurtaimg from "../../assets/images/DSC00706.JPG";
 import praveshimg from "../../assets/images/DSC00716.JPG";
 import nithyaimg from "../../assets/images/DSC00745.JPG";
-import saarimg from "../../assets/images/DSC00675.jpg";
+import saarimg from "../../assets/images/DSC00675.JPG";
 const collections = [
     {
         title: "Muhurta - Wedding Collection",
@@ -39,7 +39,7 @@ const collections = [
         quote:
             "Luxury isn't reserved for special occasions. It belongs in everyday life."
     },
-     {
+    {
         title: "Saar",
         category: "THE DAILY EDIT",
         image: saarimg,
