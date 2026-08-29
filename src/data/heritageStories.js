@@ -1,10 +1,13 @@
+import foldImg from "../assets/herosection/DSC07961.JPG";
+import fold2Img from "../assets/herosection/DSC07814.JPG";
+
 export const heritageStories = [
     {
         id: 1,
         slug: "the-thread-of-kanchi",
         title: "A Celebration of Handloom, Heritage & Quiet Confidence",
         date: "January 24, 2026",
-        image: "/images/fold.jpg",
+        image: foldImg,
         excerpt:
             "Founded by sisters Greeshma and Dr. Lakshmi...",
 
@@ -21,7 +24,7 @@ export const heritageStories = [
       sharing stories around traditional weaving.
       </p>
 
-      <img src="/images/fold2.jpg" />
+      <img src="${fold2Img}" />
 
       <p>
       Every saree carried a story...
