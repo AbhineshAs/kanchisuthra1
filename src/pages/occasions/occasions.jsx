@@ -1,6 +1,6 @@
 import "./occasions.css";
 
-import occasionHero from "../../assets/images/DSC07586.JPG";
+import occasionHero from "../../assets/images/DSC07413.JPG";
 import muhurtaimg from "../../assets/images/DSC00706.JPG";
 import praveshimg from "../../assets/images/DSC00716.JPG";
 import nithyaimg from "../../assets/images/DSC00745.JPG";
