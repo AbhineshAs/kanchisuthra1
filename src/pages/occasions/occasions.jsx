@@ -4,7 +4,7 @@ import occasionHero from "../../assets/images/DSC07413.JPG";
 import muhurtaimg from "../../assets/images/DSC00706.JPG";
 import praveshimg from "../../assets/images/DSC00716.JPG";
 import nithyaimg from "../../assets/images/DSC00745.JPG";
-import saarimg from "../../assets/images/DSC00675.JPG";
+import saarimg from "../../assets/images/DSC00675.jpg";
 const collections = [
     {
         title: "Muhurta - Wedding Collection",
