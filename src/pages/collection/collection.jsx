@@ -18,18 +18,24 @@ const collections = [
         image: weddingImg,
         className: "large",
     },
-    {
-        title: "Sobha - Festive Collection",
-        handle: "festive",
-        button: "View More",
-        image: festiveImg,
-        className: "tall",
-    },
+    // {
+    //     title: "Sobha - Festive Collection",
+    //     handle: "festive",
+    //     button: "View More",
+    //     image: festiveImg,
+    //     className: "tall",
+    // },
     {
         title: "Pratidina - Daily Wear",
         handle: "daily-wear",
         button: "Shop Now",
         image: dailyImg,
+    },
+     {
+        title: "Fusion",
+        handle: "fusion",
+        button: "View Gallery",
+        image: fusionImg,
     },
     {
         title: "Tussars & Organzas",
@@ -37,12 +43,7 @@ const collections = [
         button: "Explore",
         image: tussarImg,
     },
-    {
-        title: "Fusion",
-        handle: "fusion",
-        button: "View Gallery",
-        image: fusionImg,
-    },
+   
 ];
 
 export default function Collection() {
