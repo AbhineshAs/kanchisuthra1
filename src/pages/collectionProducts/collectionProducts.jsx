@@ -226,7 +226,7 @@ export default function CollectionProducts() {
 
                             <h1>{titleText}</h1>
 
-                            <p>{activeMeta.subtitle}</p>
+                            <h3>{activeMeta.subtitle}</h3>
 
                         </div>
 

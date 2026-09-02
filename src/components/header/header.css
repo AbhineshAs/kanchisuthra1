@@ -97,18 +97,27 @@ body {
 }
 
 .dropdown-panel-menu {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 85px;
     left: 0;
+
     min-width: 250px;
+
     background-color: #f8f5ee;
     border: 1px solid #e5e5e5;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
+
     z-index: 1100;
+
     padding: 8px 0;
     border-radius: 2px;
 }
@@ -204,6 +213,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+    padding-bottom: 7px;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -225,10 +235,9 @@ body {
     transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
 }
 
-.brand-logo-img:hover,
 .brand-logo-img:active,
 .brand-logo-img:focus,
-.header-brand-logo a:hover .brand-logo-img,
+.header-brand-logo .brand-logo-img,
 .header-brand-logo a:active .brand-logo-img,
 .header-brand-logo a:focus .brand-logo-img {
     transform: scale(1.04);
@@ -505,7 +514,7 @@ body {
     .header-brand-logo {
         position: static;
         transform: none;
-        margin: 0 auto;
+        /* margin: 0 auto; */
     }
 
     .brand-logo-img {
