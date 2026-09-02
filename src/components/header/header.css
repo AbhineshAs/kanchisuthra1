@@ -95,33 +95,40 @@ body {
     display: flex;
     align-items: center;
 }
-
 .dropdown-panel-menu {
-    position: fixed;
-    top: 85px;
+    position: absolute;
+    top: 100%;
     left: 0;
 
-    min-width: 250px;
+    width: 200px;
+    min-width: 150px;
 
     background-color: #f8f5ee;
     border: 1px solid #e5e5e5;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
-
     transition:
         opacity 0.25s ease,
         transform 0.25s ease,
         visibility 0.25s;
 
     z-index: 1100;
-
     padding: 8px 0;
     border-radius: 2px;
 }
+/* ==========================================
+   OCCASIONS DROPDOWN - START FROM PAGE LEFT
+   ========================================== */
 
+.header-nav-left .nav-dropdown-wrapper:first-child .dropdown-panel-menu {
+    position: fixed;
+    top: 85px;
+    left: 0;
+    /* width: 235px; */
+    /* min-width: 235px; */
+}
 .nav-dropdown-wrapper:hover .dropdown-panel-menu {
     opacity: 1;
     visibility: visible;
