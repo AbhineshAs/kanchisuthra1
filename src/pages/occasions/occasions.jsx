@@ -3,7 +3,7 @@ import "./occasions.css";
 import occasionHero from "../../assets/images/DSC07413.jpg";
 import muhurtaimg from "../../assets/images/DSC00706.jpg";
 import praveshimg from "../../assets/images/DSC00716.jpg";
-import nithyaimg from "../../assets/images/DSC00745.jpg";
+import nithyaimg from "../../assets/images/DSC00745.JPG";
 import saarimg from "../../assets/images/DSC00675.jpg";
 const collections = [
     {
