@@ -58,18 +58,17 @@
 .hero-subtitle {
     display: block;
     letter-spacing: 5px;
-    font-size: 20px;
+    font-size: 21px;
     margin-bottom: 30px;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .hero-title {
-    font-size: 34px;
-    font-weight: bold;
+    font-size: 38px;
+    font-weight: 800;
     margin-bottom: 35px;
     text-transform: uppercase;
 }
-
 /* Button */
 .hero-btn {
     background: #1d1712;
