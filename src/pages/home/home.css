@@ -58,14 +58,14 @@
 .hero-subtitle {
     display: block;
     letter-spacing: 5px;
-    font-size: 13px;
+    font-size: 20px;
     margin-bottom: 30px;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .hero-title {
     font-size: 34px;
-    font-weight: 500;
+    font-weight: bold;
     margin-bottom: 35px;
     text-transform: uppercase;
 }

@@ -27,11 +27,11 @@
 
 .hero-subtitle {
     display: block;
-    font-size: 12px;
+    /* font-size: 12px; */
     letter-spacing: 4px;
     color: #9c7c52;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .hero-content h1 {
