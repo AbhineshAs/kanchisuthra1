@@ -13,7 +13,7 @@ import newArrival3 from "../../assets/herosection/DSC07425.JPG";
 
 import instaImg from "../../assets/herosection/DSC07469.JPG";
 import museImg from "../../assets/herosection/DSC07570.JPG";
-import heritageImg from "../../assets/herosection/DSC07682.JPG";
+import heritageImg from "../../assets/herosection/DSC07814.JPG";
 
 import know1 from "../../assets/herosection/DSC07814.JPG";
 import know2 from "../../assets/herosection/DSC08265.JPG";

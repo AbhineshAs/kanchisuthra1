@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { heritageStories } from "../../data/heritageStories";
 import heritageBannerImg from "../../assets/herosection/DSC07961.JPG";
-import loomArtisanImg from "../../assets/herosection/DSC07814.JPG";
+import loomArtisanImg from "../../assets/herosection/DSC07469.JPG";
 import soulofweaver from "../../assets/images/ELF14DSC04394.JPG";
 import petniritual from "../../assets/images/orange.JPG";
 import preservingtheart from "../../assets/images/DSC07586.JPG";
-import depthovervolume from "../../assets/images/DSC07489.JPG";
+import depthovervolume from "../../assets/images/DSC07971.JPG";
 import zariweave from "../../assets/images/DSC07377.JPG";
 export default function Heritage() {
     const { slug } = useParams();
