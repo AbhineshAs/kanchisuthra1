@@ -12,8 +12,8 @@ import newArrival2 from "../../assets/herosection/DSC07384.JPG";
 import newArrival3 from "../../assets/herosection/DSC07425.JPG";
 
 import instaImg from "../../assets/herosection/DSC07469.JPG";
-import museImg from "../../assets/herosection/DSC07570.JPG";
-import heritageImg from "../../assets/herosection/DSC07814.JPG";
+import museImg from "../../assets/images/orange.JPG";
+import heritageImg from "../../assets/images/ELF14DSC04394.JPG";
 
 import know1 from "../../assets/herosection/DSC07814.JPG";
 import know2 from "../../assets/herosection/DSC08265.JPG";
@@ -275,7 +275,7 @@ const Home = () => {
                             <img
                                 src={heritageImg}
                                 alt="Heritage"
-                                className="img-fluid heritage-image"
+                                className=" heritage-image"
                             />
                         </div>
                     </div>
