@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // Image Imports
 import hero1 from "../../assets/herosection/DSC07269.JPG";
 import hero2 from "../../assets/herosection/DSC07273.JPG";
-import hero3 from "../../assets/images/DSC07256.JPG";
+import hero3 from "../../assets/images/DSC07669.JPG";
 
 import newArrival1 from "../../assets/herosection/DSC07343.JPG";
 import newArrival2 from "../../assets/herosection/DSC07384.JPG";
