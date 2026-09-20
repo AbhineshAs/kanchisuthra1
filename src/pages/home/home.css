@@ -173,27 +173,22 @@ section {
 /* Main title */
 
 .hero-title {
+
     max-width: 900px;
-
     margin: 0 auto 38px;
-
-    font-family:
+    /* font-family:
         "Cormorant Garamond",
         Georgia,
-        serif;
+        serif; */
 
-    font-size: clamp(42px, 5vw, 70px);
-
-    font-weight: 500;
+    /* font-size: clamp(42px, 5vw, 70px); */
+    font-weight: 800;
 
     line-height: 0.98;
 
     letter-spacing: 1px;
 
     text-transform: uppercase;
-
-    color: #fff;
-
     text-shadow:
         0 3px 18px rgba(0, 0, 0, 0.3);
 }
@@ -846,7 +841,6 @@ section {
 
 .heritage-section {
     padding: 140px 0;
-
     background: #f4ede3;
 }
 
@@ -856,11 +850,10 @@ section {
 
 .heritage-content h2 {
     margin-bottom: 30px;
-
-    font-family:
+    /* font-family:
         "Cormorant Garamond",
         Georgia,
-        serif;
+        serif; */
 
     font-size: 48px;
 
@@ -883,11 +876,11 @@ section {
 
 .heritage-content em {
     color: var(--gold);
-
+/* 
     font-family:
         "Cormorant Garamond",
         Georgia,
-        serif;
+        serif; */
 
     font-size: 19px;
 }
@@ -926,7 +919,7 @@ section {
 
 .heritage-image {
     width: 100%;
-    max-width: 500px;
+    max-width: 300px;
 
     object-fit: cover;
 
@@ -948,10 +941,10 @@ section {
 .knowledge-title {
     margin-bottom: 65px;
 
-    font-family:
+    /* font-family:
         "Cormorant Garamond",
         Georgia,
-        serif;
+        serif; */
 
     font-size: 46px;
 
@@ -1286,10 +1279,6 @@ section {
         margin: 0 auto 60px;
 
         text-align: center;
-    }
-
-    .heritage-image {
-        max-width: 500px;
     }
 
     /* Knowledge */
