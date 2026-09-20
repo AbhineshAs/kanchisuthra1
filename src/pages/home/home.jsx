@@ -84,16 +84,22 @@ const Home = () => {
                                 {heroSlides[currentSlide].subtitle}
                             </span>
 
-                            <h4 className="hero-title">
+                            <h1 className="hero-title">
                                 {heroSlides[currentSlide].title}
-                            </h4>
+                            </h1>
 
-                            <button
+                            {/* <button
                                 className="hero-btn"
                                 onClick={() => window.location.href = heroSlides[currentSlide].link}
                             >
                                 {heroSlides[currentSlide].btnText}
-                            </button>
+                            </button> */}
+                            <Link
+    to={heroSlides[currentSlide].link}
+    className="hero-btn d-inline-block text-decoration-none"
+>
+    {heroSlides[currentSlide].btnText}
+</Link>
                         </div>
                     </div>
                 </div>
