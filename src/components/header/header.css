@@ -3,7 +3,7 @@
    ========================================== */
 
 body {
-    padding-top: 85px;
+    padding-top: 100px;
 }
 
 .site-header {
@@ -21,7 +21,7 @@ body {
 .header-container {
     max-width: 1440px;
     margin: 0 auto;
-    height: 85px;
+    height: 100px;
     padding: 0 45px;
     display: flex;
     align-items: center;
@@ -124,7 +124,7 @@ body {
 
 .header-nav-left .nav-dropdown-wrapper:first-child .dropdown-panel-menu {
     position: fixed;
-    top: 85px;
+    top: 100px;
     left: 0;
     /* width: 235px; */
     /* min-width: 235px; */
@@ -220,7 +220,6 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    padding-bottom: 7px;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -236,15 +235,16 @@ body {
 }
 
 .brand-logo-img {
-    height: 65px;
+    height: 64px;
     object-fit: contain;
     filter: invert(10%) sepia(60%) saturate(3500%) hue-rotate(330deg) brightness(30%) contrast(150%);
     transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
 }
 
+.brand-logo-img:hover,
 .brand-logo-img:active,
 .brand-logo-img:focus,
-.header-brand-logo .brand-logo-img,
+.header-brand-logo a:hover .brand-logo-img,
 .header-brand-logo a:active .brand-logo-img,
 .header-brand-logo a:focus .brand-logo-img {
     transform: scale(1.04);
@@ -344,7 +344,7 @@ body {
 
 .cart-badge-count {
     position: absolute;
-    top: 25px;
+    top: calc(50% - 17px);
     right: -8px;
     width: 18px;
     height: 18px;
@@ -498,7 +498,7 @@ body {
    ------------------------------------------ */
 @media (max-width: 991px) {
     body {
-        padding-top: 75px;
+        padding-top: 80px;
     }
 
     .mobile-toggle {
@@ -514,7 +514,7 @@ body {
     }
 
     .header-container {
-        height: 75px;
+        height: 80px;
         padding: 0 20px;
     }
 
@@ -525,7 +525,7 @@ body {
     }
 
     .brand-logo-img {
-        height: 50px;
+        height: 48px;
     }
 
     .header-nav-right {
